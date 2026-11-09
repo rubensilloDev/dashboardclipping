@@ -11,8 +11,11 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
   background-color: var(--color-bg-canvas);
   position: relative;
+  min-width: 0;
 }
 
 /* ==========================================================================
@@ -23,8 +26,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: var(--bottom-nav-height);
-  background-color: rgba(15, 23, 42, 0.92);
+  height: var(--bottom-nav-height, 64px);
+  background-color: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--color-border-subtle);
@@ -34,6 +37,7 @@
   justify-content: space-around;
   padding: 0 var(--spacing-2);
   padding-bottom: env(safe-area-inset-bottom, 0px);
+  max-width: 100%;
 }
 
 /* ==========================================================================
@@ -51,7 +55,9 @@
   flex-direction: column;
   flex: 1;
   width: 100%;
+  max-width: 100%;
   min-width: 0; /* Previene desbordamiento en flexbox */
+  overflow-x: hidden;
 }
 
 /* Header Sticky Superior */
@@ -69,42 +75,165 @@
   justify-content: space-between;
   padding: 0 var(--spacing-4);
   gap: var(--spacing-4);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
-@media (max-width: 640px) {
+.header-top-bar {
+  display: contents;
+}
+
+.header-mobile-brand {
+  display: none;
+}
+
+.header-mobile-settings-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
   .app-header {
     height: auto;
-    padding: var(--spacing-3) var(--spacing-4);
+    padding: var(--spacing-2) var(--spacing-3);
     flex-direction: column;
     align-items: stretch;
     gap: var(--spacing-2);
   }
+
+  .header-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    gap: var(--spacing-2);
+  }
+
+  .header-mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    flex-shrink: 0;
+  }
+
+  .header-mobile-brand .sidebar-brand__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .header-mobile-brand__title {
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .header-mobile-settings-btn {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    min-height: 38px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
+  .header-campaign-select {
+    max-width: 130px;
+    font-size: 0.75rem;
+    height: 38px;
+    min-height: 38px;
+    padding: 0 var(--spacing-2);
+    min-width: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .btn--sync {
+    height: 38px;
+    min-height: 38px;
+    padding: 0 var(--spacing-2);
+  }
+
+  .user-avatar-btn {
+    padding: 0;
+  }
+
+  .user-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+
   .header-search {
     max-width: 100%;
     width: 100%;
+    min-width: 0;
   }
-  .header-actions {
-    justify-content: space-between;
-    width: 100%;
+
+  .header-search__input {
+    height: 40px;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .btn--sync .btn-sync-label {
+    display: none;
+  }
+
+  .btn--sync {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .header-campaign-select {
+    max-width: 105px;
   }
 }
 
 /* Main Scrollable Area */
-.app-main {
+.app-main,
+.app-main-content {
   flex: 1;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   /* Padding inferior adicional para evitar que la barra móvil tape el contenido */
-  padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-8) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(var(--bottom-nav-height, 64px) + 2rem + env(safe-area-inset-bottom, 0px));
 }
 
 .dashboard-content {
   width: 100%;
   max-width: 1400px;
+  min-width: 0;
   margin: 0 auto;
   padding: var(--spacing-4);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-6);
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: var(--spacing-3);
+    gap: var(--spacing-4);
+  }
 }
 
 /* ==========================================================================
@@ -140,8 +269,10 @@
 /* Rejilla de métricas estadísticas (1 columna en móvil, 2 en tablet, 4 en desktop) */
 .dashboard-stats-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: var(--spacing-4);
+  width: 100%;
+  min-width: 0;
 }
 
 @media (min-width: 480px) {
@@ -161,6 +292,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-6);
+  width: 100%;
+  min-width: 0;
 }
 
 @media (min-width: 1024px) {
@@ -174,6 +307,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-6);
+  width: 100%;
+  min-width: 0;
 }
 
 @media (min-width: 1024px) {
@@ -182,28 +317,18 @@
   }
 }
 
-/* Rejilla de vídeos destacados */
+/* Rejilla de vídeos (Catálogo y destacados) - Ajuste fluido 1 a N columnas */
 .video-cards-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  gap: var(--spacing-4);
+  width: 100%;
+  min-width: 0;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .video-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1080px) {
-  .video-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1380px) {
-  .video-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-5);
   }
 }
 
@@ -236,7 +361,8 @@
   }
 
   /* Padding estándar en escritorio sin necesidad de salvar barra inferior */
-  .app-main {
+  .app-main,
+  .app-main-content {
     padding-bottom: var(--spacing-12);
   }
 

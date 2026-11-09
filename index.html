@@ -99,8 +99,40 @@
          Área de Trabajo y Contenedor Principal
          ==================================================================== -->
     <div class="app-workspace">
-      <!-- Header Superior Pegajoso (Sticky) con Buscador Ampliado -->
+      <!-- Header Superior Pegajoso (Sticky) con Buscador Ampliado y Responsive -->
       <header class="app-header">
+        <div class="header-top-bar">
+          <div class="header-mobile-brand">
+            <div class="sidebar-brand__icon" aria-hidden="true">
+              <i data-lucide="scissors"></i>
+            </div>
+            <span class="header-mobile-brand__title">ClipFlow</span>
+          </div>
+
+          <div class="header-actions">
+            <!-- Selector de Campaña Rápido -->
+            <select class="header-campaign-select" aria-label="Filtrar por campaña">
+              <option value="all">Todas las Campañas</option>
+            </select>
+
+            <!-- Botón de Sincronización con Drive -->
+            <button type="button" class="btn btn--primary btn--sync" id="syncDriveButton" title="Sincronizar carpetas con Google Drive">
+              <i data-lucide="refresh-cw" aria-hidden="true"></i>
+              <span class="btn-sync-label">Sincronizar</span>
+            </button>
+
+            <!-- Botón de Ajustes de Drive en Móvil -->
+            <button type="button" class="btn btn--outline btn--icon-only header-mobile-settings-btn" id="mobileDriveSettingsBtn" title="Configurar Google Drive" aria-label="Configurar Google Drive">
+              <i data-lucide="settings" aria-hidden="true"></i>
+            </button>
+
+            <!-- Avatar del Usuario Propietario -->
+            <button type="button" class="user-avatar-btn" aria-label="Perfil del creador">
+              <div class="user-avatar" aria-hidden="true">AD</div>
+            </button>
+          </div>
+        </div>
+
         <div class="header-search">
           <i data-lucide="search" class="header-search__icon" aria-hidden="true"></i>
           <input
@@ -110,28 +142,10 @@
             aria-label="Buscar clips por título, tema o palabra clave"
           >
         </div>
-
-        <div class="header-actions">
-          <!-- Selector de Campaña Rápido -->
-          <select class="header-campaign-select" aria-label="Filtrar por campaña">
-            <option value="all">Todas las Campañas</option>
-          </select>
-
-          <!-- Botón de Sincronización con Drive -->
-          <button type="button" class="btn btn--primary" id="syncDriveButton" title="Sincronizar carpetas con Google Drive">
-            <i data-lucide="refresh-cw" aria-hidden="true"></i>
-            <span>Sincronizar</span>
-          </button>
-
-          <!-- Avatar del Usuario Propietario -->
-          <button type="button" class="user-avatar-btn" aria-label="Perfil del creador">
-            <div class="user-avatar" aria-hidden="true">AD</div>
-          </button>
-        </div>
       </header>
 
       <!-- Contenido Central del Dashboard -->
-      <main id="main-content" class="app-main">
+      <main id="main-content" class="app-main app-main-content">
         <div class="dashboard-content">
 
           <!-- ================================================================

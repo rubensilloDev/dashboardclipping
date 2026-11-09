@@ -97,6 +97,104 @@
       "color": "#10b981",
       "driveFolderId": "1ti2Y77_KsiL9gdPdbNUEb5UE1GZUWiCo",
       "createdAt": "2026-11-09T09:16:44.592Z"
+    },
+    {
+      "id": "camp-1794218303559",
+      "name": "🔴 DIRECTO I Feijóo preside el Comité Ejecutivo Nacional",
+      "color": "#3b82f6",
+      "driveFolderId": "1Lc6TxmWRFeksQ3pAIsLS5ZaYaeeFsH8e",
+      "createdAt": "2026-11-09T09:58:23.559Z"
+    },
+    {
+      "id": "camp-1794218303592",
+      "name": "clips-Así han sido los diez titulares de la entrevista a Alberto Núñez Feijóo en la SER EL PAÍS - EL PAÍS (1080p)",
+      "color": "#6366f1",
+      "driveFolderId": "1KJ1ucwQGnGzjcxZjoUnPwJPpawlQ81zd",
+      "createdAt": "2026-11-09T09:58:23.592Z"
+    },
+    {
+      "id": "camp-1794218303613",
+      "name": "clips-Entrevista a Alberto Núñez Feijóo en  Hoy por Hoy _720p",
+      "color": "#f59e0b",
+      "driveFolderId": "1y89iZE4CkpaJ6I44epQW3yrxIdYlU18g",
+      "createdAt": "2026-11-09T09:58:23.613Z"
+    },
+    {
+      "id": "camp-1794218309417",
+      "name": "imagenes",
+      "color": "#10b981",
+      "driveFolderId": "1sAVjroFEbOoQyiG3RCUru5iOeChzn_fQ",
+      "createdAt": "2026-11-09T09:58:29.417Z"
+    },
+    {
+      "id": "camp-1794218309426",
+      "name": "videos",
+      "color": "#06b6d4",
+      "driveFolderId": "1YkeEsMX_HLvH3rLN-vSCzJ8pcyqTh6TV",
+      "createdAt": "2026-11-09T09:58:29.426Z"
+    },
+    {
+      "id": "camp-1794218309435",
+      "name": "audios",
+      "color": "#8b5cf6",
+      "driveFolderId": "1m6qxtFZNijiIeu0LJa1UEjqyL2bTzWqq",
+      "createdAt": "2026-11-09T09:58:29.435Z"
+    },
+    {
+      "id": "camp-1794218314828",
+      "name": "podcast_5",
+      "color": "#ec4899",
+      "driveFolderId": "1SVpX44a4tQCvhW53Cmdw2ky9CwqsPv-n",
+      "createdAt": "2026-11-09T09:58:34.828Z"
+    },
+    {
+      "id": "camp-1794218314850",
+      "name": "podcast4",
+      "color": "#3b82f6",
+      "driveFolderId": "125v7meTqEkAI9TDFgxIrP6XbBBakm-nf",
+      "createdAt": "2026-11-09T09:58:34.850Z"
+    },
+    {
+      "id": "camp-1794218314907",
+      "name": "podcast_3",
+      "color": "#6366f1",
+      "driveFolderId": "1hros67PNXO1iwzpvsBnkzChRtjCt2ZdI",
+      "createdAt": "2026-11-09T09:58:34.907Z"
+    },
+    {
+      "id": "camp-1794218314959",
+      "name": "podcast_montse",
+      "color": "#f59e0b",
+      "driveFolderId": "1iME0X14TGX2Xp_z3yEi6iR5Uiqg-mu3J",
+      "createdAt": "2026-11-09T09:58:34.959Z"
+    },
+    {
+      "id": "camp-1794218318321",
+      "name": "video_tribu_amazonas",
+      "color": "#6366f1",
+      "driveFolderId": "1oJB33Zq2N1mBvgrUq3b6GBN7hiSRYl58",
+      "createdAt": "2026-11-09T09:58:38.321Z"
+    },
+    {
+      "id": "camp-1794218318331",
+      "name": "video_avispas_asesinas",
+      "color": "#f59e0b",
+      "driveFolderId": "16oY48kNBiD0EyhW763_f2A1UV4AYZciX",
+      "createdAt": "2026-11-09T09:58:38.331Z"
+    },
+    {
+      "id": "camp-1794218318425",
+      "name": "video_amazonas",
+      "color": "#ec4899",
+      "driveFolderId": "14di_a9-C1ONwFfay2Zqx2WxqIAWwwYES",
+      "createdAt": "2026-11-09T09:58:38.425Z"
+    },
+    {
+      "id": "camp-1794218320813",
+      "name": "podcast2",
+      "color": "#06b6d4",
+      "driveFolderId": "191J3YRhYxPekNW8aAz5wisy1MACBxUow",
+      "createdAt": "2026-11-09T09:58:40.813Z"
     }
   ],
   "videos": [
@@ -1790,9 +1888,1502 @@
       "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
       "createdAt": "2026-11-09T09:16:44.587Z",
       "updatedAt": "2026-11-09T09:16:44.587Z"
+    },
+    {
+      "id": "vid-1794218303565-794",
+      "campaignId": "camp-1794218303559",
+      "driveFileId": "1U_h7DBTEvf51RkTBiQx_I5BUxMG7VK92",
+      "title": "clip_06_el_nivel_moral_de_cesar_a_un_ministro_segun_las_encuestas",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1U_h7DBTEvf51RkTBiQx_I5BUxMG7VK92=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"🔴 DIRECTO I Feijóo preside el Comité Ejecutivo Nacional\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.565Z",
+      "updatedAt": "2026-11-09T09:58:23.565Z"
+    },
+    {
+      "id": "vid-1794218303569-948",
+      "campaignId": "camp-1794218303559",
+      "driveFileId": "1gcHdxHy1BJK8UhFdOhQEjqlNBd-45VEz",
+      "title": "clip_05_para_que_tanto_relato_si_un_joven_no_puede_pagarse_un_piso",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1gcHdxHy1BJK8UhFdOhQEjqlNBd-45VEz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"🔴 DIRECTO I Feijóo preside el Comité Ejecutivo Nacional\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.569Z",
+      "updatedAt": "2026-11-09T09:58:23.569Z"
+    },
+    {
+      "id": "vid-1794218303573-268",
+      "campaignId": "camp-1794218303559",
+      "driveFileId": "1Om-ulYvAXtLjXREPJ29CWFzDN0pjd6uB",
+      "title": "clip_04_para_que_sirve_el_poder_servir_y_defender",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Om-ulYvAXtLjXREPJ29CWFzDN0pjd6uB=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"🔴 DIRECTO I Feijóo preside el Comité Ejecutivo Nacional\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.573Z",
+      "updatedAt": "2026-11-09T09:58:23.573Z"
+    },
+    {
+      "id": "vid-1794218303577-766",
+      "campaignId": "camp-1794218303559",
+      "driveFileId": "1dgbgkrhZWwJyRLFlXlpJs9qSIM41BCp1",
+      "title": "clip_03_un_pais_normal_donde_un_joven_pueda_pagarse_un_piso",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1dgbgkrhZWwJyRLFlXlpJs9qSIM41BCp1=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"🔴 DIRECTO I Feijóo preside el Comité Ejecutivo Nacional\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.577Z",
+      "updatedAt": "2026-11-09T09:58:23.577Z"
+    },
+    {
+      "id": "vid-1794218303581-553",
+      "campaignId": "camp-1794218303559",
+      "driveFileId": "17sAu0AEBtL19SxQcAkbDTzuK_wF8tVW4",
+      "title": "clip_02_el_ministro_ya_habria_cesado_y_daria_la_cara_el_presidente",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/17sAu0AEBtL19SxQcAkbDTzuK_wF8tVW4=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"🔴 DIRECTO I Feijóo preside el Comité Ejecutivo Nacional\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.581Z",
+      "updatedAt": "2026-11-09T09:58:23.581Z"
+    },
+    {
+      "id": "vid-1794218303585-832",
+      "campaignId": "camp-1794218303559",
+      "driveFileId": "1iyyR0kqNHboCU3kIdeN8TtXTb8OkDQ8Z",
+      "title": "clip_01_espana_no_necesita_un_influencer_sino_gobernar",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1iyyR0kqNHboCU3kIdeN8TtXTb8OkDQ8Z=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"🔴 DIRECTO I Feijóo preside el Comité Ejecutivo Nacional\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.585Z",
+      "updatedAt": "2026-11-09T09:58:23.585Z"
+    },
+    {
+      "id": "vid-1794218303597-316",
+      "campaignId": "camp-1794218303592",
+      "driveFileId": "1OKgBAcHcIap6wx5K-6sORTe_FUnpRj7J",
+      "title": "clip_03_garantia_con_las_pensiones",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1OKgBAcHcIap6wx5K-6sORTe_FUnpRj7J=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Así han sido los diez titulares de la entrevista a Alberto Núñez Feijóo en la SER EL PAÍS - EL PAÍS (1080p)\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.597Z",
+      "updatedAt": "2026-11-09T09:58:23.597Z"
+    },
+    {
+      "id": "vid-1794218303601-460",
+      "campaignId": "camp-1794218303592",
+      "driveFileId": "1TH2Ufp4UOYBRv-hODJ1J0rdNsgBlUnce",
+      "title": "clip_02_frenar_a_sanchez",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1TH2Ufp4UOYBRv-hODJ1J0rdNsgBlUnce=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Así han sido los diez titulares de la entrevista a Alberto Núñez Feijóo en la SER EL PAÍS - EL PAÍS (1080p)\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.601Z",
+      "updatedAt": "2026-11-09T09:58:23.601Z"
+    },
+    {
+      "id": "vid-1794218303605-913",
+      "campaignId": "camp-1794218303592",
+      "driveFileId": "1TQkGV_68fClBNEGf080oJGjWRWumlVN4",
+      "title": "clip_01_1_millon_de_viviendas_nuevas",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1TQkGV_68fClBNEGf080oJGjWRWumlVN4=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Así han sido los diez titulares de la entrevista a Alberto Núñez Feijóo en la SER EL PAÍS - EL PAÍS (1080p)\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.605Z",
+      "updatedAt": "2026-11-09T09:58:23.605Z"
+    },
+    {
+      "id": "vid-1794218303618-807",
+      "campaignId": "camp-1794218303613",
+      "driveFileId": "1-StfM9mdNIAVGJBLhey_0v7lg4pYFmjE",
+      "title": "clip_05_la_anomalia_democratica_que_bloquea_las_leyes_de_feijoo_en_el_senado",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1-StfM9mdNIAVGJBLhey_0v7lg4pYFmjE=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Entrevista a Alberto Núñez Feijóo en  Hoy por Hoy _720p\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.618Z",
+      "updatedAt": "2026-11-09T09:58:23.618Z"
+    },
+    {
+      "id": "vid-1794218303622-396",
+      "campaignId": "camp-1794218303613",
+      "driveFileId": "1wxq-mkEmmxSV5ybT1VnHpzK0SEf1zoIG",
+      "title": "clip_04_feijoo_se_compromete_a_prohibir_a_condenados_por_terrorismo_en_las_listas_electorales",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1wxq-mkEmmxSV5ybT1VnHpzK0SEf1zoIG=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Entrevista a Alberto Núñez Feijóo en  Hoy por Hoy _720p\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.622Z",
+      "updatedAt": "2026-11-09T09:58:23.622Z"
+    },
+    {
+      "id": "vid-1794218303626-703",
+      "campaignId": "camp-1794218303613",
+      "driveFileId": "1o0csOg5Y8a_nBSm3PtGYy7O9vYEFUTYa",
+      "title": "clip_03_feijoo_da_su_palabra_sobre_el_futuro_de_las_pensiones_en_espana",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1o0csOg5Y8a_nBSm3PtGYy7O9vYEFUTYa=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Entrevista a Alberto Núñez Feijóo en  Hoy por Hoy _720p\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.626Z",
+      "updatedAt": "2026-11-09T09:58:23.626Z"
+    },
+    {
+      "id": "vid-1794218303629-839",
+      "campaignId": "camp-1794218303613",
+      "driveFileId": "1s5anoB9JDyZICRr1qngP01VdSnuRimAK",
+      "title": "clip_02_el_plan_de_feijoo_para_que_los_jovenes_puedan_comprar_una_casa",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1s5anoB9JDyZICRr1qngP01VdSnuRimAK=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Entrevista a Alberto Núñez Feijóo en  Hoy por Hoy _720p\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.629Z",
+      "updatedAt": "2026-11-09T09:58:23.629Z"
+    },
+    {
+      "id": "vid-1794218303633-947",
+      "campaignId": "camp-1794218303613",
+      "driveFileId": "1W090rRxiK6sbt-NwwrrsgJokqGmZ_uSQ",
+      "title": "clip_01_la_verdad_sobre_la_subida_del_salario_minimo",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1W090rRxiK6sbt-NwwrrsgJokqGmZ_uSQ=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-Entrevista a Alberto Núñez Feijóo en  Hoy por Hoy _720p\" en Drive",
+      "createdAt": "2026-11-09T09:58:23.633Z",
+      "updatedAt": "2026-11-09T09:58:23.633Z"
+    },
+    {
+      "id": "vid-1794218314834-162",
+      "campaignId": "camp-1794218314828",
+      "driveFileId": "1myUlT-C57t5kM6YYuuACCtlq3jUBU5Un",
+      "title": "Clip12_podcast4_reental_editado",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1myUlT-C57t5kM6YYuuACCtlq3jUBU5Un=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_5\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.834Z",
+      "updatedAt": "2026-11-09T09:58:34.834Z"
+    },
+    {
+      "id": "vid-1794218314838-444",
+      "campaignId": "camp-1794218314828",
+      "driveFileId": "1s2nwopEPfDx8YExmsEnJdY5vARQRpJKD",
+      "title": "Clip08_podcast4_reental_editado",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1s2nwopEPfDx8YExmsEnJdY5vARQRpJKD=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_5\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.838Z",
+      "updatedAt": "2026-11-09T09:58:34.838Z"
+    },
+    {
+      "id": "vid-1794218314842-783",
+      "campaignId": "camp-1794218314828",
+      "driveFileId": "1ptZ0O-eFYSU9eQPQoKnuVSXD1tzw9Qo6",
+      "title": "ClipExtra_podcast4_reental_editado",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1ptZ0O-eFYSU9eQPQoKnuVSXD1tzw9Qo6=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_5\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.842Z",
+      "updatedAt": "2026-11-09T09:58:34.842Z"
+    },
+    {
+      "id": "vid-1794218314857-873",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1nGdgUxqM4EaUgWfKDUgbbJLLwU92b7Ta",
+      "title": "Clip 11 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1nGdgUxqM4EaUgWfKDUgbbJLLwU92b7Ta=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.857Z",
+      "updatedAt": "2026-11-09T09:58:34.857Z"
+    },
+    {
+      "id": "vid-1794218314860-520",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1F4GzH4kS9mOm55ilGcHtGkADCNv0map5",
+      "title": "Clip 6 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1F4GzH4kS9mOm55ilGcHtGkADCNv0map5=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.860Z",
+      "updatedAt": "2026-11-09T09:58:34.860Z"
+    },
+    {
+      "id": "vid-1794218314864-423",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1N4y4H8Lcy0RfAUpK_PU-P7cxEPKb0LbU",
+      "title": "Clip 5 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1N4y4H8Lcy0RfAUpK_PU-P7cxEPKb0LbU=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.864Z",
+      "updatedAt": "2026-11-09T09:58:34.864Z"
+    },
+    {
+      "id": "vid-1794218314868-8",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1BcRywfB7TXR1_5xd_RrALIk_VGrK28TM",
+      "title": "Clip 4 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1BcRywfB7TXR1_5xd_RrALIk_VGrK28TM=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.868Z",
+      "updatedAt": "2026-11-09T09:58:34.868Z"
+    },
+    {
+      "id": "vid-1794218314873-263",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1CJ5gy7kdUUIRO46AbkIpxDSzm0-4Psiw",
+      "title": "Clip 2 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CJ5gy7kdUUIRO46AbkIpxDSzm0-4Psiw=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.873Z",
+      "updatedAt": "2026-11-09T09:58:34.873Z"
+    },
+    {
+      "id": "vid-1794218314877-644",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1Qc9dumGYFpXqwKodTIXqUofp0FP3rvXY",
+      "title": "Clip 1 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Qc9dumGYFpXqwKodTIXqUofp0FP3rvXY=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.877Z",
+      "updatedAt": "2026-11-09T09:58:34.877Z"
+    },
+    {
+      "id": "vid-1794218314881-448",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1zntUPGcfhfsYuozdJ7np7-bwvUtKDj7A",
+      "title": "Clip 10 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1zntUPGcfhfsYuozdJ7np7-bwvUtKDj7A=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.881Z",
+      "updatedAt": "2026-11-09T09:58:34.881Z"
+    },
+    {
+      "id": "vid-1794218314885-339",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1CFn2YbNdp_Qrm_WBse3GzH-1oMlykLMS",
+      "title": "Clip 9 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CFn2YbNdp_Qrm_WBse3GzH-1oMlykLMS=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.885Z",
+      "updatedAt": "2026-11-09T09:58:34.885Z"
+    },
+    {
+      "id": "vid-1794218314890-538",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1Il-EwSuVo4Wxl3W836rwVIGnr512Pp8A",
+      "title": "Clip 8 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Il-EwSuVo4Wxl3W836rwVIGnr512Pp8A=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.890Z",
+      "updatedAt": "2026-11-09T09:58:34.890Z"
+    },
+    {
+      "id": "vid-1794218314895-529",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1dapj0lB6BrsbSekwlQAk4fTHQREE_n05",
+      "title": "Clip 7 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1dapj0lB6BrsbSekwlQAk4fTHQREE_n05=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.895Z",
+      "updatedAt": "2026-11-09T09:58:34.895Z"
+    },
+    {
+      "id": "vid-1794218314898-563",
+      "campaignId": "camp-1794218314850",
+      "driveFileId": "1ChLQ1i9h66hhuW191-tmp5iSCfb5dibi",
+      "title": "Clip 3 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1ChLQ1i9h66hhuW191-tmp5iSCfb5dibi=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.898Z",
+      "updatedAt": "2026-11-09T09:58:34.898Z"
+    },
+    {
+      "id": "vid-1794218314912-851",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1zMx4o1DXUWsGG87cz806UJglpwTIRDDb",
+      "title": "Clip 10 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1zMx4o1DXUWsGG87cz806UJglpwTIRDDb=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.912Z",
+      "updatedAt": "2026-11-09T09:58:34.912Z"
+    },
+    {
+      "id": "vid-1794218314917-624",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1qhXcSgeew9Nz4tBuTCn_lfBXgkGTZ7fr",
+      "title": "Clip 9 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1qhXcSgeew9Nz4tBuTCn_lfBXgkGTZ7fr=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.917Z",
+      "updatedAt": "2026-11-09T09:58:34.917Z"
+    },
+    {
+      "id": "vid-1794218314920-682",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1fYxjuvNBUz_OFnGw6VpXIPpsjtvG1a9d",
+      "title": "Clip 8 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1fYxjuvNBUz_OFnGw6VpXIPpsjtvG1a9d=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.920Z",
+      "updatedAt": "2026-11-09T09:58:34.920Z"
+    },
+    {
+      "id": "vid-1794218314925-845",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1nR-SRoBR6tC74XMvFSKBpZMZG9Do2au-",
+      "title": "Clip 7 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1nR-SRoBR6tC74XMvFSKBpZMZG9Do2au-=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.925Z",
+      "updatedAt": "2026-11-09T09:58:34.925Z"
+    },
+    {
+      "id": "vid-1794218314929-66",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1CH-snTW8PD5glEHz0ssNTyMX1gh73Bd0",
+      "title": "Clip 6 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CH-snTW8PD5glEHz0ssNTyMX1gh73Bd0=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.929Z",
+      "updatedAt": "2026-11-09T09:58:34.929Z"
+    },
+    {
+      "id": "vid-1794218314933-895",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1FBRIBEWqcA3L8rJ14BGcGxUioQS-oGAf",
+      "title": "Clip 5 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1FBRIBEWqcA3L8rJ14BGcGxUioQS-oGAf=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.933Z",
+      "updatedAt": "2026-11-09T09:58:34.933Z"
+    },
+    {
+      "id": "vid-1794218314938-629",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1lD1XPoE8gymsxCqZhD3WciC0mZBTUQYq",
+      "title": "Clip 4 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1lD1XPoE8gymsxCqZhD3WciC0mZBTUQYq=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.938Z",
+      "updatedAt": "2026-11-09T09:58:34.938Z"
+    },
+    {
+      "id": "vid-1794218314942-595",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1bCts7BPQm1NymyBj5o2KSO1HH_lJfb27",
+      "title": "Clip 3 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1bCts7BPQm1NymyBj5o2KSO1HH_lJfb27=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.942Z",
+      "updatedAt": "2026-11-09T09:58:34.942Z"
+    },
+    {
+      "id": "vid-1794218314947-419",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1RKJzim1iaj_kzBO6FSuLlBFBQS_3CyOy",
+      "title": "Clip 2 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1RKJzim1iaj_kzBO6FSuLlBFBQS_3CyOy=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.947Z",
+      "updatedAt": "2026-11-09T09:58:34.947Z"
+    },
+    {
+      "id": "vid-1794218314951-498",
+      "campaignId": "camp-1794218314907",
+      "driveFileId": "1UxYUF8_YcB3-UviUt9qLZpWUYfe8ox5x",
+      "title": "Clip 1 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1UxYUF8_YcB3-UviUt9qLZpWUYfe8ox5x=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.951Z",
+      "updatedAt": "2026-11-09T09:58:34.951Z"
+    },
+    {
+      "id": "vid-1794218314965-961",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1Ne3VTx-JQQ1UCpMRJLktqTAKti0o-IPH",
+      "title": "10_edificio_10_millones_1000_socios",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Ne3VTx-JQQ1UCpMRJLktqTAKti0o-IPH=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.965Z",
+      "updatedAt": "2026-11-09T09:58:34.965Z"
+    },
+    {
+      "id": "vid-1794218314970-595",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1hIdHhAWc1QGisB77ro_XgseI6hhvsdwi",
+      "title": "09_trampa_necesitar_20000_urgentes",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1hIdHhAWc1QGisB77ro_XgseI6hhvsdwi=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.970Z",
+      "updatedAt": "2026-11-09T09:58:34.970Z"
+    },
+    {
+      "id": "vid-1794218314975-209",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1fVVcDK2e_jUzaN1q6ZovAycIfwD6wdCM",
+      "title": "08_miedo_1000_16_vs_300000_3",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1fVVcDK2e_jUzaN1q6ZovAycIfwD6wdCM=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.975Z",
+      "updatedAt": "2026-11-09T09:58:34.975Z"
+    },
+    {
+      "id": "vid-1794218314979-939",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "10gBhLwGtfM8S1D5cGgrymzE5Jad-415h",
+      "title": "07_si_me_ocupan_el_piso",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/10gBhLwGtfM8S1D5cGgrymzE5Jad-415h=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.979Z",
+      "updatedAt": "2026-11-09T09:58:34.979Z"
+    },
+    {
+      "id": "vid-1794218314983-312",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1fAUeUmfVuMvyJaqv1_huCXW6dvI7vosv",
+      "title": "06_privilegio_banca_privada_desde_500",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1fAUeUmfVuMvyJaqv1_huCXW6dvI7vosv=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.983Z",
+      "updatedAt": "2026-11-09T09:58:34.983Z"
+    },
+    {
+      "id": "vid-1794218314988-606",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1mkZfLcp7r1WkUiKBYZv4is-eYYbbXTfn",
+      "title": "05_hipocresia_blackrock_bancos_tokenizacion",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1mkZfLcp7r1WkUiKBYZv4is-eYYbbXTfn=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.988Z",
+      "updatedAt": "2026-11-09T09:58:34.988Z"
+    },
+    {
+      "id": "vid-1794218314993-788",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1UaFxiOEq5EFu115pJ1xxR3cNukD0XD56",
+      "title": "04_mentira_dinero_app_banco",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1UaFxiOEq5EFu115pJ1xxR3cNukD0XD56=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.993Z",
+      "updatedAt": "2026-11-09T09:58:34.993Z"
+    },
+    {
+      "id": "vid-1794218314997-329",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1SP4YJYV4yX30bAu4ONu5GLw1xnloAuwD",
+      "title": "03_alquiler_400000_rentabilidad_mierda",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1SP4YJYV4yX30bAu4ONu5GLw1xnloAuwD=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:34.997Z",
+      "updatedAt": "2026-11-09T09:58:34.997Z"
+    },
+    {
+      "id": "vid-1794218315002-810",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1Gk8iHgl3mKBg1CchMuexC7Zun9P893WC",
+      "title": "02_arruinar_bancos_prestamos_1_clic",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Gk8iHgl3mKBg1CchMuexC7Zun9P893WC=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:35.002Z",
+      "updatedAt": "2026-11-09T09:58:35.002Z"
+    },
+    {
+      "id": "vid-1794218315006-311",
+      "campaignId": "camp-1794218314959",
+      "driveFileId": "1gL0PnuL63P06TX17I6Sve_0jGTQQcmyC",
+      "title": "01_prestamos_75_sin_cirbe",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1gL0PnuL63P06TX17I6Sve_0jGTQQcmyC=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-09T09:58:35.006Z",
+      "updatedAt": "2026-11-09T09:58:35.006Z"
+    },
+    {
+      "id": "vid-1794218318338-847",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1HlslVEAPKfSZ2-IYe_KifsHeMMzmVJ8o",
+      "title": "17_larvas_no_avispas",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1HlslVEAPKfSZ2-IYe_KifsHeMMzmVJ8o=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.338Z",
+      "updatedAt": "2026-11-09T09:58:38.338Z"
+    },
+    {
+      "id": "vid-1794218318342-126",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1EQvUROgbxu3z80nVWNjG5S7UQAgwWwRT",
+      "title": "16_pueblo_hospitales",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1EQvUROgbxu3z80nVWNjG5S7UQAgwWwRT=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.342Z",
+      "updatedAt": "2026-11-09T09:58:38.342Z"
+    },
+    {
+      "id": "vid-1794218318347-161",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1XUYsGFd-5uIp7GITBSKBoikB3ysz4gHG",
+      "title": "15_truco_vaso_grillo",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1XUYsGFd-5uIp7GITBSKBoikB3ysz4gHG=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.347Z",
+      "updatedAt": "2026-11-09T09:58:38.347Z"
+    },
+    {
+      "id": "vid-1794218318351-628",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1BO6luCE9JKqBQ22DbWd1A7DFVORsqCwQ",
+      "title": "14_grillo_en_la_mano",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1BO6luCE9JKqBQ22DbWd1A7DFVORsqCwQ=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.351Z",
+      "updatedAt": "2026-11-09T09:58:38.351Z"
+    },
+    {
+      "id": "vid-1794218318355-59",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "16TydAdqrA4r8IoiI-Zg2H6gvPlP7HPPW",
+      "title": "13_avispa_asiatica_espana",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/16TydAdqrA4r8IoiI-Zg2H6gvPlP7HPPW=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.355Z",
+      "updatedAt": "2026-11-09T09:58:38.355Z"
+    },
+    {
+      "id": "vid-1794218318359-484",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1XmTQsEfy0axdbMtxOw2TzT4hQRbaosyJ",
+      "title": "12_sabe_a_pollo",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1XmTQsEfy0axdbMtxOw2TzT4hQRbaosyJ=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.359Z",
+      "updatedAt": "2026-11-09T09:58:38.359Z"
+    },
+    {
+      "id": "vid-1794218318363-262",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1fIhEVuzeWMLPwPZ-i1u2qLu9eeqZZFVZ",
+      "title": "11_nace_avispa",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1fIhEVuzeWMLPwPZ-i1u2qLu9eeqZZFVZ=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.363Z",
+      "updatedAt": "2026-11-09T09:58:38.363Z"
+    },
+    {
+      "id": "vid-1794218318367-866",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1Ajil8V6DZctzaxMvawoG96rcjxowEn8t",
+      "title": "10_son_kakuna",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Ajil8V6DZctzaxMvawoG96rcjxowEn8t=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.367Z",
+      "updatedAt": "2026-11-09T09:58:38.367Z"
+    },
+    {
+      "id": "vid-1794218318372-581",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1d33skbH7cn8qhTT1yGD_zYwIPnQqyP72",
+      "title": "09_oportunidades_alas_aguijones",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1d33skbH7cn8qhTT1yGD_zYwIPnQqyP72=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.372Z",
+      "updatedAt": "2026-11-09T09:58:38.372Z"
+    },
+    {
+      "id": "vid-1794218318376-27",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1aZqruU5HMsdAXjoowT5sxPI-uFACPYiT",
+      "title": "08_caca_avispa_brazo",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1aZqruU5HMsdAXjoowT5sxPI-uFACPYiT=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.376Z",
+      "updatedAt": "2026-11-09T09:58:38.376Z"
+    },
+    {
+      "id": "vid-1794218318380-935",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1E-JvJO6zel_QrF7CqGvu14gh-EiBB0j9",
+      "title": "07_si_te_pica_mata",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1E-JvJO6zel_QrF7CqGvu14gh-EiBB0j9=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.380Z",
+      "updatedAt": "2026-11-09T09:58:38.380Z"
+    },
+    {
+      "id": "vid-1794218318385-322",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1-HCBwU6qdmdS00814CKUmiFB708n-rdE",
+      "title": "06_picadura_letal_ninos",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1-HCBwU6qdmdS00814CKUmiFB708n-rdE=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.385Z",
+      "updatedAt": "2026-11-09T09:58:38.385Z"
+    },
+    {
+      "id": "vid-1794218318390-538",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1hCqIdmcXoJG6KIRNalRknZrQnCVOA4sx",
+      "title": "05_picadura_24_horas",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1hCqIdmcXoJG6KIRNalRknZrQnCVOA4sx=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.390Z",
+      "updatedAt": "2026-11-09T09:58:38.390Z"
+    },
+    {
+      "id": "vid-1794218318394-883",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1mZlnDExhuo1JIOVdI2lmNFQ7wXcQ_Jks",
+      "title": "04_cuanto_gana_cazador",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1mZlnDExhuo1JIOVdI2lmNFQ7wXcQ_Jks=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.394Z",
+      "updatedAt": "2026-11-09T09:58:38.394Z"
+    },
+    {
+      "id": "vid-1794218318398-544",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1_O8_bqE9-6Oro_KmcT6Tcd97Yts2IQxc",
+      "title": "03_avispa_mata_docenas",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1_O8_bqE9-6Oro_KmcT6Tcd97Yts2IQxc=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.398Z",
+      "updatedAt": "2026-11-09T09:58:38.398Z"
+    },
+    {
+      "id": "vid-1794218318403-42",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1YcEDsrG1gKhkKbxYQdHgs4QK37CgAqMm",
+      "title": "02_nido_gigante",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1YcEDsrG1gKhkKbxYQdHgs4QK37CgAqMm=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.403Z",
+      "updatedAt": "2026-11-09T09:58:38.403Z"
+    },
+    {
+      "id": "vid-1794218318408-492",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "17_HeQnscsNRKGWXUC89FnGhCPQIC_QpI",
+      "title": "01_traje_30_euros_china",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/17_HeQnscsNRKGWXUC89FnGhCPQIC_QpI=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.408Z",
+      "updatedAt": "2026-11-09T09:58:38.408Z"
+    },
+    {
+      "id": "vid-1794218318413-131",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "19m4sVjYYez62MxL05QmQjuJ0Xjl36VN2",
+      "title": "clip_B_peor_noche_amazonas",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/19m4sVjYYez62MxL05QmQjuJ0Xjl36VN2=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.413Z",
+      "updatedAt": "2026-11-09T09:58:38.413Z"
+    },
+    {
+      "id": "vid-1794218318417-268",
+      "campaignId": "camp-1794218318331",
+      "driveFileId": "1GjyIM3R7AhzgLAaGNAmAvbbrXqVwxPwK",
+      "title": "clip_A_barco_peor_que_titanic",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1GjyIM3R7AhzgLAaGNAmAvbbrXqVwxPwK=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_avispas_asesinas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.417Z",
+      "updatedAt": "2026-11-09T09:58:38.417Z"
+    },
+    {
+      "id": "vid-1794218318431-369",
+      "campaignId": "camp-1794218318425",
+      "driveFileId": "1TIsFP8UDUHX3rlm8DFK80PuxwTFFG7Nx",
+      "title": "01_traje_30_euros_china",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1TIsFP8UDUHX3rlm8DFK80PuxwTFFG7Nx=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_amazonas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.431Z",
+      "updatedAt": "2026-11-09T09:58:38.431Z"
+    },
+    {
+      "id": "vid-1794218318436-128",
+      "campaignId": "camp-1794218318425",
+      "driveFileId": "1mjZ_Na11KjDHs_6SjuWlqdzQ1zrtrR5X",
+      "title": "03_avispa_mata_docenas",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1mjZ_Na11KjDHs_6SjuWlqdzQ1zrtrR5X=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"video_amazonas\" en Drive",
+      "createdAt": "2026-11-09T09:58:38.436Z",
+      "updatedAt": "2026-11-09T09:58:38.436Z"
+    },
+    {
+      "id": "vid-1794218320819-426",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "17IJpGMKtt_3J3WA3RdAQJCJjfpESjiwl",
+      "title": "Clip 6 - mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/17IJpGMKtt_3J3WA3RdAQJCJjfpESjiwl=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.819Z",
+      "updatedAt": "2026-11-09T09:58:40.819Z"
+    },
+    {
+      "id": "vid-1794218320824-678",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "1ke0hkGm8n-WgIWd5G0j7tW0pZjJuNUW-",
+      "title": "Clip 5 - mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1ke0hkGm8n-WgIWd5G0j7tW0pZjJuNUW-=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.824Z",
+      "updatedAt": "2026-11-09T09:58:40.824Z"
+    },
+    {
+      "id": "vid-1794218320828-659",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "1EG_HtWMZwDGslDziJEO5TqmFLzgeErE0",
+      "title": "Clip 7 - mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1EG_HtWMZwDGslDziJEO5TqmFLzgeErE0=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.828Z",
+      "updatedAt": "2026-11-09T09:58:40.828Z"
+    },
+    {
+      "id": "vid-1794218320833-351",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "1fnTfrVkYtB8GdtaHq-KN95idzUfcpkwN",
+      "title": "Clip 3 - mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1fnTfrVkYtB8GdtaHq-KN95idzUfcpkwN=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.833Z",
+      "updatedAt": "2026-11-09T09:58:40.833Z"
+    },
+    {
+      "id": "vid-1794218320837-273",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "1G6oPx24STJEjJdrLffXW8DPtrKXkyswS",
+      "title": "Clip 4 - mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1G6oPx24STJEjJdrLffXW8DPtrKXkyswS=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.837Z",
+      "updatedAt": "2026-11-09T09:58:40.837Z"
+    },
+    {
+      "id": "vid-1794218320842-922",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "1u9HzI-M4TZqVGv5eyaNbJu5ELeWuL0lg",
+      "title": "Clip 2 - mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1u9HzI-M4TZqVGv5eyaNbJu5ELeWuL0lg=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.842Z",
+      "updatedAt": "2026-11-09T09:58:40.842Z"
+    },
+    {
+      "id": "vid-1794218320846-862",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "1CZCpoTP5RW2mE4UXgowuguGDtt7-GN7t",
+      "title": "Clip 1 - mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CZCpoTP5RW2mE4UXgowuguGDtt7-GN7t=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.846Z",
+      "updatedAt": "2026-11-09T09:58:40.846Z"
+    },
+    {
+      "id": "vid-1794218320851-15",
+      "campaignId": "camp-1794218320813",
+      "driveFileId": "1G1rWivSWvtZjRAKyDilfeA8OZVudtcxq",
+      "title": "Clip 1 -mongeMalo-p2",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1G1rWivSWvtZjRAKyDilfeA8OZVudtcxq=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"podcast2\" en Drive",
+      "createdAt": "2026-11-09T09:58:40.851Z",
+      "updatedAt": "2026-11-09T09:58:40.851Z"
     }
   ],
   "activities": [
+    {
+      "id": "act-1794218320855",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 8 vídeos añadidos a \"Monge malo clips\" (1 campañas hijas detectadas)",
+      "timestamp": "2026-11-09T09:58:40.855Z"
+    },
+    {
+      "id": "act-1794218318441",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 21 vídeos añadidos a \"ruben holgado\" (3 campañas hijas detectadas)",
+      "timestamp": "2026-11-09T09:58:38.441Z"
+    },
+    {
+      "id": "act-1794218315011",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 34 vídeos añadidos a \"eric sanchez\" (4 campañas hijas detectadas)",
+      "timestamp": "2026-11-09T09:58:35.011Z"
+    },
+    {
+      "id": "act-1794218309442",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 0 vídeos añadidos a \"MATERIAL_EDICION_PROPIO\" (3 campañas hijas detectadas)",
+      "timestamp": "2026-11-09T09:58:29.442Z"
+    },
+    {
+      "id": "act-1794218303638",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 14 vídeos añadidos a \"clips_feijoo\" (3 campañas hijas detectadas)",
+      "timestamp": "2026-11-09T09:58:23.638Z"
+    },
     {
       "id": "act-1794215816366",
       "type": "drive_sync",
@@ -2062,36 +3653,6 @@
       "type": "drive_sync",
       "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
       "timestamp": "2026-11-09T08:31:16.124Z"
-    },
-    {
-      "id": "act-1794212513657",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
-      "timestamp": "2026-11-09T08:21:53.657Z"
-    },
-    {
-      "id": "act-1794212513469",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
-      "timestamp": "2026-11-09T08:21:53.469Z"
-    },
-    {
-      "id": "act-1794212513266",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
-      "timestamp": "2026-11-09T08:21:53.266Z"
-    },
-    {
-      "id": "act-1794212513067",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
-      "timestamp": "2026-11-09T08:21:53.067Z"
-    },
-    {
-      "id": "act-1794212512697",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
-      "timestamp": "2026-11-09T08:21:52.697Z"
     }
   ],
   "config": {

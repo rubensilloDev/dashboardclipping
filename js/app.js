@@ -254,6 +254,13 @@ class AppController {
       });
     }
 
+    const mobileDriveSettingsBtn = document.getElementById('mobileDriveSettingsBtn');
+    if (mobileDriveSettingsBtn) {
+      mobileDriveSettingsBtn.addEventListener('click', () => {
+        this.driveSettingsModal.open();
+      });
+    }
+
     // Enlace en móvil para gestionar campañas
     const mobileManageCampaignsLink = document.getElementById('mobileManageCampaignsLink');
     if (mobileManageCampaignsLink) {

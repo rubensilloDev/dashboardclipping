@@ -23,6 +23,8 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   color-scheme: dark;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -38,7 +40,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
 /* ==========================================================================
@@ -135,6 +139,8 @@ h6 {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 h1 {
@@ -152,6 +158,8 @@ h3 {
 p {
   color: var(--color-text-secondary);
   line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 a {
