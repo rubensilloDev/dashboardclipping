@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ClipFlow Studio - Dashboard profesional para gestión de clipping y distribución de vídeos en Google Drive.">
+  <meta name="theme-color" content="#08090d">
+  <title>ClipFlow Studio | Dashboard de Campañas de Vídeo</title>
+
+  <!-- Tipografía de Élite: Plus Jakarta Sans (UI) + JetBrains Mono (Métricas y Código) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos del Sistema de Diseño CSS Vanilla (Arquitectura Modular BEM) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Librería externa: Chart.js por CDN para visualización analítica de subidas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <!-- Librería externa: Lucide Icons por CDN para iconos SVG modernos y nítidos -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <!-- Coordinador principal del frontend (Módulo ES nativo) -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <!-- Enlace accesible para salto directo de navegación con teclado -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Contenedor global para Notificaciones Toast Flotantes -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <div class="app-shell">
+    <!-- ====================================================================
+         Sidebar de Navegación Lateral (Visible en Escritorio > 768px)
+         ==================================================================== -->
+    <aside class="app-sidebar" aria-label="Navegación principal de escritorio">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand__icon" aria-hidden="true">
+          <i data-lucide="scissors"></i>
+        </div>
+        <div class="sidebar-brand__text">
+          <span class="sidebar-brand__name">ClipFlow Studio</span>
+          <span class="sidebar-brand__tagline">Gestor de Campañas</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-nav__group">
+          <span class="sidebar-nav__heading">General</span>
+          <a href="#dashboard" class="sidebar-nav__link sidebar-nav__link--active" id="sidebarDashboardLink" aria-current="page">
+            <i data-lucide="layout-dashboard" class="touch-target" aria-hidden="true"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#videos" class="sidebar-nav__link" id="sidebarCatalogLink">
+            <i data-lucide="film" class="touch-target" aria-hidden="true"></i>
+            <span>Catálogo</span>
+          </a>
+        </div>
+
+        <div class="sidebar-nav__group">
+          <div class="sidebar-nav__heading-row">
+            <span class="sidebar-nav__heading">Campañas</span>
+            <div style="display: flex; gap: 4px;">
+              <button type="button" class="btn btn--outline btn--sm" id="manageCampaignsBtn" title="Gestionar todas las campañas" aria-label="Gestionar campañas">
+                <i data-lucide="settings" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="btn btn--outline btn--sm" id="addCampaignBtn" title="Añadir nueva campaña" aria-label="Añadir nueva campaña">
+                <i data-lucide="plus" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <!-- Lista dinámica de campañas inyectada por JS -->
+          <div id="sidebarCampaignsGroup" style="display: flex; flex-direction: column; gap: 2px;"></div>
+        </div>
+
+        <div class="sidebar-sync-card">
+          <div class="sidebar-sync-card__header">
+            <span class="sidebar-sync-card__title">Google Drive</span>
+            <span class="sidebar-sync-card__status-dot" title="Sincronizado y activo"></span>
+          </div>
+          <span class="sidebar-sync-card__meta">Almacenamiento Conectado</span>
+          <div style="display: flex; gap: var(--spacing-2); margin-top: var(--spacing-2);">
+            <button type="button" class="btn btn--outline btn--sm" id="driveSettingsBtn" style="flex: 1;" title="Configurar clave de API de Drive">
+              <i data-lucide="key" aria-hidden="true"></i>
+              <span>API Key</span>
+            </button>
+            <button type="button" class="btn btn--outline btn--sm" id="logoutButton" title="Cerrar Sesión">
+              <i data-lucide="log-out" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ====================================================================
+         Área de Trabajo y Contenedor Principal
+         ==================================================================== -->
+    <div class="app-workspace">
+      <!-- Header Superior Pegajoso (Sticky) con Buscador Ampliado -->
+      <header class="app-header">
+        <div class="header-search">
+          <i data-lucide="search" class="header-search__icon" aria-hidden="true"></i>
+          <input
+            type="search"
+            class="header-search__input"
+            placeholder="Buscar clips por título, tema o palabra clave..."
+            aria-label="Buscar clips por título, tema o palabra clave"
+          >
+        </div>
+
+        <div class="header-actions">
+          <!-- Selector de Campaña Rápido -->
+          <select class="header-campaign-select" aria-label="Filtrar por campaña">
+            <option value="all">Todas las Campañas</option>
+          </select>
+
+          <!-- Botón de Sincronización con Drive -->
+          <button type="button" class="btn btn--primary" id="syncDriveButton" title="Sincronizar carpetas con Google Drive">
+            <i data-lucide="refresh-cw" aria-hidden="true"></i>
+            <span>Sincronizar</span>
+          </button>
+
+          <!-- Avatar del Usuario Propietario -->
+          <button type="button" class="user-avatar-btn" aria-label="Perfil del creador">
+            <div class="user-avatar" aria-hidden="true">AD</div>
+          </button>
+        </div>
+      </header>
+
+      <!-- Contenido Central del Dashboard -->
+      <main id="main-content" class="app-main">
+        <div class="dashboard-content">
+
+          <!-- ================================================================
+               VISTA 1: DASHBOARD PRINCIPAL Y MÉTRICAS (#dashboard)
+               ================================================================ -->
+          <div class="app-view app-view--active" id="dashboardView">
+
+            <!-- Encabezado del Dashboard con Título y Estado Operativo -->
+          <section class="dashboard-heading" aria-labelledby="dashboard-title">
+            <div>
+              <h1 id="dashboard-title" class="dashboard-heading__title">Panel de Control de Clipping</h1>
+              <p class="dashboard-heading__subtitle">Supervisión en tiempo real de producción, edición y distribución multiplataforma.</p>
+            </div>
+            <div class="dashboard-heading__meta-badge">
+              <span class="sidebar-sync-card__status-dot" aria-hidden="true"></span>
+              <span>Sincronizado con Google Drive</span>
+            </div>
+          </section>
+
+          <!-- ================================================================
+               1. KPIs y Métricas Rápidas
+               ================================================================ -->
+          <section class="dashboard-stats-grid" aria-label="Métricas clave de rendimiento">
+            <article class="stat-card stat-card--total">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Total Vídeos</span>
+                <div class="stat-card__icon-wrap" aria-hidden="true">
+                  <i data-lucide="video"></i>
+                </div>
+              </div>
+              <div class="stat-card__bottom">
+                <span class="stat-card__value font-mono" id="statTotalVideos">0</span>
+                <span class="stat-card__trend stat-card__trend--up">
+                  <i data-lucide="trending-up" aria-hidden="true"></i>
+                  <span>Total activos</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="stat-card stat-card--edited">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Vídeos Editados</span>
+                <div class="stat-card__icon-wrap" aria-hidden="true">
+                  <i data-lucide="check-circle-2"></i>
+                </div>
+              </div>
+              <div class="stat-card__bottom">
+                <span class="stat-card__value font-mono" id="statEditedVideos">0</span>
+                <span class="stat-card__trend stat-card__trend--up">
+                  <span>Listos para subir</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="stat-card stat-card--pending">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Pendientes de Edición</span>
+                <div class="stat-card__icon-wrap" aria-hidden="true">
+                  <i data-lucide="scissors"></i>
+                </div>
+              </div>
+              <div class="stat-card__bottom">
+                <span class="stat-card__value font-mono" id="statPendingVideos">0</span>
+                <span class="stat-card__trend stat-card__trend--neutral">
+                  <span>Requieren corte</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="stat-card stat-card--uploaded">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Subidas Realizadas</span>
+                <div class="stat-card__icon-wrap" aria-hidden="true">
+                  <i data-lucide="share-2"></i>
+                </div>
+              </div>
+              <div class="stat-card__bottom">
+                <span class="stat-card__value font-mono" id="statUploadedVideos">0</span>
+                <span class="stat-card__trend stat-card__trend--up">
+                  <span>En redes sociales</span>
+                </span>
+              </div>
+            </article>
+          </section>
+
+          <!-- ================================================================
+               2. Progreso Operativo por Campaña / Cliente
+               ================================================================ -->
+          <section class="card-panel" aria-labelledby="campaigns-progress-title">
+            <div class="card-panel__header">
+              <h2 id="campaigns-progress-title" class="card-panel__title">
+                <i data-lucide="folder-kanban" aria-hidden="true"></i>
+                <span>Progreso por Campaña</span>
+              </h2>
+              <span class="badge badge--purple">Sincronizado en Tiempo Real</span>
+            </div>
+
+            <div class="campaign-progress-list" id="campaignProgressList"></div>
+          </section>
+
+          <!-- ================================================================
+               3. Sección Analítica y Operativa:
+                  - Gráfico de Subidas por Plataforma con Logos Oficiales
+                  - Pendientes de Publicar (Editados con 0 subidas)
+               ================================================================ -->
+          <section class="dashboard-analytics-grid" aria-label="Sección analítica y operativa de alta prioridad">
+            <!-- Gráfico de Distribución por Plataforma -->
+            <article class="card-panel">
+              <div class="card-panel__header">
+                <h2 class="card-panel__title">
+                  <i data-lucide="pie-chart" aria-hidden="true"></i>
+                  <span>Subidas por Plataforma</span>
+                </h2>
+                <span class="badge badge--info">Logos Oficiales</span>
+              </div>
+
+              <div class="chart-container-box">
+                <canvas id="platformChart" aria-label="Gráfico de distribución por red social" role="img"></canvas>
+              </div>
+
+              <!-- Cuadrícula de Métricas con Logos Oficiales de Plataforma -->
+              <div class="platform-legend-grid">
+                <!-- YouTube Oficial -->
+                <div class="platform-metric-item">
+                  <div class="platform-metric-item__header">
+                    <svg viewBox="0 0 24 24" width="18" height="18" class="brand-svg brand-svg--youtube" aria-hidden="true">
+                      <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                      <polygon fill="#FFFFFF" points="9.545,15.568 15.818,12 9.545,8.432"/>
+                    </svg>
+                    <span>YouTube</span>
+                  </div>
+                  <span class="platform-metric-item__count font-mono" id="statCountYoutube">0</span>
+                </div>
+
+                <!-- TikTok Oficial -->
+                <div class="platform-metric-item">
+                  <div class="platform-metric-item__header">
+                    <svg viewBox="0 0 24 24" width="18" height="18" class="brand-svg brand-svg--tiktok" aria-hidden="true">
+                      <path fill="#00F2FE" transform="translate(-1, -1)" opacity="0.9" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                      <path fill="#FE2C55" transform="translate(1, 1)" opacity="0.9" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                      <path fill="#FFFFFF" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                    </svg>
+                    <span>TikTok</span>
+                  </div>
+                  <span class="platform-metric-item__count font-mono" id="statCountTiktok">0</span>
+                </div>
+
+                <!-- Instagram Oficial -->
+                <div class="platform-metric-item">
+                  <div class="platform-metric-item__header">
+                    <svg viewBox="0 0 24 24" width="18" height="18" class="brand-svg brand-svg--instagram" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="igGradStat" x1="0%" y1="100%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#f09433"/>
+                          <stop offset="25%" stop-color="#e6683c"/>
+                          <stop offset="50%" stop-color="#dc2743"/>
+                          <stop offset="75%" stop-color="#cc2366"/>
+                          <stop offset="100%" stop-color="#bc1888"/>
+                        </linearGradient>
+                      </defs>
+                      <rect width="20" height="20" x="2" y="2" rx="5" fill="none" stroke="url(#igGradStat)" stroke-width="2"/>
+                      <circle cx="12" cy="12" r="4.2" fill="none" stroke="url(#igGradStat)" stroke-width="2"/>
+                      <circle cx="17.2" cy="6.8" r="1.2" fill="#bc1888"/>
+                    </svg>
+                    <span>Instagram</span>
+                  </div>
+                  <span class="platform-metric-item__count font-mono" id="statCountInstagram">0</span>
+                </div>
+
+                <!-- Facebook Oficial -->
+                <div class="platform-metric-item">
+                  <div class="platform-metric-item__header">
+                    <svg viewBox="0 0 24 24" width="18" height="18" class="brand-svg brand-svg--facebook" aria-hidden="true">
+                      <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                      <path fill="#FFFFFF" d="M16.67 15.543l.532-3.47h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.514V4.996s-1.374-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.643H7.078v3.47h3.047v8.385a12.09 12.09 0 0 0 3.75 0v-8.385h2.795z"/>
+                    </svg>
+                    <span>Facebook</span>
+                  </div>
+                  <span class="platform-metric-item__count font-mono" id="statCountFacebook">0</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Vídeos Pendientes de Publicar -->
+            <article class="card-panel">
+              <div class="card-panel__header">
+                <h2 class="card-panel__title">
+                  <i data-lucide="alert-circle" style="color: var(--color-status-warning);" aria-hidden="true"></i>
+                  <span>Pendientes de Publicar</span>
+                </h2>
+                <span class="badge badge--warning">Requieren Subida</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -8px;">
+                Vídeos con edición finalizada que aún no se han publicado en ninguna red social.
+              </p>
+
+              <div class="pending-publish-list" id="pendingPublishList"></div>
+            </article>
+          </section>
+
+          <!-- ================================================================
+               4. Feed de Actividad Reciente (Timeline de cambios de estado)
+               ================================================================ -->
+          <section class="card-panel" aria-labelledby="activity-feed-title">
+            <div class="card-panel__header">
+              <h2 id="activity-feed-title" class="card-panel__title">
+                <i data-lucide="history" aria-hidden="true"></i>
+                <span>Actividad Reciente</span>
+              </h2>
+              <span class="badge badge--info">Audit Log</span>
+            </div>
+
+            <div class="activity-timeline" id="activityTimeline"></div>
+          </section>
+
+          <!-- Acceso Rápido al Catálogo Completo -->
+          <section class="card-panel" style="padding: var(--spacing-5) var(--spacing-6); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-4); background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(16, 185, 129, 0.04) 100%); border: 1px solid rgba(99, 102, 241, 0.25);">
+            <div>
+              <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary); margin: 0; display: flex; align-items: center; gap: var(--spacing-2);">
+                <i data-lucide="film" style="color: var(--color-brand-primary-light); width: 18px; height: 18px;" aria-hidden="true"></i>
+                <span>Catálogo Completo de Clips</span>
+              </h3>
+              <p style="font-size: 0.8125rem; color: var(--color-text-secondary); margin: 4px 0 0 0;">
+                Explora el inventario completo, aplica filtros por plataforma o estado y abre el reproductor integrado para cada clip.
+              </p>
+            </div>
+            <a href="#videos" class="btn btn--primary" id="dashboardToCatalogBtn">
+              <span>Abrir Catálogo</span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+          </section>
+
+        </div> <!-- Fin #dashboardView -->
+
+        <!-- ================================================================
+             VISTA 2: PÁGINA DEDICADA DE CATÁLOGO DE VÍDEOS (#videos)
+             ================================================================ -->
+        <div class="app-view" id="catalogView">
+          <!-- Cabecera del Catálogo -->
+          <section class="catalog-heading" aria-labelledby="catalog-title">
+            <div class="catalog-heading__title-wrap">
+              <h1 id="catalog-title" class="catalog-heading__title">
+                <i data-lucide="film" aria-hidden="true"></i>
+                <span>Catálogo de Vídeos</span>
+              </h1>
+              <p class="catalog-heading__subtitle">
+                Exploración centralizada, filtros avanzados y gestión directa de estados de publicación.
+              </p>
+            </div>
+            <div class="catalog-counter-badge" id="catalogCountBadge">
+              <i data-lucide="layers" aria-hidden="true" style="width: 14px; height: 14px;"></i>
+              <span id="catalogCountText">Cargando clips...</span>
+            </div>
+          </section>
+
+          <!-- Barra de Campaña Activa (Nivel 2: visible cuando se entra a una campaña) -->
+          <section class="campaign-detail-banner" id="campaignDetailBanner" style="display: none;">
+            <div class="campaign-detail-banner__left">
+              <button type="button" class="btn btn--outline btn--sm" id="backToCampaignsBtn" title="Volver al índice de todas las campañas">
+                <i data-lucide="arrow-left" aria-hidden="true"></i>
+                <span>Todas las Campañas</span>
+              </button>
+              <div class="campaign-detail-banner__info">
+                <span class="campaign-item__color-dot" id="activeCampDot" style="width: 14px; height: 14px;"></span>
+                <h2 class="campaign-detail-banner__name" id="activeCampName">Campaña</h2>
+                <span class="badge badge--purple font-mono" id="activeCampCount">0 clips</span>
+                <span class="badge badge--success font-mono" id="activeCampProgress">0% subido</span>
+              </div>
+            </div>
+            <div class="campaign-detail-banner__actions">
+              <button type="button" class="btn btn--outline btn--sm" id="editCurrentCampBtn" title="Editar detalles de esta campaña">
+                <i data-lucide="edit-3" aria-hidden="true"></i>
+                <span>Editar Campaña</span>
+              </button>
+              <button type="button" class="btn btn--secondary btn--sm" id="syncCurrentCampBtn" title="Sincronizar esta carpeta de Drive">
+                <i data-lucide="refresh-cw" aria-hidden="true"></i>
+                <span>Sincronizar Carpeta</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Nivel 1: Índice de Carpetas/Campañas en Tarjetas Visuales -->
+          <section class="campaign-index-section" id="campaignIndexSection">
+            <div class="section-subheading">
+              <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                <h3 class="section-subheading__title">
+                  <i data-lucide="folder-kanban" style="color: var(--color-brand-primary-light); width: 18px; height: 18px;"></i>
+                  <span>Carpetas de Campaña</span>
+                </h3>
+                <span style="font-size: 0.8125rem; color: var(--color-text-muted);" id="campaignsTotalCount">0 campañas</span>
+              </div>
+            </div>
+            <div class="campaign-folders-grid" id="campaignFoldersGrid"></div>
+          </section>
+
+          <!-- Barra de Herramientas del Catálogo -->
+          <div class="catalog-toolbar">
+            <div class="catalog-toolbar__row">
+              <!-- Buscador en tiempo real -->
+              <div class="catalog-toolbar__search">
+                <i data-lucide="search" class="catalog-toolbar__search-icon" aria-hidden="true"></i>
+                <input
+                  type="search"
+                  id="catalogSearchInput"
+                  class="catalog-toolbar__search-input"
+                  placeholder="Buscar por título, temática o palabra clave..."
+                  aria-label="Buscar clips en el catálogo"
+                >
+              </div>
+
+              <!-- Filtro Rápido por Campaña (Selector directo) -->
+              <select id="catalogCampaignFilter" class="catalog-select" aria-label="Filtrar por campaña">
+                <option value="all">Todas las Campañas</option>
+              </select>
+
+              <!-- Selector de Ordenación -->
+              <select id="catalogSortFilter" class="catalog-select" aria-label="Ordenar clips">
+                <option value="newest">Más recientes</option>
+                <option value="oldest">Más antiguos</option>
+                <option value="duration_desc">Mayor duración</option>
+                <option value="duration_asc">Menor duración</option>
+                <option value="title_asc">Título (A-Z)</option>
+              </select>
+
+              <!-- Selector de modo Grilla 9:16 vs Tabla Compacta -->
+              <div class="view-mode-toggle" role="group" aria-label="Modo de visualización de vídeos">
+                <button type="button" class="view-mode-btn view-mode-btn--active" data-view="grid" title="Vista en cuadrícula 9:16" aria-label="Vista en cuadrícula 9:16">
+                  <i data-lucide="layout-grid" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="view-mode-btn" data-view="table" title="Vista en tabla compacta" aria-label="Vista en tabla compacta">
+                  <i data-lucide="list" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Barra de Filtros tipo Tabs/Pills (Reemplaza al antiguo Select) -->
+            <div class="status-filter-bar-wrapper">
+              <div class="status-filter-bar" id="statusFilterBar" role="tablist" aria-label="Filtrar vídeos por estado">
+                <button type="button" class="status-pill status-pill--active" data-status="all" role="tab" aria-selected="true">
+                  <span>Todos</span>
+                  <span class="status-pill__count font-mono" id="pillCountAll">0</span>
+                </button>
+
+                <button type="button" class="status-pill" data-status="pending" role="tab" aria-selected="false">
+                  <span class="status-pill__icon" aria-hidden="true">⏳</span>
+                  <span>Sin editar</span>
+                  <span class="status-pill__count font-mono" id="pillCountPending">0</span>
+                </button>
+
+                <button type="button" class="status-pill" data-status="edited" role="tab" aria-selected="false">
+                  <span class="status-pill__icon" aria-hidden="true">✂️</span>
+                  <span>Editados</span>
+                  <span class="status-pill__count font-mono" id="pillCountEdited">0</span>
+                </button>
+
+                <button type="button" class="status-pill" data-status="ready_to_publish" role="tab" aria-selected="false">
+                  <span class="status-pill__icon" aria-hidden="true">🚀</span>
+                  <span>Listos para publicar</span>
+                  <span class="status-pill__count font-mono" id="pillCountReady">0</span>
+                </button>
+
+                <button type="button" class="status-pill status-pill--youtube" data-status="youtube" role="tab" aria-selected="false">
+                  <span class="status-pill__brand-svg" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" class="brand-svg brand-svg--youtube" aria-hidden="true">
+                      <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                      <polygon fill="#FFFFFF" points="9.545,15.568 15.818,12 9.545,8.432"/>
+                    </svg>
+                  </span>
+                  <span>YouTube</span>
+                  <span class="status-pill__count font-mono" id="pillCountYoutube">0</span>
+                </button>
+
+                <button type="button" class="status-pill status-pill--tiktok" data-status="tiktok" role="tab" aria-selected="false">
+                  <span class="status-pill__brand-svg" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" class="brand-svg brand-svg--tiktok" aria-hidden="true">
+                      <path fill="#00F2FE" transform="translate(-1, -1)" opacity="0.9" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                      <path fill="#FE2C55" transform="translate(1, 1)" opacity="0.9" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                      <path fill="#FFFFFF" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                    </svg>
+                  </span>
+                  <span>TikTok</span>
+                  <span class="status-pill__count font-mono" id="pillCountTiktok">0</span>
+                </button>
+
+                <button type="button" class="status-pill status-pill--instagram" data-status="instagram" role="tab" aria-selected="false">
+                  <span class="status-pill__brand-svg" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" class="brand-svg brand-svg--instagram" aria-hidden="true">
+                      <rect width="20" height="20" x="2" y="2" rx="5" fill="none" stroke="url(#igGradStat)" stroke-width="2"/>
+                      <circle cx="12" cy="12" r="4.2" fill="none" stroke="url(#igGradStat)" stroke-width="2"/>
+                      <circle cx="17.2" cy="6.8" r="1.2" fill="#bc1888"/>
+                    </svg>
+                  </span>
+                  <span>Instagram</span>
+                  <span class="status-pill__count font-mono" id="pillCountInstagram">0</span>
+                </button>
+
+                <button type="button" class="status-pill status-pill--facebook" data-status="facebook" role="tab" aria-selected="false">
+                  <span class="status-pill__brand-svg" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" class="brand-svg brand-svg--facebook" aria-hidden="true">
+                      <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                      <path fill="#FFFFFF" d="M16.67 15.543l.532-3.47h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.514V4.996s-1.374-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.643H7.078v3.47h3.047v8.385a12.09 12.09 0 0 0 3.75 0v-8.385h2.795z"/>
+                    </svg>
+                  </span>
+                  <span>Facebook</span>
+                  <span class="status-pill__count font-mono" id="pillCountFacebook">0</span>
+                </button>
+
+                <button type="button" class="status-pill" data-status="all_platforms" role="tab" aria-selected="false">
+                  <span class="status-pill__icon" aria-hidden="true">✨</span>
+                  <span>En todas</span>
+                  <span class="status-pill__count font-mono" id="pillCountAllPlatforms">0</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenedor con Modo Grilla / Modo Tabla -->
+          <div class="video-catalog video-catalog--grid" id="videoCatalogContainer">
+            <div class="video-cards-grid" id="catalogGrid"></div>
+          </div>
+        </div> <!-- Fin #catalogView -->
+
+        </div>
+      </main>
+    </div>
+
+    <!-- ====================================================================
+         Navegación Móvil Inferior (Bottom Navigation Bar)
+         ==================================================================== -->
+    <nav class="app-bottom-nav" aria-label="Navegación principal en móvil">
+      <a href="#dashboard" class="bottom-nav-link bottom-nav-link--active" id="bottomNavDashboardLink">
+        <i data-lucide="layout-dashboard" class="bottom-nav-link__icon" aria-hidden="true"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="#videos" class="bottom-nav-link" id="bottomNavCatalogLink">
+        <i data-lucide="film" class="bottom-nav-link__icon" aria-hidden="true"></i>
+        <span>Vídeos</span>
+      </a>
+      <a href="#pendientes" class="bottom-nav-link" id="bottomNavPendingLink">
+        <i data-lucide="clock" class="bottom-nav-link__icon" aria-hidden="true"></i>
+        <span>Publicar</span>
+      </a>
+      <a href="#campanas" class="bottom-nav-link" id="mobileManageCampaignsLink">
+        <i data-lucide="folder-kanban" class="bottom-nav-link__icon" aria-hidden="true"></i>
+        <span>Campañas</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- ====================================================================
+       Modal: Reproductor Integrado y Editor de Estados
+       ==================================================================== -->
+  <div class="modal-backdrop" id="videoPlayerModal" role="dialog" aria-modal="true" aria-labelledby="modalVideoTitle">
+    <div class="modal-dialog">
+      <header class="modal-dialog__header">
+        <h2 class="modal-dialog__title" id="modalVideoTitle">
+          <i data-lucide="film" aria-hidden="true"></i>
+          <span>Detalle del Clip</span>
+        </h2>
+        <button type="button" class="btn btn--outline btn--icon-only" id="closeModalButton" aria-label="Cerrar modal">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <div class="modal-dialog__body">
+        <div class="player-preview-card">
+          <div class="player-preview-card__frame-container" id="modalPlayerContainer"></div>
+          <div class="player-preview-card__controls-bar">
+            <span>Google Drive Video Preview</span>
+            <span class="font-mono" id="modalDurationLabel">Duración: 00:00</span>
+          </div>
+        </div>
+
+        <form class="modal-controls" onsubmit="event.preventDefault();">
+          <div class="control-field">
+            <span class="control-field__label">Estado del Montaje</span>
+            <div class="status-toggle">
+              <div class="status-toggle__label-group">
+                <i data-lucide="scissors" aria-hidden="true"></i>
+                <span>Vídeo Editado</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="modalEditToggle" checked aria-label="Marcar como editado">
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="control-field">
+            <span class="control-field__label">Subido a Redes Sociales</span>
+            <div class="platform-checklist">
+              <!-- YouTube Checkbox con Logo Oficial -->
+              <label class="platform-checkbox-card">
+                <input type="checkbox" name="platform" value="youtube" id="checkYoutube">
+                <svg viewBox="0 0 24 24" width="20" height="20" class="brand-svg brand-svg--youtube" aria-hidden="true">
+                  <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                  <polygon fill="#FFFFFF" points="9.545,15.568 15.818,12 9.545,8.432"/>
+                </svg>
+                <span class="platform-checkbox-card__name">YouTube</span>
+              </label>
+
+              <!-- TikTok Checkbox con Logo Oficial -->
+              <label class="platform-checkbox-card">
+                <input type="checkbox" name="platform" value="tiktok" id="checkTiktok">
+                <svg viewBox="0 0 24 24" width="20" height="20" class="brand-svg brand-svg--tiktok" aria-hidden="true">
+                  <path fill="#00F2FE" transform="translate(-1, -1)" opacity="0.9" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                  <path fill="#FE2C55" transform="translate(1, 1)" opacity="0.9" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                  <path fill="#FFFFFF" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.34 6.34 0 0 0-6.62 6.32 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.06a8.27 8.27 0 0 0 4.19 1.13V6.74c-.34 0-.67-.02-1-.05z"/>
+                </svg>
+                <span class="platform-checkbox-card__name">TikTok</span>
+              </label>
+
+              <!-- Instagram Checkbox con Logo Oficial -->
+              <label class="platform-checkbox-card">
+                <input type="checkbox" name="platform" value="instagram" id="checkInstagram">
+                <svg viewBox="0 0 24 24" width="20" height="20" class="brand-svg brand-svg--instagram" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="igGradPlayer" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#f09433"/>
+                      <stop offset="25%" stop-color="#e6683c"/>
+                      <stop offset="50%" stop-color="#dc2743"/>
+                      <stop offset="75%" stop-color="#cc2366"/>
+                      <stop offset="100%" stop-color="#bc1888"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="20" height="20" x="2" y="2" rx="5" fill="none" stroke="url(#igGradPlayer)" stroke-width="2"/>
+                  <circle cx="12" cy="12" r="4.2" fill="none" stroke="url(#igGradPlayer)" stroke-width="2"/>
+                  <circle cx="17.2" cy="6.8" r="1.2" fill="#bc1888"/>
+                </svg>
+                <span class="platform-checkbox-card__name">Instagram</span>
+              </label>
+
+              <!-- Facebook Checkbox con Logo Oficial -->
+              <label class="platform-checkbox-card">
+                <input type="checkbox" name="platform" value="facebook" id="checkFacebook">
+                <svg viewBox="0 0 24 24" width="20" height="20" class="brand-svg brand-svg--facebook" aria-hidden="true">
+                  <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  <path fill="#FFFFFF" d="M16.67 15.543l.532-3.47h-3.328v-2.25c0-.949.465-1.874 1.956-1.874h1.514V4.996s-1.374-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669v2.643H7.078v3.47h3.047v8.385a12.09 12.09 0 0 0 3.75 0v-8.385h2.795z"/>
+                </svg>
+                <span class="platform-checkbox-card__name">Facebook</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="control-field">
+            <label for="postUrlInput" class="control-field__label">Enlace de publicación (Opcional)</label>
+            <input
+              type="url"
+              id="postUrlInput"
+              class="form-input-text font-mono"
+              placeholder="https://tiktok.com/@clip/video/..."
+            >
+          </div>
+
+          <div class="control-field">
+            <label for="videoNotesInput" class="control-field__label">Notas u observaciones</label>
+            <textarea
+              id="videoNotesInput"
+              class="form-textarea"
+              placeholder="Notas de edición, sugerencias de subtítulos, correcciones de audio..."
+            ></textarea>
+          </div>
+        </form>
+      </div>
+
+      <footer class="modal-dialog__footer">
+        <button type="button" class="btn btn--outline" id="modalCancelButton">Cancelar</button>
+        <button type="button" class="btn btn--primary" id="modalSaveButton">Guardar Cambios</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       Modal: Gestión de Campañas (CRUD Completo)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="campaignManagerModal" role="dialog" aria-modal="true" aria-labelledby="campaignManagerTitle">
+    <div class="modal-dialog" style="max-width: 600px;">
+      <header class="modal-dialog__header">
+        <h2 class="modal-dialog__title" id="campaignManagerTitle">
+          <i data-lucide="folder-kanban" aria-hidden="true"></i>
+          <span>Gestión de Campañas y Carpetas</span>
+        </h2>
+        <button type="button" class="btn btn--outline btn--icon-only" id="closeCampaignManagerBtn" aria-label="Cerrar modal">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <div class="modal-dialog__body" style="display: flex; flex-direction: column; gap: var(--spacing-4);">
+        <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
+          Cada campaña está vinculada a una carpeta de Google Drive. Puedes añadir nuevas, modificar su color o nombre, o eliminarlas.
+        </p>
+
+        <div class="campaign-manage-list" id="campaignManagerList"></div>
+      </div>
+
+      <footer class="modal-dialog__footer" style="justify-content: space-between;">
+        <span style="font-size: 0.75rem; color: var(--color-text-muted);">Los cambios se sincronizan en PC y móvil.</span>
+        <button type="button" class="btn btn--primary" id="managerNewCampaignBtn">
+          <i data-lucide="plus" aria-hidden="true"></i>
+          <span>Nueva Campaña</span>
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       Modal: Crear / Editar Campaña
+       ==================================================================== -->
+  <div class="modal-backdrop" id="campaignModal" role="dialog" aria-modal="true" aria-labelledby="campaignModalTitle">
+    <div class="modal-dialog modal-dialog--compact">
+      <header class="modal-dialog__header">
+        <h2 class="modal-dialog__title" id="campaignModalTitle">
+          <i data-lucide="folder-plus" aria-hidden="true"></i>
+          <span>Nueva Campaña de Clipping</span>
+        </h2>
+        <button type="button" class="btn btn--outline btn--icon-only" id="closeCampaignModalBtn" aria-label="Cerrar modal">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <form id="campaignForm" class="modal-dialog__body">
+        <div id="campaignErrorAlert" class="form-alert form-alert--error" role="alert"></div>
+
+        <div class="control-field">
+          <label for="campaignNameInput" class="control-field__label">Nombre de la Campaña / Cliente</label>
+          <input
+            type="text"
+            id="campaignNameInput"
+            class="form-input-text"
+            required
+            placeholder="Ej: Finanzas Personales"
+          >
+        </div>
+
+        <div class="control-field">
+          <label for="campaignFolderInput" class="control-field__label">Enlace o ID de Carpeta de Google Drive</label>
+          <input
+            type="text"
+            id="campaignFolderInput"
+            class="form-input-text font-mono"
+            required
+            placeholder="https://drive.google.com/drive/folders/1A2B3C4D..."
+          >
+        </div>
+
+        <div class="control-field">
+          <span class="control-field__label">Color Distintivo</span>
+          <div style="display: flex; gap: var(--spacing-3); margin-top: var(--spacing-1);">
+            <label style="cursor: pointer;">
+              <input type="radio" name="campaignColor" value="#a855f7" checked style="display: none;">
+              <span class="campaign-item__color-dot" style="display: inline-block; width: 24px; height: 24px; background-color: #a855f7; border-radius: var(--radius-full); border: 2px solid #fff;"></span>
+            </label>
+            <label style="cursor: pointer;">
+              <input type="radio" name="campaignColor" value="#10b981" style="display: none;">
+              <span class="campaign-item__color-dot" style="display: inline-block; width: 24px; height: 24px; background-color: #10b981; border-radius: var(--radius-full);"></span>
+            </label>
+            <label style="cursor: pointer;">
+              <input type="radio" name="campaignColor" value="#f59e0b" style="display: none;">
+              <span class="campaign-item__color-dot" style="display: inline-block; width: 24px; height: 24px; background-color: #f59e0b; border-radius: var(--radius-full);"></span>
+            </label>
+            <label style="cursor: pointer;">
+              <input type="radio" name="campaignColor" value="#06b6d4" style="display: none;">
+              <span class="campaign-item__color-dot" style="display: inline-block; width: 24px; height: 24px; background-color: #06b6d4; border-radius: var(--radius-full);"></span>
+            </label>
+            <label style="cursor: pointer;">
+              <input type="radio" name="campaignColor" value="#ec4899" style="display: none;">
+              <span class="campaign-item__color-dot" style="display: inline-block; width: 24px; height: 24px; background-color: #ec4899; border-radius: var(--radius-full);"></span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: var(--spacing-3); margin-top: var(--spacing-4);">
+          <button type="button" class="btn btn--outline" id="cancelCampaignModalBtn">Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="saveCampaignBtn">Guardar Campaña</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       Modal: Confirmación de Eliminación de Campaña
+       ==================================================================== -->
+  <div class="modal-backdrop" id="deleteConfirmModal" role="dialog" aria-modal="true" aria-labelledby="deleteConfirmTitle">
+    <div class="modal-dialog modal-dialog--compact">
+      <header class="modal-dialog__header">
+        <h2 class="modal-dialog__title" id="deleteConfirmTitle" style="color: var(--color-status-danger);">
+          <i data-lucide="alert-triangle" aria-hidden="true"></i>
+          <span>¿Eliminar Campaña?</span>
+        </h2>
+      </header>
+      <div class="modal-dialog__body">
+        <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
+          Esta acción eliminará la campaña y desvinculará todos sus clips asociados del sistema. Los archivos originales en Google Drive <strong>no se borrarán</strong>.
+        </p>
+      </div>
+      <footer class="modal-dialog__footer">
+        <button type="button" class="btn btn--outline" id="cancelDeleteBtn">Cancelar</button>
+        <button type="button" class="btn btn--primary" id="confirmDeleteBtn" style="background: var(--color-status-danger); border-color: rgba(239, 68, 68, 0.4);">
+          Sí, Eliminar
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       Modal: Configuración de Google Drive (Apps Script / API Key)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="driveSettingsModal" role="dialog" aria-modal="true" aria-labelledby="driveSettingsTitle">
+    <div class="modal-dialog modal-dialog--settings">
+      <header class="modal-dialog__header">
+        <h2 class="modal-dialog__title" id="driveSettingsTitle">
+          <i data-lucide="cloud" aria-hidden="true"></i>
+          <span>Configuración de Google Drive</span>
+        </h2>
+        <button type="button" class="btn btn--outline btn--icon-only" id="closeDriveSettingsBtn" aria-label="Cerrar modal">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <form id="driveSettingsForm" class="modal-dialog__body">
+        <div id="driveSettingsErrorAlert" class="form-alert form-alert--error" role="alert"></div>
+
+        <!-- Estado de la sincronización -->
+        <div class="drive-status-banner" id="driveStatusBanner">
+          <span class="drive-status-indicator drive-status-indicator--warning" id="driveStatusIndicator"></span>
+          <div id="driveApiStatusText" style="flex: 1;">Comprobando estado de conexión con Google Drive...</div>
+        </div>
+
+        <!-- Opción A: Google Apps Script Web App (Recomendada) -->
+        <div class="drive-method-card drive-method-card--featured">
+          <div class="drive-method-card__header">
+            <div>
+              <div class="drive-method-card__title">
+                <i data-lucide="sparkles" style="color: var(--color-brand-primary-light); width: 18px; height: 18px;"></i>
+                <span>Opción A: Google Apps Script Web App</span>
+              </div>
+              <p class="drive-method-card__desc">
+                100% Gratuito y sin límites. No requiere cuenta de Google Cloud ni tarjetas de crédito.
+              </p>
+            </div>
+            <span class="badge badge--purple">Recomendada</span>
+          </div>
+
+          <div class="control-field">
+            <label for="driveAppsScriptUrlInput" class="control-field__label">URL de la Aplicación Web</label>
+            <input
+              type="url"
+              id="driveAppsScriptUrlInput"
+              class="form-input-text font-mono"
+              placeholder="https://script.google.com/macros/s/.../exec"
+              autocomplete="off"
+            >
+          </div>
+
+          <details class="drive-guide">
+            <summary class="drive-guide__summary">
+              <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+              <span>¿Cómo obtener la URL en 3 pasos (1 minuto)?</span>
+            </summary>
+            <div class="drive-guide__content">
+              <ol class="drive-guide__list">
+                <li>
+                  Ve a <a href="https://script.google.com" target="_blank" rel="noopener" style="color: var(--color-brand-primary-light); text-decoration: underline;">script.google.com</a> y pulsa en <strong>"Nuevo proyecto"</strong>.
+                </li>
+                <li>
+                  Borra el código que aparezca y pega el script de ClipFlow.
+                  <div style="margin-top: var(--spacing-2);">
+                    <button type="button" class="btn btn--outline btn--sm" id="copyAppsScriptCodeBtn" style="padding: 4px 10px; font-size: 0.75rem;">
+                      <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+                      <span>Copiar código de Apps Script</span>
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  Pulsa arriba a la derecha en <strong>Implementar > Nueva implementación</strong>:
+                  <ul style="padding-left: var(--spacing-4); margin-top: 4px;">
+                    <li>Tipo: <strong>Aplicación web</strong></li>
+                    <li>Ejecutar como: <strong>Yo</strong></li>
+                    <li>Quién tiene acceso: <strong>Cualquier usuario</strong></li>
+                  </ul>
+                </li>
+                <li>
+                  Pulsa en <strong>Implementar</strong>, autoriza los permisos y copia la <strong>"URL de la aplicación web"</strong> generada.
+                </li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Opción B: Google Drive API Key -->
+        <div class="drive-method-card drive-method-card--secondary">
+          <div class="drive-method-card__header">
+            <div>
+              <div class="drive-method-card__title">
+                <i data-lucide="key" style="color: var(--color-text-secondary); width: 18px; height: 18px;"></i>
+                <span>Opción B: Google Drive API Key</span>
+              </div>
+              <p class="drive-method-card__desc">
+                Para desarrolladores con proyecto en Google Cloud Console y API v3 habilitada.
+              </p>
+            </div>
+            <span class="badge badge--info">Avanzada</span>
+          </div>
+
+          <div class="control-field">
+            <label for="driveApiKeyInput" class="control-field__label">Google Drive API Key (v3)</label>
+            <input
+              type="text"
+              id="driveApiKeyInput"
+              class="form-input-text font-mono"
+              placeholder="AIzaSy..."
+              autocomplete="off"
+            >
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: var(--spacing-3); margin-top: var(--spacing-2);">
+          <button type="button" class="btn btn--outline" id="cancelDriveSettingsBtn">Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="saveDriveSettingsBtn">Guardar Configuración</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       Modal: Autenticación Simple (Login)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-dialog modal-dialog--compact">
+      <header class="modal-dialog__header">
+        <h2 class="modal-dialog__title" id="authModalTitle">
+          <i data-lucide="lock" aria-hidden="true"></i>
+          <span>Acceso al Gestor</span>
+        </h2>
+      </header>
+
+      <form id="authForm" class="modal-dialog__body">
+        <div id="authErrorAlert" class="form-alert form-alert--error" role="alert"></div>
+
+        <div class="control-field">
+          <label for="authUsername" class="control-field__label">Usuario</label>
+          <input
+            type="text"
+            id="authUsername"
+            class="form-input-text"
+            required
+            autocomplete="username"
+            placeholder="Usuario administrador"
+          >
+        </div>
+
+        <div class="control-field">
+          <label for="authPassword" class="control-field__label">Contraseña</label>
+          <input
+            type="password"
+            id="authPassword"
+            class="form-input-text"
+            required
+            autocomplete="current-password"
+            placeholder="••••••••••••"
+          >
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--spacing-2); margin-top: var(--spacing-1);">
+          <input type="checkbox" id="authRememberMe" style="width: 16px; height: 16px; accent-color: var(--color-accent-primary);">
+          <label for="authRememberMe" style="font-size: 0.875rem; color: var(--color-text-secondary); cursor: pointer;">
+            Mantener sesión iniciada (30 días)
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn--primary" id="authSubmitBtn" style="margin-top: var(--spacing-3); width: 100%;">
+          Iniciar Sesión
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

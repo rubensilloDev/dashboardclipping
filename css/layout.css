@@ -1,0 +1,251 @@
+/**
+ * Estilos de Layout y Estructura Mobile-First
+ * Gestiona el sistema de rejilla general, sidebar de escritorio,
+ * barra de navegación inferior móvil, header pegajoso (sticky) y contenedores.
+ */
+
+/* ==========================================================================
+   Contenedor Shell Principal
+   ========================================================================== */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-canvas);
+  position: relative;
+}
+
+/* ==========================================================================
+   Navegación Móvil Inferior (Visible por defecto en pantallas pequeñas <= 768px)
+   ========================================================================== */
+.app-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottom-nav-height);
+  background-color: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border-subtle);
+  z-index: var(--z-navigation-mobile);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 var(--spacing-2);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ==========================================================================
+   Sidebar Lateral de Escritorio (Oculto por defecto en móvil)
+   ========================================================================== */
+.app-sidebar {
+  display: none; /* Se activa en pantallas mayores a 768px */
+}
+
+/* ==========================================================================
+   Área de Trabajo y Contenido Principal
+   ========================================================================== */
+.app-workspace {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-width: 0; /* Previene desbordamiento en flexbox */
+}
+
+/* Header Sticky Superior */
+.app-header {
+  position: sticky;
+  top: 0;
+  height: var(--header-height);
+  background-color: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-4);
+  gap: var(--spacing-4);
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    height: auto;
+    padding: var(--spacing-3) var(--spacing-4);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-2);
+  }
+  .header-search {
+    max-width: 100%;
+    width: 100%;
+  }
+  .header-actions {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Main Scrollable Area */
+.app-main {
+  flex: 1;
+  width: 100%;
+  /* Padding inferior adicional para evitar que la barra móvil tape el contenido */
+  padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-8) + env(safe-area-inset-bottom, 0px));
+}
+
+.dashboard-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+/* ==========================================================================
+   Contenedores de Vistas SPA (Dashboard vs Catálogo)
+   ========================================================================== */
+.app-view {
+  display: none;
+  width: 100%;
+  animation: appViewFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.app-view--active {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+@keyframes appViewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Estructuras en Rejilla (Responsive Grids)
+   ========================================================================== */
+
+/* Rejilla de métricas estadísticas (1 columna en móvil, 2 en tablet, 4 en desktop) */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+}
+
+@media (min-width: 480px) {
+  .dashboard-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Rejilla analítica: Gráfico de plataformas + Lista de pendientes de publicar */
+.dashboard-analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+
+@media (min-width: 1024px) {
+  .dashboard-analytics-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+/* Rejilla secundaria: Progreso por campañas + Feed de actividad reciente */
+.dashboard-split-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+
+@media (min-width: 1024px) {
+  .dashboard-split-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Rejilla de vídeos destacados */
+.video-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-5);
+}
+
+@media (min-width: 640px) {
+  .video-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .video-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1380px) {
+  .video-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Modo Pantalla de Escritorio (> 768px)
+   ========================================================================== */
+@media (min-width: 769px) {
+  .app-shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+  }
+
+  /* Ocultar barra inferior en pantallas de escritorio */
+  .app-bottom-nav {
+    display: none;
+  }
+
+  /* Mostrar y fijar sidebar en escritorio */
+  .app-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-bg-surface);
+    border-right: 1px solid var(--color-border-subtle);
+    padding: var(--spacing-6) var(--spacing-4);
+    z-index: var(--z-sticky);
+    overflow-y: auto;
+  }
+
+  /* Padding estándar en escritorio sin necesidad de salvar barra inferior */
+  .app-main {
+    padding-bottom: var(--spacing-12);
+  }
+
+  .app-header {
+    padding: 0 var(--spacing-8);
+  }
+
+  .dashboard-content {
+    padding: var(--spacing-6) var(--spacing-8);
+    gap: var(--spacing-8);
+  }
+}

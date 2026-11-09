@@ -1,0 +1,2101 @@
+{
+  "campaigns": [
+    {
+      "id": "camp-eric-ponce",
+      "name": "Campaña Eric Ponce",
+      "color": "#6366f1",
+      "driveFolderId": "https://drive.google.com/drive/folders/1WnuZ40tZPvmQ_2IjL7naAH3m8k3Um4UM",
+      "createdAt": "2026-11-09T08:56:19.601Z"
+    },
+    {
+      "id": "camp-1794215563729",
+      "name": "Campañas de Clipping",
+      "color": "#a855f7",
+      "driveFolderId": "1m9BC2awrAAbNse_nhCegfibop09b2vp0",
+      "createdAt": "2026-11-09T09:12:43.729Z"
+    },
+    {
+      "id": "camp-1794215804152",
+      "name": "clips_feijoo",
+      "color": "#06b6d4",
+      "driveFolderId": "1QgRAD42ZYSAycYUzXk4leTdEriu3pVYl",
+      "createdAt": "2026-11-09T09:16:44.152Z"
+    },
+    {
+      "id": "camp-1794215804214",
+      "name": "pistachos",
+      "color": "#8b5cf6",
+      "driveFolderId": "1QT9VGSQWX-mvSGSCxEATeDyKlbi0CbGV",
+      "createdAt": "2026-11-09T09:16:44.214Z"
+    },
+    {
+      "id": "camp-1794215804252",
+      "name": "marco_escudero",
+      "color": "#14b8a6",
+      "driveFolderId": "1PtaF5VjTDMdcvoHBQQzr9_-GCK_R0iVP",
+      "createdAt": "2026-11-09T09:16:44.252Z"
+    },
+    {
+      "id": "camp-1794215804265",
+      "name": "clips_victtor",
+      "color": "#10b981",
+      "driveFolderId": "1kE1x8wCJBr-EL5Gi0l0f_zQzYVg8QSMm",
+      "createdAt": "2026-11-09T09:16:44.265Z"
+    },
+    {
+      "id": "camp-1794215804343",
+      "name": "MATERIAL_EDICION_PROPIO",
+      "color": "#06b6d4",
+      "driveFolderId": "16aIxGK_8m5ux_4LUAEGLv8k3BxDq9VwR",
+      "createdAt": "2026-11-09T09:16:44.343Z"
+    },
+    {
+      "id": "camp-1794215804352",
+      "name": "atack",
+      "color": "#8b5cf6",
+      "driveFolderId": "1X3jd5FqBNo3YPv0numJVnJVpkU9DfU1i",
+      "createdAt": "2026-11-09T09:16:44.352Z"
+    },
+    {
+      "id": "camp-1794215804366",
+      "name": "clips-juanca",
+      "color": "#14b8a6",
+      "driveFolderId": "1EBmSotwqNdWwgeSO7rDJoral9I_ZvxYS",
+      "createdAt": "2026-11-09T09:16:44.366Z"
+    },
+    {
+      "id": "camp-1794215804390",
+      "name": "eric sanchez",
+      "color": "#10b981",
+      "driveFolderId": "1LL4iKlps_u6sPruyC82j3twBzmOh6uRr",
+      "createdAt": "2026-11-09T09:16:44.390Z"
+    },
+    {
+      "id": "camp-1794215804503",
+      "name": "marryto",
+      "color": "#06b6d4",
+      "driveFolderId": "120u8sijsLcM7LmD6k2LOP__k0Ou5qb72",
+      "createdAt": "2026-11-09T09:16:44.503Z"
+    },
+    {
+      "id": "camp-1794215804543",
+      "name": "ruben holgado",
+      "color": "#8b5cf6",
+      "driveFolderId": "1Q9hjYr2o2ugYuU45pIUii9_aIzcakAmg",
+      "createdAt": "2026-11-09T09:16:44.543Z"
+    },
+    {
+      "id": "camp-1794215804552",
+      "name": "Monge malo clips",
+      "color": "#14b8a6",
+      "driveFolderId": "1AvYHF34GwusYD9G_DUS5T0rqzBBNZggT",
+      "createdAt": "2026-11-09T09:16:44.552Z"
+    },
+    {
+      "id": "camp-1794215804592",
+      "name": "Marc Verdú Clips",
+      "color": "#10b981",
+      "driveFolderId": "1ti2Y77_KsiL9gdPdbNUEb5UE1GZUWiCo",
+      "createdAt": "2026-11-09T09:16:44.592Z"
+    }
+  ],
+  "videos": [
+    {
+      "id": "vid-1794214582277-65",
+      "campaignId": "camp-eric-ponce",
+      "driveFileId": "1SPkb1EuftwxIRvd-XvScUBHX8dwgxZnc",
+      "title": "eric_ponce_02",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1SPkb1EuftwxIRvd-XvScUBHX8dwgxZnc=w400",
+      "duration": "00:45",
+      "isEdited": true,
+      "platforms": {
+        "youtube": true,
+        "tiktok": true,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Detectado automáticamente en Google Drive",
+      "createdAt": "2026-11-09T08:56:22.277Z",
+      "updatedAt": "2026-11-09T08:59:41.488Z"
+    },
+    {
+      "id": "vid-1794214582281-356",
+      "campaignId": "camp-eric-ponce",
+      "driveFileId": "1NyZsN-JCsmXVpQCetWegm3HGD21mJp6m",
+      "title": "New project",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1NyZsN-JCsmXVpQCetWegm3HGD21mJp6m=w400",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Detectado automáticamente en Google Drive",
+      "createdAt": "2026-11-09T08:56:22.281Z",
+      "updatedAt": "2026-11-09T08:56:22.281Z"
+    },
+    {
+      "id": "vid-1794215804156-311",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "14JuUSVXEnsAFt5vaP8Q_fNgwVEjSex7k",
+      "title": "clip_16_regulacion_y_videos_falsos_con_ia",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/14JuUSVXEnsAFt5vaP8Q_fNgwVEjSex7k=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.156Z",
+      "updatedAt": "2026-11-09T09:16:44.156Z"
+    },
+    {
+      "id": "vid-1794215804158-856",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "15yhRI8963J0sBmE755e32waWKX4weqAo",
+      "title": "clip_15_reforma_de_la_ley_de_eutanasia",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/15yhRI8963J0sBmE755e32waWKX4weqAo=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.158Z",
+      "updatedAt": "2026-11-09T09:16:44.158Z"
+    },
+    {
+      "id": "vid-1794215804162-36",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1CPDsqOyA-oweZa0y1CgMfNZ55pvLJOcC",
+      "title": "clip_14_aborto_y_consentimiento_paterno_en_menores",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CPDsqOyA-oweZa0y1CgMfNZ55pvLJOcC=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.162Z",
+      "updatedAt": "2026-11-09T09:16:44.162Z"
+    },
+    {
+      "id": "vid-1794215804166-266",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1SM6wjELWXESg1rZ47JJ4UwYXHMOsv7jo",
+      "title": "clip_13_reestructuracion_del_ministerio_de_igualdad",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1SM6wjELWXESg1rZ47JJ4UwYXHMOsv7jo=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.166Z",
+      "updatedAt": "2026-11-09T09:16:44.166Z"
+    },
+    {
+      "id": "vid-1794215804169-619",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1S-s1nK_DXzLA3Fqq2r3loLojf6cMlWyL",
+      "title": "clip_12_pactos_con_vox_y_estabilidad_de_gobierno",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1S-s1nK_DXzLA3Fqq2r3loLojf6cMlWyL=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.169Z",
+      "updatedAt": "2026-11-09T09:16:44.169Z"
+    },
+    {
+      "id": "vid-1794215804172-409",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1qiIT3borGF4pUcLJ_w0h9nu2wY--1dCF",
+      "title": "clip_11_cambio_de_gobierno_segunda_mencion",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1qiIT3borGF4pUcLJ_w0h9nu2wY--1dCF=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.172Z",
+      "updatedAt": "2026-11-09T09:16:44.172Z"
+    },
+    {
+      "id": "vid-1794215804175-148",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1IBmcBYiJud5Fjpl6ZbqliCDOZmO4hl-U",
+      "title": "clip_10_cambio_de_gobierno_y_frenar_a_pedro_sanchez",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1IBmcBYiJud5Fjpl6ZbqliCDOZmO4hl-U=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.175Z",
+      "updatedAt": "2026-11-09T09:16:44.175Z"
+    },
+    {
+      "id": "vid-1794215804179-339",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1WZV87uRVgu2IX8-MDMDfAozYiCestHI7",
+      "title": "clip_09_500000_ayudas_sin_trabajar",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1WZV87uRVgu2IX8-MDMDfAozYiCestHI7=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.179Z",
+      "updatedAt": "2026-11-09T09:16:44.179Z"
+    },
+    {
+      "id": "vid-1794215804185-248",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1KEAFr3yLrULAw-M1qox7LbsaKD6cVm15",
+      "title": "clip_08_espana_ha_roto_ya_con_pedro_sanchez",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1KEAFr3yLrULAw-M1qox7LbsaKD6cVm15=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.185Z",
+      "updatedAt": "2026-11-09T09:16:44.185Z"
+    },
+    {
+      "id": "vid-1794215804187-33",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1_iXu6J8j1g88qf4n0IuIPh55ukts12cQ",
+      "title": "clip_06_no_quiero_ser_presidente_tiktoker",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1_iXu6J8j1g88qf4n0IuIPh55ukts12cQ=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.187Z",
+      "updatedAt": "2026-11-09T09:16:44.187Z"
+    },
+    {
+      "id": "vid-1794215804190-265",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1Ux3XDhZmIxfMaoQp2b8QAkpPioBFb79h",
+      "title": "clip_07_hacer_oposicion_a_tu_pais",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Ux3XDhZmIxfMaoQp2b8QAkpPioBFb79h=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.190Z",
+      "updatedAt": "2026-11-09T09:16:44.190Z"
+    },
+    {
+      "id": "vid-1794215804193-438",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1IGMhT5QJ4kJwok1xFIj9jOcrgnIWKkj5",
+      "title": "clip_05_se_acabo_el_chantaje_politico",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1IGMhT5QJ4kJwok1xFIj9jOcrgnIWKkj5=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.193Z",
+      "updatedAt": "2026-11-09T09:16:44.193Z"
+    },
+    {
+      "id": "vid-1794215804196-684",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1jUvva0EEltBUULXJA9lAiRucckWHrlEY",
+      "title": "clip_04_el_dinero_publico_cuesta_esfuerzo",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1jUvva0EEltBUULXJA9lAiRucckWHrlEY=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.196Z",
+      "updatedAt": "2026-11-09T09:16:44.196Z"
+    },
+    {
+      "id": "vid-1794215804201-595",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1_ayHUHK9hOYYBLpKkA_E32MckO55kL0i",
+      "title": "clip_03_presupuestos_y_dimision",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1_ayHUHK9hOYYBLpKkA_E32MckO55kL0i=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.201Z",
+      "updatedAt": "2026-11-09T09:16:44.201Z"
+    },
+    {
+      "id": "vid-1794215804204-463",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1_6aHGXJHnGS95Kh_SuZ5TuPTP-uNfV1j",
+      "title": "clip_02_vivienda_y_ocupacion",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1_6aHGXJHnGS95Kh_SuZ5TuPTP-uNfV1j=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.204Z",
+      "updatedAt": "2026-11-09T09:16:44.204Z"
+    },
+    {
+      "id": "vid-1794215804207-248",
+      "campaignId": "camp-1794215804152",
+      "driveFileId": "1yYhnGirm5KSRggcFOYKxTD-ghrd_Ihwf",
+      "title": "clip_01_liderazgo_y_ayuso",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1yYhnGirm5KSRggcFOYKxTD-ghrd_Ihwf=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_feijoo\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.207Z",
+      "updatedAt": "2026-11-09T09:16:44.207Z"
+    },
+    {
+      "id": "vid-1794215804218-831",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1B-lZv9xi4xP-R_-20TcYTbmXJmBodxSO",
+      "title": "05_El_lado_oscuro_de_forrarse_con_pistachos",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1B-lZv9xi4xP-R_-20TcYTbmXJmBodxSO=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.218Z",
+      "updatedAt": "2026-11-09T09:16:44.219Z"
+    },
+    {
+      "id": "vid-1794215804221-989",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1L35_K8ZGpnAiDAZzYDer1QeLGGrttTCo",
+      "title": "02_La_mafia_del_helado_de_pistacho_italiano",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1L35_K8ZGpnAiDAZzYDer1QeLGGrttTCo=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.221Z",
+      "updatedAt": "2026-11-09T09:16:44.221Z"
+    },
+    {
+      "id": "vid-1794215804224-230",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1nJXt1sWaWC7Pfpwb8SvDXPvHP1jiNdu_",
+      "title": "10_El_plan_maestro_para_facturar_15_millones_de_euros",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1nJXt1sWaWC7Pfpwb8SvDXPvHP1jiNdu_=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.224Z",
+      "updatedAt": "2026-11-09T09:16:44.224Z"
+    },
+    {
+      "id": "vid-1794215804227-651",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1b70g9LMedPG5N_tpZWybp2dQABEmgYQU",
+      "title": "04_Los_campos_de_golf_tienen_mas_poder_que_la_comida",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1b70g9LMedPG5N_tpZWybp2dQABEmgYQU=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.227Z",
+      "updatedAt": "2026-11-09T09:16:44.227Z"
+    },
+    {
+      "id": "vid-1794215804231-778",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1GJcMy2J7XXWTMXxc4KeTLTi5a8mCGZFB",
+      "title": "09_Los_perros_son_los_nuevos_hijos",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1GJcMy2J7XXWTMXxc4KeTLTi5a8mCGZFB=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.231Z",
+      "updatedAt": "2026-11-09T09:16:44.231Z"
+    },
+    {
+      "id": "vid-1794215804234-685",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1QHXhKyHhJm2rIpw5NPPFPvQAuB1bv_86",
+      "title": "08_Nadie_quiere_trabajar_en_el_campo_en_Espana",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1QHXhKyHhJm2rIpw5NPPFPvQAuB1bv_86=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.234Z",
+      "updatedAt": "2026-11-09T09:16:44.234Z"
+    },
+    {
+      "id": "vid-1794215804237-222",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1N8RtnrH3lQyCoi8szFMRRerN__Buy1Uo",
+      "title": "06_Quien_gana_dinero_REALMENTE_en_el_campo",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1N8RtnrH3lQyCoi8szFMRRerN__Buy1Uo=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.237Z",
+      "updatedAt": "2026-11-09T09:16:44.237Z"
+    },
+    {
+      "id": "vid-1794215804240-9",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1GVuvvSy6P-MRAuu_cLcGahXBC5TKDe0Z",
+      "title": "07_El_truco_para_retener_el_100_de_tu_empresa_millonaria",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1GVuvvSy6P-MRAuu_cLcGahXBC5TKDe0Z=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.240Z",
+      "updatedAt": "2026-11-09T09:16:44.240Z"
+    },
+    {
+      "id": "vid-1794215804243-334",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1tSdmdsKM_Qf4HcO97vXk4X0GqXZYqxR1",
+      "title": "01_La_gran_mentira_de_la_fiebre_del_pistacho",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1tSdmdsKM_Qf4HcO97vXk4X0GqXZYqxR1=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.243Z",
+      "updatedAt": "2026-11-09T09:16:44.243Z"
+    },
+    {
+      "id": "vid-1794215804246-446",
+      "campaignId": "camp-1794215804214",
+      "driveFileId": "1i3PfHBnGLf4FiuSIiYwNtOcjoC4CzZXO",
+      "title": "03_Le_estas_dando_comida_basura_a_tu_perro",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1i3PfHBnGLf4FiuSIiYwNtOcjoC4CzZXO=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"pistachos\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.246Z",
+      "updatedAt": "2026-11-09T09:16:44.246Z"
+    },
+    {
+      "id": "vid-1794215804256-671",
+      "campaignId": "camp-1794215804252",
+      "driveFileId": "1H5rmIMC24sAzszYL4LtTO5GBY5elGjGA",
+      "title": "marco_clip02_final",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1H5rmIMC24sAzszYL4LtTO5GBY5elGjGA=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marco_escudero\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.256Z",
+      "updatedAt": "2026-11-09T09:16:44.256Z"
+    },
+    {
+      "id": "vid-1794215804259-126",
+      "campaignId": "camp-1794215804252",
+      "driveFileId": "15ZWo-v5uKV1ceay0alBOCrAYMnv7agbf",
+      "title": "marco_escudero_clip_final",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/15ZWo-v5uKV1ceay0alBOCrAYMnv7agbf=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marco_escudero\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.259Z",
+      "updatedAt": "2026-11-09T09:16:44.259Z"
+    },
+    {
+      "id": "vid-1794215804269-371",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1jW3dftMCs2JEUmHhCD4K5kFlVMAC1aVO",
+      "title": "victtor_3en1_clip3_v3_motivational",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1jW3dftMCs2JEUmHhCD4K5kFlVMAC1aVO=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.269Z",
+      "updatedAt": "2026-11-09T09:16:44.269Z"
+    },
+    {
+      "id": "vid-1794215804272-337",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1ALC1Iu2e8IDJtcsLweppVoQijWlyn3oE",
+      "title": "victtor_3en1_clip3_v2_clean_voice",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1ALC1Iu2e8IDJtcsLweppVoQijWlyn3oE=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.273Z",
+      "updatedAt": "2026-11-09T09:16:44.273Z"
+    },
+    {
+      "id": "vid-1794215804275-566",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1OjfMU0_eL8A3uBVCio4498iY8jJjOV88",
+      "title": "victtor_3en1_clip3_v1_original",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1OjfMU0_eL8A3uBVCio4498iY8jJjOV88=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.275Z",
+      "updatedAt": "2026-11-09T09:16:44.275Z"
+    },
+    {
+      "id": "vid-1794215804278-805",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1YOeDEgHkhNN2Hy5qc8XrEy_WSGI1RB9e",
+      "title": "victtor_3en1_clip2_v3_motivational",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1YOeDEgHkhNN2Hy5qc8XrEy_WSGI1RB9e=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.278Z",
+      "updatedAt": "2026-11-09T09:16:44.278Z"
+    },
+    {
+      "id": "vid-1794215804283-363",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1GTcgEyz0WpDIPcsMNrywTl6plOG69bAY",
+      "title": "victtor_3en1_clip2_v2_clean_voice",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1GTcgEyz0WpDIPcsMNrywTl6plOG69bAY=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.283Z",
+      "updatedAt": "2026-11-09T09:16:44.283Z"
+    },
+    {
+      "id": "vid-1794215804285-377",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1CagLHZjQBpnidEyPyhcSERgj3UT-Oy7M",
+      "title": "victtor_3en1_clip2_v1_original",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CagLHZjQBpnidEyPyhcSERgj3UT-Oy7M=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.285Z",
+      "updatedAt": "2026-11-09T09:16:44.285Z"
+    },
+    {
+      "id": "vid-1794215804288-222",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1Wr_wyUQXygWq_I6xG9R6P6fzrlMTSpzt",
+      "title": "victtor_3en1_clip1_v3_motivational",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1Wr_wyUQXygWq_I6xG9R6P6fzrlMTSpzt=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.288Z",
+      "updatedAt": "2026-11-09T09:16:44.288Z"
+    },
+    {
+      "id": "vid-1794215804291-126",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1SFwWeZGhqC_5NZhUYji0nuTcTkVOD4iR",
+      "title": "victtor_3en1_clip1_v2_clean_voice",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1SFwWeZGhqC_5NZhUYji0nuTcTkVOD4iR=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.291Z",
+      "updatedAt": "2026-11-09T09:16:44.291Z"
+    },
+    {
+      "id": "vid-1794215804294-419",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "15Xn2odnalqLPvDiWUdadvRKdVBihi2aY",
+      "title": "victtor_3en1_clip1_v1_original",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/15Xn2odnalqLPvDiWUdadvRKdVBihi2aY=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.294Z",
+      "updatedAt": "2026-11-09T09:16:44.294Z"
+    },
+    {
+      "id": "vid-1794215804298-379",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1ft4olP37NuTT1oNFM0Q2011D4sMOvg8l",
+      "title": "3en1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1ft4olP37NuTT1oNFM0Q2011D4sMOvg8l=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.298Z",
+      "updatedAt": "2026-11-09T09:16:44.298Z"
+    },
+    {
+      "id": "vid-1794215804301-53",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1AQdXV5vpeaBrzu4CMPO09M9JZTurlydp",
+      "title": "clip_movil_victtor_raw",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1AQdXV5vpeaBrzu4CMPO09M9JZTurlydp=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.301Z",
+      "updatedAt": "2026-11-09T09:16:44.301Z"
+    },
+    {
+      "id": "vid-1794215804304-601",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1OqAbzH8FBj0MMx7zvehrPnhZXwhXS26m",
+      "title": "clip02_victtor_raw",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1OqAbzH8FBj0MMx7zvehrPnhZXwhXS26m=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.304Z",
+      "updatedAt": "2026-11-09T09:16:44.304Z"
+    },
+    {
+      "id": "vid-1794215804307-391",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1CpYUBe-FJencdWdiDkAFtScHj2ZTWGYa",
+      "title": "clip02-victtor-raw",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CpYUBe-FJencdWdiDkAFtScHj2ZTWGYa=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.307Z",
+      "updatedAt": "2026-11-09T09:16:44.307Z"
+    },
+    {
+      "id": "vid-1794215804311-786",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1CWq0D70cvj-CwcYZPx48Q62yDT-tBl5J",
+      "title": "clip-movil-victtor-raw",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1CWq0D70cvj-CwcYZPx48Q62yDT-tBl5J=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.311Z",
+      "updatedAt": "2026-11-09T09:16:44.311Z"
+    },
+    {
+      "id": "vid-1794215804316-170",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1XAWNGYWtcppueQau1yYKUx0Ya_pfuhq7",
+      "title": "1bb2f60ad1bd4a5a9977ab883b9d7f51",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1XAWNGYWtcppueQau1yYKUx0Ya_pfuhq7=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.316Z",
+      "updatedAt": "2026-11-09T09:16:44.316Z"
+    },
+    {
+      "id": "vid-1794215804319-9",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "16kqpPE0YD3p7X6aSnrBru8g-pjKt-n6S",
+      "title": "03581539eca24419a797572d511c6eeb",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/16kqpPE0YD3p7X6aSnrBru8g-pjKt-n6S=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.319Z",
+      "updatedAt": "2026-11-09T09:16:44.319Z"
+    },
+    {
+      "id": "vid-1794215804322-734",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1ApdS9XR7H1_oQlcEm3PbADBaAZUKhE6d",
+      "title": "clip03-victtor",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1ApdS9XR7H1_oQlcEm3PbADBaAZUKhE6d=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.322Z",
+      "updatedAt": "2026-11-09T09:16:44.322Z"
+    },
+    {
+      "id": "vid-1794215804326-606",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "10E2ORuwL1PLbqpElXR3bn1ZHhxXY1V1j",
+      "title": "clip02-victtor",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/10E2ORuwL1PLbqpElXR3bn1ZHhxXY1V1j=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.326Z",
+      "updatedAt": "2026-11-09T09:16:44.326Z"
+    },
+    {
+      "id": "vid-1794215804332-556",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1RHfZ9sQBAcQKrKv95fz1UXicutuW3PrF",
+      "title": "victtor_clip_01",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1RHfZ9sQBAcQKrKv95fz1UXicutuW3PrF=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.332Z",
+      "updatedAt": "2026-11-09T09:16:44.332Z"
+    },
+    {
+      "id": "vid-1794215804337-421",
+      "campaignId": "camp-1794215804265",
+      "driveFileId": "1b_X22PAqydNXaYpsz6Bd_dkb1tZ4XLz4",
+      "title": "878f6e95c7e14363955cec3d3570a476",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1b_X22PAqydNXaYpsz6Bd_dkb1tZ4XLz4=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips_victtor\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.337Z",
+      "updatedAt": "2026-11-09T09:16:44.337Z"
+    },
+    {
+      "id": "vid-1794215804358-559",
+      "campaignId": "camp-1794215804352",
+      "driveFileId": "1YArMAD4WkiHuaBLmFqMPxUTTsVW-UJ_i",
+      "title": "Untitled project 9",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1YArMAD4WkiHuaBLmFqMPxUTTsVW-UJ_i=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"atack\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.358Z",
+      "updatedAt": "2026-11-09T09:16:44.358Z"
+    },
+    {
+      "id": "vid-1794215804370-805",
+      "campaignId": "camp-1794215804366",
+      "driveFileId": "13iHgFp2l0YAY_4xuh5Whc7GbydMVlatR",
+      "title": "Clip 04 - Sobreviví 24 Horas Comiendo Solo Comida Callejera en China",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/13iHgFp2l0YAY_4xuh5Whc7GbydMVlatR=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-juanca\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.370Z",
+      "updatedAt": "2026-11-09T09:16:44.370Z"
+    },
+    {
+      "id": "vid-1794215804374-877",
+      "campaignId": "camp-1794215804366",
+      "driveFileId": "1BoLQNzR0fb-FAqtsJTLo5lqcBgFbIANR",
+      "title": "Clip 03 - Sobreviví 24 Horas Comiendo Solo Comida Callejera en China",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1BoLQNzR0fb-FAqtsJTLo5lqcBgFbIANR=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-juanca\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.374Z",
+      "updatedAt": "2026-11-09T09:16:44.374Z"
+    },
+    {
+      "id": "vid-1794215804378-779",
+      "campaignId": "camp-1794215804366",
+      "driveFileId": "1ToXbEFfd-Su1ruidv20WWos2foIAVgsu",
+      "title": "Clip 02 - Sobreviví 24 Horas Comiendo Solo Comida Callejera en China",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1ToXbEFfd-Su1ruidv20WWos2foIAVgsu=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-juanca\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.378Z",
+      "updatedAt": "2026-11-09T09:16:44.378Z"
+    },
+    {
+      "id": "vid-1794215804383-197",
+      "campaignId": "camp-1794215804366",
+      "driveFileId": "1d0UEsIODedV2erv7-Zbzy4HN6d1iJgV3",
+      "title": "Clip 01 - Sobreviví 24 Horas Comiendo Solo Comida Callejera en China",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1d0UEsIODedV2erv7-Zbzy4HN6d1iJgV3=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"clips-juanca\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.383Z",
+      "updatedAt": "2026-11-09T09:16:44.383Z"
+    },
+    {
+      "id": "vid-1794215804395-572",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1OQRc-d3ydaZMH_TglZ9i3qmbkdyCwzII",
+      "title": "04_que_pasa_si_estalla_una_guerra",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1OQRc-d3ydaZMH_TglZ9i3qmbkdyCwzII=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.395Z",
+      "updatedAt": "2026-11-09T09:16:44.395Z"
+    },
+    {
+      "id": "vid-1794215804443-261",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1NKxNX1S_bkXBAwaYOBXRk-1rMQjLrVG8",
+      "title": "11_la_sec_anuncia_todo_tokenizado",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1NKxNX1S_bkXBAwaYOBXRk-1rMQjLrVG8=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.443Z",
+      "updatedAt": "2026-11-09T09:16:44.443Z"
+    },
+    {
+      "id": "vid-1794215804449-770",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "14i0yprMDWDyHU_zRaUTEHXQFmpdBZiUd",
+      "title": "10_levantaban_10_millones_vendiendo_humo",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/14i0yprMDWDyHU_zRaUTEHXQFmpdBZiUd=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.449Z",
+      "updatedAt": "2026-11-09T09:16:44.449Z"
+    },
+    {
+      "id": "vid-1794215804453-996",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1dL-cNC6v2HMwDgE_uk7EJ712mhHT76YG",
+      "title": "02_el_banco_nos_cerro_la_cuenta",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1dL-cNC6v2HMwDgE_uk7EJ712mhHT76YG=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.453Z",
+      "updatedAt": "2026-11-09T09:16:44.453Z"
+    },
+    {
+      "id": "vid-1794215804456-272",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "15f3AhhiJfubhapNJ4POXXcVvFloa5Jnj",
+      "title": "09_el_truco_de_las_fichas_de_casino",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/15f3AhhiJfubhapNJ4POXXcVvFloa5Jnj=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.456Z",
+      "updatedAt": "2026-11-09T09:16:44.456Z"
+    },
+    {
+      "id": "vid-1794215804459-213",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1EN38HhJguQLyuNrJwaW4w14yBxQ5ZMCl",
+      "title": "08_encuentran_ruinas_romanas_en_la_obra",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1EN38HhJguQLyuNrJwaW4w14yBxQ5ZMCl=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.459Z",
+      "updatedAt": "2026-11-09T09:16:44.459Z"
+    },
+    {
+      "id": "vid-1794215804466-569",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1mW0dlB4hAGbtDONULv_4FMkb0JsKPLPj",
+      "title": "07_y_si_aparecen_los_narcos",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1mW0dlB4hAGbtDONULv_4FMkb0JsKPLPj=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.466Z",
+      "updatedAt": "2026-11-09T09:16:44.466Z"
+    },
+    {
+      "id": "vid-1794215804469-462",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1h26pDq7zenNLHSVNB2Iik23ZKj42wRAC",
+      "title": "06_a_los_33_anos_dejas_de_ser_deportista",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1h26pDq7zenNLHSVNB2Iik23ZKj42wRAC=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.469Z",
+      "updatedAt": "2026-11-09T09:16:44.469Z"
+    },
+    {
+      "id": "vid-1794215804472-265",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1tW7e-vocFwnNWkfbErsI0-IclzVl4ajJ",
+      "title": "05_casa_en_el_barrio_salamanca_por_100",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1tW7e-vocFwnNWkfbErsI0-IclzVl4ajJ=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.472Z",
+      "updatedAt": "2026-11-09T09:16:44.472Z"
+    },
+    {
+      "id": "vid-1794215804475-737",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1DzKyK5e-rv4ZR0Sh5frTFQ51UszL-3mU",
+      "title": "03_de_un_130_a_un_260_en_10_anos",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1DzKyK5e-rv4ZR0Sh5frTFQ51UszL-3mU=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.475Z",
+      "updatedAt": "2026-11-09T09:16:44.475Z"
+    },
+    {
+      "id": "vid-1794215804481-591",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1k-iz_yRk0yKpQzUQhjwHjlv2PsCeEd8A",
+      "title": "01_el_piso_de_300000_pesima_inversion",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1k-iz_yRk0yKpQzUQhjwHjlv2PsCeEd8A=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.481Z",
+      "updatedAt": "2026-11-09T09:16:44.481Z"
+    },
+    {
+      "id": "vid-1794215804485-963",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1kCm-18HrJ1zjpubmt8GZHA1vd2y9UWH9",
+      "title": "07_fichas_casino_tokenizacion",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1kCm-18HrJ1zjpubmt8GZHA1vd2y9UWH9=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.485Z",
+      "updatedAt": "2026-11-09T09:16:44.485Z"
+    },
+    {
+      "id": "vid-1794215804491-705",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1NEqQ1alIFc_9S7vETKO1ciYnUAcf7FIX",
+      "title": "clip_05_eric_sancez_baloncesto",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1NEqQ1alIFc_9S7vETKO1ciYnUAcf7FIX=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.491Z",
+      "updatedAt": "2026-11-09T09:16:44.491Z"
+    },
+    {
+      "id": "vid-1794215804497-878",
+      "campaignId": "camp-1794215804390",
+      "driveFileId": "1SdFKZLCqYOOKShsHmnZS9IUzIBh1RKBV",
+      "title": "clip01_eric_sanchez_300k_euros",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1SdFKZLCqYOOKShsHmnZS9IUzIBh1RKBV=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"eric sanchez\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.497Z",
+      "updatedAt": "2026-11-09T09:16:44.498Z"
+    },
+    {
+      "id": "vid-1794215804507-725",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1lrnQDHLe5jT3iHDd8-9e9vUecnHupbLR",
+      "title": "02_comiendo_insectos_callejeros",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1lrnQDHLe5jT3iHDd8-9e9vUecnHupbLR=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.507Z",
+      "updatedAt": "2026-11-09T09:16:44.507Z"
+    },
+    {
+      "id": "vid-1794215804510-233",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1yfydP8kc4LalZl2MOOxQvSCaL0g9vZUA",
+      "title": "06_nba_precio_risa",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1yfydP8kc4LalZl2MOOxQvSCaL0g9vZUA=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.510Z",
+      "updatedAt": "2026-11-09T09:16:44.510Z"
+    },
+    {
+      "id": "vid-1794215804515-335",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1gmqVFv3dcRXYKDeBoOk4BN96ep7kRmHn",
+      "title": "03_problema_iphone17_usa_latam",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1gmqVFv3dcRXYKDeBoOk4BN96ep7kRmHn=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.515Z",
+      "updatedAt": "2026-11-09T09:16:44.515Z"
+    },
+    {
+      "id": "vid-1794215804518-705",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1LkcxcZndBfL25lB8JeCLvmfaPN3FPhxM",
+      "title": "08_lucha_libre_primera_fila",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1LkcxcZndBfL25lB8JeCLvmfaPN3FPhxM=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.518Z",
+      "updatedAt": "2026-11-09T09:16:44.518Z"
+    },
+    {
+      "id": "vid-1794215804521-752",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "179IKDaiCsXGUDYbC--xKQ7bhMDF9RwEf",
+      "title": "10_verdad_mcdonalds_usa",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/179IKDaiCsXGUDYbC--xKQ7bhMDF9RwEf=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.521Z",
+      "updatedAt": "2026-11-09T09:16:44.521Z"
+    },
+    {
+      "id": "vid-1794215804524-678",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1PYxECNiTJYSpeSV5XxqUmP9wAsjRcJGB",
+      "title": "09_sandia_miniatura_precios_miami",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1PYxECNiTJYSpeSV5XxqUmP9wAsjRcJGB=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.524Z",
+      "updatedAt": "2026-11-09T09:16:44.524Z"
+    },
+    {
+      "id": "vid-1794215804527-983",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "13Cg-7UR_mC8UG04KvKXINf5qXbYdSNzw",
+      "title": "07_ropa_carisima_vs_barata_zara",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/13Cg-7UR_mC8UG04KvKXINf5qXbYdSNzw=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.527Z",
+      "updatedAt": "2026-11-09T09:16:44.527Z"
+    },
+    {
+      "id": "vid-1794215804532-775",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1cGMf-M8JVoKnVPThrZaGDNIyxgsAFE-y",
+      "title": "04_inicio_reto_shock_miami",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1cGMf-M8JVoKnVPThrZaGDNIyxgsAFE-y=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.532Z",
+      "updatedAt": "2026-11-09T09:16:44.532Z"
+    },
+    {
+      "id": "vid-1794215804535-697",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1icZMdBQMj69aPFCRYYfeZ6_cqQGXHfM8",
+      "title": "01_chollo_ps5_miami",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1icZMdBQMj69aPFCRYYfeZ6_cqQGXHfM8=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.535Z",
+      "updatedAt": "2026-11-09T09:16:44.535Z"
+    },
+    {
+      "id": "vid-1794215804538-32",
+      "campaignId": "camp-1794215804503",
+      "driveFileId": "1crKmEWrro6iCmF7mvAubDMhCMV7q--v8",
+      "title": "05_locura_donut_mexicano",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1crKmEWrro6iCmF7mvAubDMhCMV7q--v8=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"marryto \" en Drive",
+      "createdAt": "2026-11-09T09:16:44.538Z",
+      "updatedAt": "2026-11-09T09:16:44.538Z"
+    },
+    {
+      "id": "vid-1794215804556-908",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1g7SfcU_nAkONulunIDJxASr8al4NocTH",
+      "title": "Clip 6 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1g7SfcU_nAkONulunIDJxASr8al4NocTH=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.556Z",
+      "updatedAt": "2026-11-09T09:16:44.556Z"
+    },
+    {
+      "id": "vid-1794215804559-967",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1z-5cS9Of_B5EzBB8RHwTT8cfWkd7XIKN",
+      "title": "Clip 5 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1z-5cS9Of_B5EzBB8RHwTT8cfWkd7XIKN=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.559Z",
+      "updatedAt": "2026-11-09T09:16:44.559Z"
+    },
+    {
+      "id": "vid-1794215804562-893",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1PeQervyOHRS5QkL90SBA_c1MWPjH0GVT",
+      "title": "Clip 7 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1PeQervyOHRS5QkL90SBA_c1MWPjH0GVT=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.562Z",
+      "updatedAt": "2026-11-09T09:16:44.562Z"
+    },
+    {
+      "id": "vid-1794215804567-275",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1vOPVyHF88TCFwhNarWg1jWgjBtJKePNo",
+      "title": "Clip 8 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1vOPVyHF88TCFwhNarWg1jWgjBtJKePNo=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.567Z",
+      "updatedAt": "2026-11-09T09:16:44.567Z"
+    },
+    {
+      "id": "vid-1794215804570-368",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "168Fh6mG4iddcZuAqfKU9PodfdnyZVoUq",
+      "title": "Clip 4 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/168Fh6mG4iddcZuAqfKU9PodfdnyZVoUq=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.570Z",
+      "updatedAt": "2026-11-09T09:16:44.570Z"
+    },
+    {
+      "id": "vid-1794215804573-509",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1KTizQHBNm_8rpJkx_GDGHqf1GJmNVxC8",
+      "title": "Clip 2 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1KTizQHBNm_8rpJkx_GDGHqf1GJmNVxC8=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.573Z",
+      "updatedAt": "2026-11-09T09:16:44.573Z"
+    },
+    {
+      "id": "vid-1794215804576-475",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1rcEYU0qo5aq40F9N3OKldt3oOsMFDwGY",
+      "title": "Clip 10 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1rcEYU0qo5aq40F9N3OKldt3oOsMFDwGY=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.576Z",
+      "updatedAt": "2026-11-09T09:16:44.576Z"
+    },
+    {
+      "id": "vid-1794215804580-173",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1xc0HZvrkF1LFHVbPY8cZw6vvxx3FH_Rd",
+      "title": "Clip 9 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1xc0HZvrkF1LFHVbPY8cZw6vvxx3FH_Rd=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.580Z",
+      "updatedAt": "2026-11-09T09:16:44.580Z"
+    },
+    {
+      "id": "vid-1794215804584-635",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "1F7F5JLrecmItFcx3ABHZSDnSyehhJvmf",
+      "title": "Clip 3 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/1F7F5JLrecmItFcx3ABHZSDnSyehhJvmf=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.584Z",
+      "updatedAt": "2026-11-09T09:16:44.584Z"
+    },
+    {
+      "id": "vid-1794215804587-261",
+      "campaignId": "camp-1794215804552",
+      "driveFileId": "18HrR9l5HrerGMSwe-7pGmrR4_3LhCwrl",
+      "title": "Clip 1 - mongeMalo-p1",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/d/18HrR9l5HrerGMSwe-7pGmrR4_3LhCwrl=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Importado de subcarpeta \"Monge malo clips\" en Drive",
+      "createdAt": "2026-11-09T09:16:44.587Z",
+      "updatedAt": "2026-11-09T09:16:44.587Z"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act-1794215816366",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos añadidos a \"Campañas de Clipping\"",
+      "timestamp": "2026-11-09T09:16:56.366Z"
+    },
+    {
+      "id": "act-1794215804598",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 87 vídeos añadidos a \"Campañas de Clipping\" (12 campañas hijas detectadas)",
+      "timestamp": "2026-11-09T09:16:44.598Z"
+    },
+    {
+      "id": "act-1794215563794",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos añadidos a \"Campañas de Clipping\"",
+      "timestamp": "2026-11-09T09:12:43.794Z"
+    },
+    {
+      "id": "act-1794215563741",
+      "type": "campaign",
+      "text": "Creada la nueva campaña \"Campañas de Clipping\"",
+      "timestamp": "2026-11-09T09:12:43.741Z"
+    },
+    {
+      "id": "act-1794214882291",
+      "type": "campaign",
+      "text": "Eliminada la campaña \"Campaña Test Temporal\" y sus clips vinculados",
+      "timestamp": "2026-11-09T09:01:22.291Z"
+    },
+    {
+      "id": "act-1794214880099",
+      "type": "campaign",
+      "text": "Eliminada la campaña \"E-commerce Tips\" y sus clips vinculados",
+      "timestamp": "2026-11-09T09:01:20.099Z"
+    },
+    {
+      "id": "act-1794214878184",
+      "type": "campaign",
+      "text": "Eliminada la campaña \"Fitness & Motivación\" y sus clips vinculados",
+      "timestamp": "2026-11-09T09:01:18.184Z"
+    },
+    {
+      "id": "act-1794214875903",
+      "type": "campaign",
+      "text": "Eliminada la campaña \"Finanzas Personales\" y sus clips vinculados",
+      "timestamp": "2026-11-09T09:01:15.903Z"
+    },
+    {
+      "id": "act-1794214872914",
+      "type": "campaign",
+      "text": "Eliminada la campaña \"Podcast Tech V2\" y sus clips vinculados",
+      "timestamp": "2026-11-09T09:01:12.914Z"
+    },
+    {
+      "id": "act-1794214781483",
+      "type": "upload_status",
+      "text": "Marcado como subido en YOUTUBE, TIKTOK en \"eric_ponce_02\"",
+      "timestamp": "2026-11-09T08:59:41.483Z"
+    },
+    {
+      "id": "act-1794214781476",
+      "type": "edit_status",
+      "text": "Estado de edición actualizado a \"Editado: Sí\" en \"eric_ponce_02\"",
+      "timestamp": "2026-11-09T08:59:41.476Z"
+    },
+    {
+      "id": "act-1794214582285",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 2 vídeos nuevos añadidos a la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-09T08:56:22.285Z"
+    },
+    {
+      "id": "act-1794214525724",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
+      "timestamp": "2026-11-09T08:55:25.724Z"
+    },
+    {
+      "id": "act-1794214524367",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
+      "timestamp": "2026-11-09T08:55:24.367Z"
+    },
+    {
+      "id": "act-1794214523200",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
+      "timestamp": "2026-11-09T08:55:23.200Z"
+    },
+    {
+      "id": "act-1794214521886",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
+      "timestamp": "2026-11-09T08:55:21.886Z"
+    },
+    {
+      "id": "act-1794214520491",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:55:20.491Z"
+    },
+    {
+      "id": "act-1794213733292",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
+      "timestamp": "2026-11-09T08:42:13.292Z"
+    },
+    {
+      "id": "act-1794213732276",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
+      "timestamp": "2026-11-09T08:42:12.276Z"
+    },
+    {
+      "id": "act-1794213731469",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
+      "timestamp": "2026-11-09T08:42:11.469Z"
+    },
+    {
+      "id": "act-1794213730535",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
+      "timestamp": "2026-11-09T08:42:10.535Z"
+    },
+    {
+      "id": "act-1794213729369",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:42:09.369Z"
+    },
+    {
+      "id": "act-1794213380328",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
+      "timestamp": "2026-11-09T08:36:20.328Z"
+    },
+    {
+      "id": "act-1794213379257",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
+      "timestamp": "2026-11-09T08:36:19.257Z"
+    },
+    {
+      "id": "act-1794213378099",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
+      "timestamp": "2026-11-09T08:36:18.099Z"
+    },
+    {
+      "id": "act-1794213377162",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
+      "timestamp": "2026-11-09T08:36:17.162Z"
+    },
+    {
+      "id": "act-1794213375941",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:36:15.941Z"
+    },
+    {
+      "id": "act-1794213370430",
+      "type": "config",
+      "text": "Configuración de conexión con Google Drive actualizada",
+      "timestamp": "2026-11-09T08:36:10.430Z"
+    },
+    {
+      "id": "act-1794213253317",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
+      "timestamp": "2026-11-09T08:34:13.317Z"
+    },
+    {
+      "id": "act-1794213252061",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
+      "timestamp": "2026-11-09T08:34:12.061Z"
+    },
+    {
+      "id": "act-1794213251067",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
+      "timestamp": "2026-11-09T08:34:11.067Z"
+    },
+    {
+      "id": "act-1794213249171",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
+      "timestamp": "2026-11-09T08:34:09.171Z"
+    },
+    {
+      "id": "act-1794213248014",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:34:08.014Z"
+    },
+    {
+      "id": "act-1794213118437",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
+      "timestamp": "2026-11-09T08:31:58.437Z"
+    },
+    {
+      "id": "act-1794213118050",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
+      "timestamp": "2026-11-09T08:31:58.050Z"
+    },
+    {
+      "id": "act-1794213117634",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
+      "timestamp": "2026-11-09T08:31:57.634Z"
+    },
+    {
+      "id": "act-1794213117209",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
+      "timestamp": "2026-11-09T08:31:57.209Z"
+    },
+    {
+      "id": "act-1794213116811",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:31:56.811Z"
+    },
+    {
+      "id": "act-1794213116102",
+      "type": "config",
+      "text": "Configuración de conexión con Google Drive actualizada",
+      "timestamp": "2026-11-09T08:31:56.102Z"
+    },
+    {
+      "id": "act-1794213092723",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:31:32.723Z"
+    },
+    {
+      "id": "act-1794213077172",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
+      "timestamp": "2026-11-09T08:31:17.172Z"
+    },
+    {
+      "id": "act-1794213076891",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
+      "timestamp": "2026-11-09T08:31:16.891Z"
+    },
+    {
+      "id": "act-1794213076675",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
+      "timestamp": "2026-11-09T08:31:16.675Z"
+    },
+    {
+      "id": "act-1794213076486",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
+      "timestamp": "2026-11-09T08:31:16.486Z"
+    },
+    {
+      "id": "act-1794213076124",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:31:16.124Z"
+    },
+    {
+      "id": "act-1794212513657",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
+      "timestamp": "2026-11-09T08:21:53.657Z"
+    },
+    {
+      "id": "act-1794212513469",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
+      "timestamp": "2026-11-09T08:21:53.469Z"
+    },
+    {
+      "id": "act-1794212513266",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
+      "timestamp": "2026-11-09T08:21:53.266Z"
+    },
+    {
+      "id": "act-1794212513067",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
+      "timestamp": "2026-11-09T08:21:53.067Z"
+    },
+    {
+      "id": "act-1794212512697",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
+      "timestamp": "2026-11-09T08:21:52.697Z"
+    }
+  ],
+  "config": {
+    "googleDriveApiKey": "",
+    "googleAppsScriptUrl": "https://script.google.com/macros/s/AKfycbwfkSzltVWbICAbVesq3XO01r6A2MdQK2WRag5QypG8u61ko4Iua56GaxI079H0qV-0/exec"
+  }
+}

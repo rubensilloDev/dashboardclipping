@@ -1,0 +1,143 @@
+/**
+ * Sistema de Tokens de Diseño (Design Tokens) - Studio Quality
+ * Paleta de colores de profundidad absoluta estilo Linear/Raycast/Vercel.
+ * Tipografía emparejada: Plus Jakarta Sans (UI) + JetBrains Mono (cifras/código).
+ * Superficies translúcidas con glassmorphism, biselado especular y microiluminación.
+ */
+
+:root {
+  /* ==========================================================================
+     Atmósfera y Fondos de Profundidad Absoluta (#08090d / #0b0e14)
+     ========================================================================== */
+  --color-bg-canvas: #08090d;
+  --color-bg-mesh-glow: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.14), transparent 75%);
+  --color-bg-surface-glass: linear-gradient(180deg, rgba(20, 25, 36, 0.72) 0%, rgba(12, 15, 22, 0.88) 100%);
+  --color-bg-surface-elevated: linear-gradient(180deg, rgba(28, 35, 50, 0.85) 0%, rgba(16, 20, 30, 0.95) 100%);
+  --color-bg-surface-subtle: rgba(255, 255, 255, 0.03);
+  --color-bg-input: rgba(9, 12, 18, 0.8);
+
+  /* ==========================================================================
+     Micro-Bordes y Biseles Especulares Superiores (Specular Highlights)
+     ========================================================================== */
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-specular: rgba(255, 255, 255, 0.12);
+  --color-border-medium: rgba(255, 255, 255, 0.16);
+  --color-border-strong: rgba(255, 255, 255, 0.28);
+  --color-border-focus: #6366f1;
+
+  /* ==========================================================================
+     Tipografía y Jerarquía Textual
+     ========================================================================== */
+  --font-family-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, monospace;
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #08090d;
+
+  /* ==========================================================================
+     Acento de Marca: Violeta Eléctrico / Índigo Studio
+     ========================================================================== */
+  --color-accent-primary: #6366f1;
+  --color-accent-primary-light: #818cf8;
+  --color-accent-primary-hover: #4f46e5;
+  --color-accent-primary-subtle: rgba(99, 102, 241, 0.14);
+  --color-accent-primary-glow: rgba(99, 102, 241, 0.45);
+
+  /* ==========================================================================
+     Colores Semánticos y de Estado
+     ========================================================================== */
+  --color-status-success: #10b981;
+  --color-status-success-light: #34d399;
+  --color-status-success-subtle: rgba(16, 185, 129, 0.14);
+  --color-status-success-glow: rgba(16, 185, 129, 0.35);
+
+  --color-status-warning: #f59e0b;
+  --color-status-warning-subtle: rgba(245, 158, 11, 0.14);
+
+  --color-status-danger: #ef4444;
+  --color-status-danger-subtle: rgba(239, 68, 68, 0.14);
+
+  --color-status-info: #0ea5e9;
+  --color-status-info-subtle: rgba(14, 165, 233, 0.14);
+
+  /* ==========================================================================
+     Identidad de Plataformas de Redes Sociales (Real Brand Glow)
+     ========================================================================== */
+  --color-platform-youtube: #ff0033;
+  --color-platform-youtube-glow: rgba(255, 0, 51, 0.35);
+  --color-platform-youtube-subtle: rgba(255, 0, 51, 0.12);
+
+  --color-platform-tiktok: #00f2fe;
+  --color-platform-tiktok-accent: #fe2c55;
+  --color-platform-tiktok-gradient: linear-gradient(135deg, #00f2fe 0%, #fe2c55 100%);
+  --color-platform-tiktok-glow: rgba(254, 44, 85, 0.35);
+  --color-platform-tiktok-subtle: rgba(254, 44, 85, 0.12);
+
+  --color-platform-instagram: #e1306c;
+  --color-platform-instagram-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  --color-platform-instagram-glow: rgba(225, 48, 108, 0.35);
+  --color-platform-instagram-subtle: rgba(225, 48, 108, 0.12);
+
+  --color-platform-facebook: #1877f2;
+  --color-platform-facebook-glow: rgba(24, 119, 242, 0.35);
+  --color-platform-facebook-subtle: rgba(24, 119, 242, 0.12);
+
+  /* ==========================================================================
+     Paleta de Campañas
+     ========================================================================== */
+  --color-campaign-purple: #a855f7;
+  --color-campaign-emerald: #10b981;
+  --color-campaign-amber: #f59e0b;
+  --color-campaign-cyan: #06b6d4;
+
+  /* ==========================================================================
+     Escala de Espaciado Modular 8pt
+     ========================================================================== */
+  --spacing-1: 0.25rem;  /* 4px */
+  --spacing-2: 0.5rem;   /* 8px */
+  --spacing-3: 0.75rem;  /* 12px */
+  --spacing-4: 1rem;     /* 16px */
+  --spacing-5: 1.25rem;  /* 20px */
+  --spacing-6: 1.5rem;   /* 24px */
+  --spacing-8: 2rem;     /* 32px */
+  --spacing-10: 2.5rem;  /* 40px */
+  --spacing-12: 3rem;    /* 48px */
+
+  /* ==========================================================================
+     Radios de Bordes
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     Sombras con Profundidad y Biselado Especular
+     ========================================================================== */
+  --shadow-card: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 12px 30px -10px rgba(0, 0, 0, 0.7);
+  --shadow-card-hover: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 0 0 1px rgba(99, 102, 241, 0.35), 0 16px 36px -8px rgba(99, 102, 241, 0.22);
+  --shadow-elevated: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+
+  /* ==========================================================================
+     Curvas de Micro-Interacción
+     ========================================================================== */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ==========================================================================
+     Z-Index y Dimensiones
+     ========================================================================== */
+  --sidebar-width: 270px;
+  --header-height: 72px;
+  --bottom-nav-height: 64px;
+  --touch-target-min: 44px;
+  --z-header: 100;
+  --z-navigation-mobile: 150;
+  --z-modal-backdrop: 500;
+  --z-modal: 510;
+}
