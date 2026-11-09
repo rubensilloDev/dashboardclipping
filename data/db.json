@@ -5,7 +5,9 @@
       "name": "Campaña Eric Ponce",
       "color": "#6366f1",
       "driveFolderId": "https://drive.google.com/drive/folders/1WnuZ40tZPvmQ_2IjL7naAH3m8k3Um4UM",
-      "createdAt": "2026-11-09T08:56:19.601Z"
+      "createdAt": "2026-11-09T08:56:19.601Z",
+      "isCompleted": false,
+      "completedAt": null
     },
     {
       "id": "camp-1794215563729",
@@ -3355,6 +3357,30 @@
   ],
   "activities": [
     {
+      "id": "act-1794218916101",
+      "type": "campaign",
+      "text": "Reactivada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-09T10:08:36.101Z"
+    },
+    {
+      "id": "act-1794218916081",
+      "type": "campaign",
+      "text": "Marcada como finalizada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-09T10:08:36.081Z"
+    },
+    {
+      "id": "act-1794218900617",
+      "type": "campaign",
+      "text": "Reactivada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-09T10:08:20.617Z"
+    },
+    {
+      "id": "act-1794218900594",
+      "type": "campaign",
+      "text": "Marcada como finalizada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-09T10:08:20.594Z"
+    },
+    {
       "id": "act-1794218320855",
       "type": "drive_sync",
       "text": "Sincronización con Drive: 8 vídeos añadidos a \"Monge malo clips\" (1 campañas hijas detectadas)",
@@ -3629,30 +3655,6 @@
       "type": "drive_sync",
       "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
       "timestamp": "2026-11-09T08:31:17.172Z"
-    },
-    {
-      "id": "act-1794213076891",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
-      "timestamp": "2026-11-09T08:31:16.891Z"
-    },
-    {
-      "id": "act-1794213076675",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
-      "timestamp": "2026-11-09T08:31:16.675Z"
-    },
-    {
-      "id": "act-1794213076486",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
-      "timestamp": "2026-11-09T08:31:16.486Z"
-    },
-    {
-      "id": "act-1794213076124",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
-      "timestamp": "2026-11-09T08:31:16.124Z"
     }
   ],
   "config": {

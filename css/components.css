@@ -2150,11 +2150,95 @@
 /* ==========================================================================
    Índice de Carpetas / Campañas en el Catálogo (Nivel 1 y Nivel 2)
    ========================================================================== */
+.campaign-index-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-5);
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .campaign-index-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.campaign-tabs-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-bg-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 4px;
+  max-width: 100%;
+}
+
+.campaign-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  min-height: 38px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.campaign-tab-btn:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.campaign-tab-btn--active {
+  background: rgba(99, 102, 241, 0.18);
+  border-color: var(--color-brand-primary);
+  color: #ffffff;
+  box-shadow: 0 0 14px -2px rgba(99, 102, 241, 0.45);
+}
+
+.campaign-tab-btn__icon {
+  font-size: 0.9375rem;
+  display: inline-flex;
+}
+
+.badge--subtle {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.badge--warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.campaign-folder-card--completed {
+  opacity: 0.88;
+}
+
+.campaign-folder-card--completed:hover {
+  opacity: 1;
+}
+
 .section-subheading {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--spacing-3);
+  gap: var(--spacing-3);
 }
 
 .section-subheading__title {

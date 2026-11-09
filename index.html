@@ -411,11 +411,19 @@
               <div class="campaign-detail-banner__info">
                 <span class="campaign-item__color-dot" id="activeCampDot" style="width: 14px; height: 14px;"></span>
                 <h2 class="campaign-detail-banner__name" id="activeCampName">Campaña</h2>
+                <span class="badge badge--warning font-mono" id="activeCampStatusBadge" style="display: none;">
+                  <i data-lucide="check-circle-2" aria-hidden="true" style="width: 12px; height: 12px;"></i>
+                  <span>Finalizada</span>
+                </span>
                 <span class="badge badge--purple font-mono" id="activeCampCount">0 clips</span>
                 <span class="badge badge--success font-mono" id="activeCampProgress">0% subido</span>
               </div>
             </div>
             <div class="campaign-detail-banner__actions">
+              <button type="button" class="btn btn--outline btn--sm" id="toggleCompleteCurrentCampBtn" title="Marcar como finalizada o reactivar campaña">
+                <i data-lucide="check-circle" aria-hidden="true" id="toggleCompleteIcon"></i>
+                <span id="toggleCompleteText">Finalizar Campaña</span>
+              </button>
               <button type="button" class="btn btn--outline btn--sm" id="editCurrentCampBtn" title="Editar detalles de esta campaña">
                 <i data-lucide="edit-3" aria-hidden="true"></i>
                 <span>Editar Campaña</span>
@@ -429,15 +437,30 @@
 
           <!-- Nivel 1: Índice de Carpetas/Campañas en Tarjetas Visuales -->
           <section class="campaign-index-section" id="campaignIndexSection">
-            <div class="section-subheading">
-              <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <div class="campaign-index-header">
+              <div class="section-subheading">
                 <h3 class="section-subheading__title">
                   <i data-lucide="folder-kanban" style="color: var(--color-brand-primary-light); width: 18px; height: 18px;"></i>
                   <span>Carpetas de Campaña</span>
                 </h3>
                 <span style="font-size: 0.8125rem; color: var(--color-text-muted);" id="campaignsTotalCount">0 campañas</span>
               </div>
+
+              <!-- Selector de Pestañas: Activas vs Finalizadas -->
+              <div class="campaign-tabs-toggle" role="tablist" aria-label="Filtrar campañas por estado">
+                <button type="button" class="campaign-tab-btn campaign-tab-btn--active" id="tabActiveCampaigns" role="tab" aria-selected="true" data-tab="active">
+                  <span class="campaign-tab-btn__icon" aria-hidden="true">🚀</span>
+                  <span>Activas</span>
+                  <span class="badge badge--purple font-mono" id="activeCampaignsCountBadge">0</span>
+                </button>
+                <button type="button" class="campaign-tab-btn" id="tabCompletedCampaigns" role="tab" aria-selected="false" data-tab="completed">
+                  <span class="campaign-tab-btn__icon" aria-hidden="true">✅</span>
+                  <span>Finalizadas</span>
+                  <span class="badge badge--subtle font-mono" id="completedCampaignsCountBadge">0</span>
+                </button>
+              </div>
             </div>
+
             <div class="campaign-folders-grid" id="campaignFoldersGrid"></div>
           </section>
 

@@ -264,7 +264,11 @@ class JsonDatabase {
   // ============================================================================
   getCampaigns() {
     const data = this.read();
-    return data.campaigns || [];
+    return (data.campaigns || []).map((c) => ({
+      ...c,
+      isCompleted: Boolean(c.isCompleted) || false,
+      completedAt: c.completedAt || null
+    }));
   }
 
   getCampaignById(id) {
@@ -272,13 +276,15 @@ class JsonDatabase {
     return campaigns.find((c) => c.id === id) || null;
   }
 
-  createCampaign({ name, color, driveFolderId }) {
+  createCampaign({ name, color, driveFolderId, isCompleted = false }) {
     const data = this.read();
     const newCampaign = {
       id: `camp-${Date.now()}`,
       name: name.trim(),
       color: color || '#6366f1',
       driveFolderId: driveFolderId.trim(),
+      isCompleted: Boolean(isCompleted),
+      completedAt: isCompleted ? new Date().toISOString() : null,
       createdAt: new Date().toISOString()
     };
     data.campaigns.push(newCampaign);
@@ -291,13 +297,25 @@ class JsonDatabase {
     const index = data.campaigns.findIndex((c) => c.id === id);
     if (index === -1) return null;
 
-    data.campaigns[index] = {
-      ...data.campaigns[index],
+    const current = data.campaigns[index];
+    const updated = {
+      ...current,
       ...updates,
       id // Garantiza que no se sobreescriba el id
     };
+
+    if ('isCompleted' in updates) {
+      updated.isCompleted = Boolean(updates.isCompleted);
+      if (updated.isCompleted && !current.isCompleted) {
+        updated.completedAt = updates.completedAt || new Date().toISOString();
+      } else if (!updated.isCompleted) {
+        updated.completedAt = null;
+      }
+    }
+
+    data.campaigns[index] = updated;
     this.write(data);
-    return data.campaigns[index];
+    return updated;
   }
 
   deleteCampaign(id) {
@@ -500,6 +518,8 @@ class JsonDatabase {
         id: c.id,
         name: c.name,
         color: c.color,
+        isCompleted: Boolean(c.isCompleted) || false,
+        completedAt: c.completedAt || null,
         totalVideos: totalInCamp,
         uploadedVideos: uploadedInCamp,
         percentage

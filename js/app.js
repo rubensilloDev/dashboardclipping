@@ -48,20 +48,29 @@ class AppController {
     this.bottomNavPendingLink = document.getElementById('bottomNavPendingLink');
     this.dashboardToCatalogBtn = document.getElementById('dashboardToCatalogBtn');
 
-    // Nivel 1: Índice de Carpetas/Campañas en el Catálogo
+    // Nivel 1: Índice de Carpetas/Campañas en el Catálogo y Pestañas
+    this.campaignTab = 'active';
     this.campaignIndexSection = document.getElementById('campaignIndexSection');
     this.campaignFoldersGrid = document.getElementById('campaignFoldersGrid');
     this.campaignsTotalCount = document.getElementById('campaignsTotalCount');
+    this.tabActiveCampaigns = document.getElementById('tabActiveCampaigns');
+    this.tabCompletedCampaigns = document.getElementById('tabCompletedCampaigns');
+    this.activeCampaignsCountBadge = document.getElementById('activeCampaignsCountBadge');
+    this.completedCampaignsCountBadge = document.getElementById('completedCampaignsCountBadge');
 
     // Nivel 2: Barra de Campaña Activa
     this.campaignDetailBanner = document.getElementById('campaignDetailBanner');
     this.backToCampaignsBtn = document.getElementById('backToCampaignsBtn');
     this.activeCampDot = document.getElementById('activeCampDot');
     this.activeCampName = document.getElementById('activeCampName');
+    this.activeCampStatusBadge = document.getElementById('activeCampStatusBadge');
     this.activeCampCount = document.getElementById('activeCampCount');
     this.activeCampProgress = document.getElementById('activeCampProgress');
     this.editCurrentCampBtn = document.getElementById('editCurrentCampBtn');
     this.syncCurrentCampBtn = document.getElementById('syncCurrentCampBtn');
+    this.toggleCompleteCurrentCampBtn = document.getElementById('toggleCompleteCurrentCampBtn');
+    this.toggleCompleteIcon = document.getElementById('toggleCompleteIcon');
+    this.toggleCompleteText = document.getElementById('toggleCompleteText');
 
     // Barra de Herramientas del Catálogo
     this.catalogGrid = document.getElementById('catalogGrid');
@@ -189,6 +198,42 @@ class AppController {
         this.loadVideos();
       });
     });
+
+    // Pestañas de Campañas (Activas vs Finalizadas)
+    if (this.tabActiveCampaigns) {
+      this.tabActiveCampaigns.addEventListener('click', () => {
+        this.setCampaignTab('active');
+      });
+    }
+
+    if (this.tabCompletedCampaigns) {
+      this.tabCompletedCampaigns.addEventListener('click', () => {
+        this.setCampaignTab('completed');
+      });
+    }
+
+    // Botón para finalizar o reactivar la campaña activa desde el banner
+    if (this.toggleCompleteCurrentCampBtn) {
+      this.toggleCompleteCurrentCampBtn.addEventListener('click', async () => {
+        const camp = this.campaigns.find((c) => c.id === this.currentFilters.campaignId);
+        if (!camp) return;
+        const newStatus = !camp.isCompleted;
+        try {
+          await campaignService.updateCampaign(camp.id, { isCompleted: newStatus });
+          camp.isCompleted = newStatus;
+          camp.completedAt = newStatus ? new Date().toISOString() : null;
+          showToast(
+            newStatus
+              ? `Campaña "${camp.name}" marcada como finalizada.`
+              : `Campaña "${camp.name}" reactivada con éxito.`,
+            'success'
+          );
+          await this.reloadAllData();
+        } catch (err) {
+          showToast(err.message || 'Error al cambiar estado de la campaña.', 'error');
+        }
+      });
+    }
 
     // Botón para volver al índice de Campañas (Nivel 2 -> Nivel 1)
     if (this.backToCampaignsBtn) {
@@ -353,6 +398,21 @@ class AppController {
     this.loadVideos();
   }
 
+  setCampaignTab(tab) {
+    this.campaignTab = tab;
+    if (this.tabActiveCampaigns) {
+      const isActive = tab === 'active';
+      this.tabActiveCampaigns.classList.toggle('campaign-tab-btn--active', isActive);
+      this.tabActiveCampaigns.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    }
+    if (this.tabCompletedCampaigns) {
+      const isCompleted = tab === 'completed';
+      this.tabCompletedCampaigns.classList.toggle('campaign-tab-btn--active', isCompleted);
+      this.tabCompletedCampaigns.setAttribute('aria-selected', isCompleted ? 'true' : 'false');
+    }
+    this.renderCampaignFolders();
+  }
+
   /**
    * Actualiza la interfaz visual según el nivel de navegación (Nivel 1 vs Nivel 2)
    */
@@ -382,6 +442,25 @@ class AppController {
 
           if (this.activeCampCount) this.activeCampCount.textContent = `${totalInCamp} clips`;
           if (this.activeCampProgress) this.activeCampProgress.textContent = `${percentage}% publicado`;
+
+          // Estado Finalizada vs Activa
+          const isCompleted = Boolean(camp.isCompleted);
+          if (this.activeCampStatusBadge) {
+            this.activeCampStatusBadge.style.display = isCompleted ? 'inline-flex' : 'none';
+          }
+          if (this.toggleCompleteText) {
+            this.toggleCompleteText.textContent = isCompleted ? 'Reactivar Campaña' : 'Finalizar Campaña';
+          }
+          if (this.toggleCompleteIcon) {
+            this.toggleCompleteIcon.setAttribute('data-lucide', isCompleted ? 'rotate-ccw' : 'check-circle');
+          }
+          if (this.toggleCompleteCurrentCampBtn) {
+            this.toggleCompleteCurrentCampBtn.title = isCompleted ? 'Reactivar esta campaña' : 'Marcar campaña como finalizada';
+          }
+
+          if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+            lucide.createIcons({ root: this.campaignDetailBanner });
+          }
         }
       }
     }
@@ -394,19 +473,61 @@ class AppController {
     if (!this.campaignFoldersGrid) return;
     this.campaignFoldersGrid.innerHTML = '';
 
+    const activeCampaigns = this.campaigns.filter((c) => !c.isCompleted);
+    const completedCampaigns = this.campaigns.filter((c) => c.isCompleted);
+
+    if (this.activeCampaignsCountBadge) {
+      this.activeCampaignsCountBadge.textContent = activeCampaigns.length;
+    }
+    if (this.completedCampaignsCountBadge) {
+      this.completedCampaignsCountBadge.textContent = completedCampaigns.length;
+    }
+
     if (this.campaignsTotalCount) {
       const count = this.campaigns.length;
       this.campaignsTotalCount.textContent = `${count} ${count === 1 ? 'campaña' : 'campañas'}`;
     }
 
-    if (this.campaigns.length === 0) {
-      this.campaignFoldersGrid.appendChild(
-        createElement('p', { className: 'card-panel__empty' }, 'No hay carpetas de campaña disponibles.')
+    const currentList = this.campaignTab === 'completed' ? completedCampaigns : activeCampaigns;
+
+    if (currentList.length === 0) {
+      const isCompletedTab = this.campaignTab === 'completed';
+      const emptyCard = createElement(
+        'div',
+        {
+          className: 'empty-catalog-state',
+          style: 'padding: var(--spacing-8) var(--spacing-4); margin: var(--spacing-2) 0; grid-column: 1 / -1;'
+        },
+        [
+          createElement(
+            'div',
+            { className: 'empty-catalog-state__icon' },
+            [createElement('i', { 'data-lucide': isCompletedTab ? 'check-circle-2' : 'folder-plus', 'aria-hidden': 'true' })]
+          ),
+          createElement(
+            'h4',
+            { className: 'empty-catalog-state__title' },
+            isCompletedTab ? 'No hay campañas finalizadas' : 'No hay campañas activas'
+          ),
+          createElement(
+            'p',
+            { className: 'empty-catalog-state__desc' },
+            isCompletedTab
+              ? 'Cuando concluyas el ciclo de una campaña, márcala como finalizada para archivarla aquí.'
+              : 'Todas tus campañas están finalizadas o aún no has creado ninguna.'
+          )
+        ]
       );
+      this.campaignFoldersGrid.appendChild(emptyCard);
+
+      if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+        lucide.createIcons({ root: this.campaignFoldersGrid });
+      }
       return;
     }
 
-    this.campaigns.forEach((camp) => {
+    currentList.forEach((camp) => {
+      const isCompleted = Boolean(camp.isCompleted);
       const progressInfo = this.statsData?.campaignProgress?.find((cp) => cp.id === camp.id) || {
         totalVideos: 0,
         uploadedVideos: 0,
@@ -416,7 +537,7 @@ class AppController {
       const folderCard = createElement(
         'article',
         {
-          className: 'campaign-folder-card',
+          className: `campaign-folder-card ${isCompleted ? 'campaign-folder-card--completed' : ''}`,
           style: { '--card-accent': camp.color },
           tabindex: '0',
           role: 'button',
@@ -426,7 +547,7 @@ class AppController {
           }
         },
         [
-          // Cabecera con icono estilizado y ratio
+          // Cabecera con icono estilizado y ratio o badge de finalizada
           createElement('div', { className: 'campaign-folder-card__header' }, [
             createElement(
               'div',
@@ -434,16 +555,25 @@ class AppController {
                 className: 'campaign-folder-card__icon-box',
                 style: { backgroundColor: `${camp.color}18`, borderColor: `${camp.color}40`, color: camp.color }
               },
-              [createElement('i', { 'data-lucide': 'folder-kanban', 'aria-hidden': 'true' })]
+              [createElement('i', { 'data-lucide': isCompleted ? 'archive' : 'folder-kanban', 'aria-hidden': 'true' })]
             ),
-            createElement(
-              'span',
-              {
-                className: 'badge font-mono',
-                style: { backgroundColor: `${camp.color}20`, color: camp.color, border: `1px solid ${camp.color}40` }
-              },
-              `${progressInfo.percentage}% completado`
-            )
+            isCompleted
+              ? createElement(
+                  'span',
+                  { className: 'badge badge--warning font-mono', style: 'gap: 4px;' },
+                  [
+                    createElement('i', { 'data-lucide': 'check-circle-2', style: 'width: 12px; height: 12px;' }),
+                    createElement('span', {}, 'Finalizada')
+                  ]
+                )
+              : createElement(
+                  'span',
+                  {
+                    className: 'badge font-mono',
+                    style: { backgroundColor: `${camp.color}20`, color: camp.color, border: `1px solid ${camp.color}40` }
+                  },
+                  `${progressInfo.percentage}% completado`
+                )
           ]),
 
           // Nombre de campaña y Drive
@@ -452,15 +582,17 @@ class AppController {
             createElement(
               'span',
               { className: 'campaign-folder-card__meta font-mono' },
-              `${progressInfo.totalVideos} ${progressInfo.totalVideos === 1 ? 'clip de vídeo' : 'clips de vídeo'}`
+              isCompleted && camp.completedAt
+                ? `Cerrada el ${new Date(camp.completedAt).toLocaleDateString()} · ${progressInfo.totalVideos} clips`
+                : `${progressInfo.totalVideos} ${progressInfo.totalVideos === 1 ? 'clip de vídeo' : 'clips de vídeo'}`
             )
           ]),
 
           // Barra de progreso de subidas
           createElement('div', { className: 'campaign-folder-card__progress-wrap' }, [
             createElement('div', { className: 'campaign-folder-card__progress-row' }, [
-              createElement('span', {}, 'Publicados'),
-              createElement('span', { className: 'font-mono' }, `${progressInfo.uploadedVideos}/${progressInfo.totalVideos}`)
+              createElement('span', {}, isCompleted ? 'Resultado final' : 'Publicados'),
+              createElement('span', { className: 'font-mono' }, `${progressInfo.uploadedVideos}/${progressInfo.totalVideos} (${progressInfo.percentage}%)`)
             ]),
             createElement(
               'div',
@@ -476,23 +608,63 @@ class AppController {
                   className: 'progress-fill',
                   style: {
                     width: `${Math.min(progressInfo.percentage, 100)}%`,
-                    background: `linear-gradient(90deg, ${camp.color}, #818cf8)`
+                    background: isCompleted ? 'linear-gradient(90deg, #f59e0b, #10b981)' : `linear-gradient(90deg, ${camp.color}, #818cf8)`
                   }
                 })
               ]
             )
           ]),
 
-          // Pie con enlace directo
+          // Pie con enlace directo y botón de acción rápida
           createElement('div', { className: 'campaign-folder-card__footer' }, [
-            createElement('span', {}, 'Explorar clips'),
-            createElement('i', { 'data-lucide': 'arrow-right', 'aria-hidden': 'true', style: 'width: 15px; height: 15px;' })
+            createElement('div', { style: 'display: flex; align-items: center; gap: 6px;' }, [
+              createElement('span', {}, isCompleted ? 'Ver archivo de clips' : 'Explorar clips'),
+              createElement('i', { 'data-lucide': 'arrow-right', 'aria-hidden': 'true', style: 'width: 15px; height: 15px;' })
+            ]),
+            createElement(
+              'button',
+              {
+                type: 'button',
+                className: 'btn btn--outline btn--sm',
+                style: isCompleted
+                  ? 'padding: 2px 8px; font-size: 0.75rem; color: var(--color-status-success); border-color: rgba(16, 185, 129, 0.35);'
+                  : 'padding: 2px 8px; font-size: 0.75rem; color: var(--color-text-muted); border-color: var(--color-border-subtle);',
+                title: isCompleted ? 'Reactivar campaña' : 'Marcar como finalizada',
+                onClick: async (e) => {
+                  e.stopPropagation();
+                  const newStatus = !isCompleted;
+                  try {
+                    await campaignService.updateCampaign(camp.id, { isCompleted: newStatus });
+                    camp.isCompleted = newStatus;
+                    camp.completedAt = newStatus ? new Date().toISOString() : null;
+                    showToast(
+                      newStatus
+                        ? `Campaña "${camp.name}" marcada como finalizada.`
+                        : `Campaña "${camp.name}" reactivada con éxito.`,
+                      'success'
+                    );
+                    await this.reloadAllData();
+                  } catch (err) {
+                    showToast(err.message || 'Error al cambiar estado.', 'error');
+                  }
+                }
+              },
+              [
+                createElement('i', { 'data-lucide': isCompleted ? 'rotate-ccw' : 'check-circle', style: 'width: 13px; height: 13px;' }),
+                createElement('span', {}, isCompleted ? 'Reactivar' : 'Finalizar')
+              ]
+            )
           ])
         ]
       );
 
       this.campaignFoldersGrid.appendChild(folderCard);
     });
+
+    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+      lucide.createIcons({ root: this.campaignFoldersGrid });
+    }
+  }
 
     if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
       lucide.createIcons({ root: this.campaignFoldersGrid });
@@ -602,11 +774,13 @@ class AppController {
     this.sidebarCampaignsGroup.innerHTML = '';
 
     this.campaigns.forEach((camp) => {
+      const isCompleted = Boolean(camp.isCompleted);
       const link = createElement(
         'a',
         {
           href: `#campaign-${camp.id}`,
           className: 'sidebar-nav__link',
+          style: isCompleted ? 'opacity: 0.72;' : '',
           onClick: (e) => {
             e.preventDefault();
             this.selectCampaign(camp.id);
@@ -619,8 +793,11 @@ class AppController {
             style: { backgroundColor: camp.color, boxShadow: `0 0 8px ${camp.color}66` },
             'aria-hidden': 'true'
           }),
-          createElement('span', {}, camp.name)
-        ]
+          createElement('span', { style: 'flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;' }, camp.name),
+          isCompleted
+            ? createElement('span', { className: 'badge badge--warning font-mono', style: 'font-size: 9px; padding: 1px 5px;' }, 'Fin')
+            : null
+        ].filter(Boolean)
       );
 
       this.sidebarCampaignsGroup.appendChild(link);
@@ -637,7 +814,7 @@ class AppController {
       this.campaigns.forEach((camp) => {
         const opt = document.createElement('option');
         opt.value = camp.id;
-        opt.textContent = camp.name;
+        opt.textContent = camp.isCompleted ? `${camp.name} (Finalizada)` : camp.name;
         selectEl.appendChild(opt);
       });
 

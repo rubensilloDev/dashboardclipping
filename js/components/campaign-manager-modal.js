@@ -113,6 +113,8 @@ export class CampaignManagerModal {
     }
 
     this.campaigns.forEach((camp) => {
+      const isCompleted = Boolean(camp.isCompleted);
+
       const item = createElement('div', { className: 'campaign-manage-item' }, [
         createElement('div', { className: 'campaign-manage-item__info' }, [
           createElement('span', {
@@ -125,12 +127,37 @@ export class CampaignManagerModal {
             }
           }),
           createElement('div', { className: 'campaign-manage-item__text' }, [
-            createElement('span', { className: 'campaign-manage-item__title' }, camp.name),
+            createElement('div', { style: 'display: flex; align-items: center; gap: 6px;' }, [
+              createElement('span', { className: 'campaign-manage-item__title' }, camp.name),
+              isCompleted
+                ? createElement('span', { className: 'badge badge--warning font-mono', style: 'font-size: 10px; padding: 1px 6px;' }, 'Finalizada')
+                : null
+            ].filter(Boolean)),
             createElement('span', { className: 'campaign-manage-item__id' }, `Drive: ${camp.driveFolderId}`)
           ])
         ]),
 
         createElement('div', { className: 'campaign-manage-item__actions' }, [
+          createElement(
+            'button',
+            {
+              type: 'button',
+              className: 'btn btn--outline btn--sm',
+              style: isCompleted
+                ? 'color: var(--color-status-success); border-color: rgba(16, 185, 129, 0.4);'
+                : 'color: var(--color-text-secondary); border-color: var(--color-border-subtle);',
+              title: isCompleted ? 'Reactivar campaña' : 'Marcar como finalizada',
+              'aria-label': `${isCompleted ? 'Reactivar' : 'Finalizar'} campaña ${camp.name}`,
+              onClick: async () => {
+                await this.handleToggleComplete(camp, !isCompleted);
+              }
+            },
+            [
+              createElement('i', { 'data-lucide': isCompleted ? 'rotate-ccw' : 'check-circle', 'aria-hidden': 'true' }),
+              createElement('span', {}, isCompleted ? 'Reactivar' : 'Finalizar')
+            ]
+          ),
+
           createElement(
             'button',
             {
@@ -172,6 +199,32 @@ export class CampaignManagerModal {
 
       this.listContainer.appendChild(item);
     });
+  }
+
+  async handleToggleComplete(camp, isCompleted) {
+    try {
+      await campaignService.updateCampaign(camp.id, { isCompleted });
+      camp.isCompleted = isCompleted;
+      camp.completedAt = isCompleted ? new Date().toISOString() : null;
+
+      showToast(
+        isCompleted
+          ? `Campaña "${camp.name}" marcada como finalizada.`
+          : `Campaña "${camp.name}" reactivada con éxito.`,
+        'success'
+      );
+
+      this.render();
+      if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+        lucide.createIcons({ root: this.listContainer });
+      }
+
+      if (typeof this.onChanged === 'function') {
+        this.onChanged();
+      }
+    } catch (err) {
+      showToast(err.message || 'Error al actualizar estado de la campaña.', 'error');
+    }
   }
 
   promptDeleteConfirm(camp) {

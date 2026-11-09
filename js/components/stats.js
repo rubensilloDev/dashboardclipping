@@ -155,8 +155,11 @@ export class StatsComponent {
               className: 'campaign-item__color-dot',
               style: { backgroundColor: camp.color }
             }),
-            createElement('span', { className: 'campaign-item__name' }, camp.name)
-          ]),
+            createElement('span', { className: 'campaign-item__name' }, camp.name),
+            camp.isCompleted
+              ? createElement('span', { className: 'badge badge--warning font-mono', style: 'font-size: 10px; padding: 1px 5px;' }, 'Finalizada')
+              : null
+          ].filter(Boolean)),
           createElement(
             'span',
             { className: 'campaign-item__ratio font-mono' },

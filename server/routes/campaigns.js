@@ -66,7 +66,7 @@ campaignsRouter.post('/', async (req, res) => {
  */
 function handleUpdateCampaign(req, res) {
   const { id } = req.params;
-  const { name, color, folderInput, driveFolderId } = req.body || {};
+  const { name, color, folderInput, driveFolderId, isCompleted } = req.body || {};
 
   const updates = {};
   if (name && typeof name === 'string' && name.trim()) {
@@ -83,12 +83,20 @@ function handleUpdateCampaign(req, res) {
     updates.driveFolderId = driveFolderId.trim();
   }
 
+  if (typeof isCompleted === 'boolean') {
+    updates.isCompleted = isCompleted;
+  }
+
   const updated = db.updateCampaign(id, updates);
   if (!updated) {
     return res.status(404).json({ error: 'Campaña no encontrada.' });
   }
 
-  db.addActivity(`Actualizada la campaña "${updated.name}"`, 'campaign');
+  const statusAction = typeof isCompleted === 'boolean'
+    ? (isCompleted ? `Marcada como finalizada la campaña "${updated.name}"` : `Reactivada la campaña "${updated.name}"`)
+    : `Actualizada la campaña "${updated.name}"`;
+
+  db.addActivity(statusAction, 'campaign');
   return res.json(updated);
 }
 
