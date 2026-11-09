@@ -32,8 +32,12 @@ export function createElement(tag, attributes = {}, children = []) {
 
     if (key === 'className') {
       element.className = value;
-    } else if (key === 'style' && typeof value === 'object') {
-      Object.assign(element.style, value);
+    } else if (key === 'style') {
+      if (typeof value === 'object') {
+        Object.assign(element.style, value);
+      } else if (typeof value === 'string') {
+        element.style.cssText = value;
+      }
     } else if (key.startsWith('on') && typeof value === 'function') {
       const eventName = key.substring(2).toLowerCase();
       element.addEventListener(eventName, value);

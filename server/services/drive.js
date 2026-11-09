@@ -71,30 +71,30 @@ export async function fetchDriveVideos(folderInput, options = {}) {
         if (data.status === 'success') {
           const mappedFiles = Array.isArray(data.files)
             ? data.files.map((file) => {
-                const fileId = file.id || file.driveFileId;
-                const rawTitle = file.name || file.title || 'Clip sin título';
-                return {
-                  driveFileId: fileId,
-                  title: rawTitle.replace(/\.[^/.]+$/, ''), // Elimina la extensión del archivo
-                  thumbnailUrl: file.thumbnailLink || file.thumbnailUrl || `https://lh3.googleusercontent.com/d/${fileId}=w600`,
-                  duration: file.duration || '00:45'
-                };
-              })
+              const fileId = file.id || file.driveFileId;
+              const rawTitle = file.name || file.title || 'Clip sin título';
+              return {
+                driveFileId: fileId,
+                title: rawTitle.replace(/\.[^/.]+$/, ''), // Elimina la extensión del archivo
+                thumbnailUrl: file.thumbnailLink || file.thumbnailUrl || `https://lh3.googleusercontent.com/d/${fileId}=w600`,
+                duration: file.duration || '00:45'
+              };
+            })
             : [];
 
           const mappedSubfolders = Array.isArray(data.subfolders)
             ? data.subfolders.map((sub) => ({
-                id: sub.id,
-                name: sub.name,
-                files: Array.isArray(sub.files)
-                  ? sub.files.map((f) => ({
-                      driveFileId: f.id || f.driveFileId,
-                      title: (f.name || f.title || 'Clip sin título').replace(/\.[^/.]+$/, ''),
-                      thumbnailUrl: f.thumbnailLink || f.thumbnailUrl || `https://lh3.googleusercontent.com/d/${f.id || f.driveFileId}=w600`,
-                      duration: f.duration || '00:45'
-                    }))
-                  : []
-              }))
+              id: sub.id,
+              name: sub.name,
+              files: Array.isArray(sub.files)
+                ? sub.files.map((f) => ({
+                  driveFileId: f.id || f.driveFileId,
+                  title: (f.name || f.title || 'Clip sin título').replace(/\.[^/.]+$/, ''),
+                  thumbnailUrl: f.thumbnailLink || f.thumbnailUrl || `https://lh3.googleusercontent.com/d/${f.id || f.driveFileId}=w600`,
+                  duration: f.duration || '00:45'
+                }))
+                : []
+            }))
             : [];
 
           const result = mappedFiles;

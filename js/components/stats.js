@@ -268,8 +268,8 @@ export class StatsComponent {
         act.type === 'upload_status'
           ? 'activity-entry__dot--success'
           : act.type === 'drive_sync'
-          ? 'activity-entry__dot--warning'
-          : '';
+            ? 'activity-entry__dot--warning'
+            : '';
 
       const entry = createElement('div', { className: 'activity-entry' }, [
         createElement('span', {

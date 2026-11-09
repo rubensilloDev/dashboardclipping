@@ -559,21 +559,21 @@ class AppController {
             ),
             isCompleted
               ? createElement(
-                  'span',
-                  { className: 'badge badge--warning font-mono', style: 'gap: 4px;' },
-                  [
-                    createElement('i', { 'data-lucide': 'check-circle-2', style: 'width: 12px; height: 12px;' }),
-                    createElement('span', {}, 'Finalizada')
-                  ]
-                )
+                'span',
+                { className: 'badge badge--warning font-mono', style: 'gap: 4px;' },
+                [
+                  createElement('i', { 'data-lucide': 'check-circle-2', style: 'width: 12px; height: 12px;' }),
+                  createElement('span', {}, 'Finalizada')
+                ]
+              )
               : createElement(
-                  'span',
-                  {
-                    className: 'badge font-mono',
-                    style: { backgroundColor: `${camp.color}20`, color: camp.color, border: `1px solid ${camp.color}40` }
-                  },
-                  `${progressInfo.percentage}% completado`
-                )
+                'span',
+                {
+                  className: 'badge font-mono',
+                  style: { backgroundColor: `${camp.color}20`, color: camp.color, border: `1px solid ${camp.color}40` }
+                },
+                `${progressInfo.percentage}% completado`
+              )
           ]),
 
           // Nombre de campaña y Drive
@@ -666,415 +666,424 @@ class AppController {
     }
   }
 
-    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-      lucide.createIcons({ root: this.campaignFoldersGrid });
+/**
+ * Sincroniza el pill activo en la barra de filtros por estado
+ * @param {string} status
+ */
+setActivePill(status) {
+  this.statusFilterPills.forEach((p) => {
+    const match = (p.getAttribute('data-status') || 'all') === status;
+    p.classList.toggle('status-pill--active', match);
+    p.setAttribute('aria-selected', match ? 'true' : 'false');
+  });
+}
+
+/**
+ * Aplica y sincroniza el término de búsqueda
+ * @param {string} term
+ */
+setSearchFilter(term) {
+  this.currentFilters.search = term;
+
+  if (this.headerSearchInput && this.headerSearchInput.value !== term) {
+    this.headerSearchInput.value = term;
+  }
+  if (this.catalogSearchInput && this.catalogSearchInput.value !== term) {
+    this.catalogSearchInput.value = term;
+  }
+
+  this.loadVideos();
+}
+
+/**
+ * Restablece todos los filtros del catálogo a sus valores por defecto
+ */
+resetFilters() {
+  this.currentFilters = {
+    campaignId: 'all',
+    status: 'all',
+    search: '',
+    sort: 'newest'
+  };
+
+  if (this.headerSearchInput) this.headerSearchInput.value = '';
+  if (this.catalogSearchInput) this.catalogSearchInput.value = '';
+  if (this.headerCampaignSelect) this.headerCampaignSelect.value = 'all';
+  if (this.catalogCampaignFilter) this.catalogCampaignFilter.value = 'all';
+  if (this.catalogSortFilter) this.catalogSortFilter.value = 'newest';
+
+  this.setActivePill('all');
+  this.updateCampaignLevelUI();
+  this.loadVideos();
+  showToast('Filtros restablecidos.');
+}
+
+setViewMode(mode) {
+  this.viewMode = mode;
+  this.viewModeButtons.forEach((b) => {
+    b.classList.toggle('view-mode-btn--active', b.getAttribute('data-view') === mode);
+  });
+
+  if (this.videoCatalogContainer) {
+    if (mode === 'table') {
+      this.videoCatalogContainer.classList.remove('video-catalog--grid');
+      this.videoCatalogContainer.classList.add('video-catalog--table');
+    } else {
+      this.videoCatalogContainer.classList.remove('video-catalog--table');
+      this.videoCatalogContainer.classList.add('video-catalog--grid');
     }
   }
-
-  /**
-   * Sincroniza el pill activo en la barra de filtros por estado
-   * @param {string} status
-   */
-  setActivePill(status) {
-    this.statusFilterPills.forEach((p) => {
-      const match = (p.getAttribute('data-status') || 'all') === status;
-      p.classList.toggle('status-pill--active', match);
-      p.setAttribute('aria-selected', match ? 'true' : 'false');
-    });
-  }
-
-  /**
-   * Aplica y sincroniza el término de búsqueda
-   * @param {string} term
-   */
-  setSearchFilter(term) {
-    this.currentFilters.search = term;
-
-    if (this.headerSearchInput && this.headerSearchInput.value !== term) {
-      this.headerSearchInput.value = term;
-    }
-    if (this.catalogSearchInput && this.catalogSearchInput.value !== term) {
-      this.catalogSearchInput.value = term;
-    }
-
-    this.loadVideos();
-  }
-
-  /**
-   * Restablece todos los filtros del catálogo a sus valores por defecto
-   */
-  resetFilters() {
-    this.currentFilters = {
-      campaignId: 'all',
-      status: 'all',
-      search: '',
-      sort: 'newest'
-    };
-
-    if (this.headerSearchInput) this.headerSearchInput.value = '';
-    if (this.catalogSearchInput) this.catalogSearchInput.value = '';
-    if (this.headerCampaignSelect) this.headerCampaignSelect.value = 'all';
-    if (this.catalogCampaignFilter) this.catalogCampaignFilter.value = 'all';
-    if (this.catalogSortFilter) this.catalogSortFilter.value = 'newest';
-
-    this.setActivePill('all');
-    this.updateCampaignLevelUI();
-    this.loadVideos();
-    showToast('Filtros restablecidos.');
-  }
-
-  setViewMode(mode) {
-    this.viewMode = mode;
-    this.viewModeButtons.forEach((b) => {
-      b.classList.toggle('view-mode-btn--active', b.getAttribute('data-view') === mode);
-    });
-
-    if (this.videoCatalogContainer) {
-      if (mode === 'table') {
-        this.videoCatalogContainer.classList.remove('video-catalog--grid');
-        this.videoCatalogContainer.classList.add('video-catalog--table');
-      } else {
-        this.videoCatalogContainer.classList.remove('video-catalog--table');
-        this.videoCatalogContainer.classList.add('video-catalog--grid');
-      }
-    }
-  }
+}
 
   async handleAuthSuccess() {
-    showToast('Sesión iniciada con éxito.');
-    await this.reloadAllData();
-    this.handleNavigation();
-  }
+  showToast('Sesión iniciada con éxito.');
+  await this.reloadAllData();
+  this.handleNavigation();
+}
 
   /**
    * Recarga todos los datos reactivos del sistema (Dashboard y Catálogo)
    */
   async reloadAllData() {
-    await Promise.all([
-      this.loadCampaigns(),
-      this.loadStats(),
-      this.loadAllVideosForPills(),
-      this.loadVideos()
-    ]);
-  }
+  await Promise.all([
+    this.loadCampaigns(),
+    this.loadStats(),
+    this.loadAllVideosForPills(),
+    this.loadVideos()
+  ]);
+}
 
   async loadCampaigns() {
-    try {
-      this.campaigns = await campaignService.fetchCampaigns();
-      this.renderSidebarCampaigns();
-      this.renderCampaignSelectOptions();
-      this.renderCampaignFolders();
-    } catch {
-      // Manejo silencioso
-    }
+  try {
+    this.campaigns = await campaignService.fetchCampaigns();
+    this.renderSidebarCampaigns();
+    this.renderCampaignSelectOptions();
+    this.renderCampaignFolders();
+  } catch {
+    // Manejo silencioso
   }
+}
 
-  renderSidebarCampaigns() {
-    if (!this.sidebarCampaignsGroup) return;
-    this.sidebarCampaignsGroup.innerHTML = '';
+renderSidebarCampaigns() {
+  if (!this.sidebarCampaignsGroup) return;
+  this.sidebarCampaignsGroup.innerHTML = '';
+
+  this.campaigns.forEach((camp) => {
+    const isCompleted = Boolean(camp.isCompleted);
+    const link = createElement(
+      'a',
+      {
+        href: `#campaign-${camp.id}`,
+        className: 'sidebar-nav__link',
+        style: isCompleted ? 'opacity: 0.72;' : '',
+        onClick: (e) => {
+          e.preventDefault();
+          this.selectCampaign(camp.id);
+          this.navigateTo('videos');
+        }
+      },
+      [
+        createElement('span', {
+          className: 'campaign-item__color-dot',
+          style: { backgroundColor: camp.color, boxShadow: `0 0 8px ${camp.color}66` },
+          'aria-hidden': 'true'
+        }),
+        createElement('span', { style: 'flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;' }, camp.name),
+        isCompleted
+          ? createElement('span', { className: 'badge badge--warning font-mono', style: 'font-size: 9px; padding: 1px 5px;' }, 'Fin')
+          : null
+      ].filter(Boolean)
+    );
+
+    this.sidebarCampaignsGroup.appendChild(link);
+  });
+}
+
+renderCampaignSelectOptions() {
+  const fillSelect = (selectEl) => {
+    if (!selectEl) return;
+    const currentVal = selectEl.value || this.currentFilters.campaignId || 'all';
+
+    selectEl.innerHTML = '<option value="all">Todas las Campañas</option>';
 
     this.campaigns.forEach((camp) => {
-      const isCompleted = Boolean(camp.isCompleted);
-      const link = createElement(
-        'a',
-        {
-          href: `#campaign-${camp.id}`,
-          className: 'sidebar-nav__link',
-          style: isCompleted ? 'opacity: 0.72;' : '',
-          onClick: (e) => {
-            e.preventDefault();
-            this.selectCampaign(camp.id);
-            this.navigateTo('videos');
-          }
-        },
-        [
-          createElement('span', {
-            className: 'campaign-item__color-dot',
-            style: { backgroundColor: camp.color, boxShadow: `0 0 8px ${camp.color}66` },
-            'aria-hidden': 'true'
-          }),
-          createElement('span', { style: 'flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;' }, camp.name),
-          isCompleted
-            ? createElement('span', { className: 'badge badge--warning font-mono', style: 'font-size: 9px; padding: 1px 5px;' }, 'Fin')
-            : null
-        ].filter(Boolean)
-      );
-
-      this.sidebarCampaignsGroup.appendChild(link);
+      const opt = document.createElement('option');
+      opt.value = camp.id;
+      opt.textContent = camp.isCompleted ? `${camp.name} (Finalizada)` : camp.name;
+      selectEl.appendChild(opt);
     });
-  }
 
-  renderCampaignSelectOptions() {
-    const fillSelect = (selectEl) => {
-      if (!selectEl) return;
-      const currentVal = selectEl.value || this.currentFilters.campaignId || 'all';
+    selectEl.value = currentVal;
+  };
 
-      selectEl.innerHTML = '<option value="all">Todas las Campañas</option>';
-
-      this.campaigns.forEach((camp) => {
-        const opt = document.createElement('option');
-        opt.value = camp.id;
-        opt.textContent = camp.isCompleted ? `${camp.name} (Finalizada)` : camp.name;
-        selectEl.appendChild(opt);
-      });
-
-      selectEl.value = currentVal;
-    };
-
-    fillSelect(this.headerCampaignSelect);
-    fillSelect(this.catalogCampaignFilter);
-  }
+  fillSelect(this.headerCampaignSelect);
+  fillSelect(this.catalogCampaignFilter);
+}
 
   async loadStats() {
-    try {
-      this.statsData = await videoService.fetchStats();
-      this.totalClipsCount = this.statsData.totals?.totalVideos || 0;
-      this.statsComponent.render(this.statsData);
-      this.updateCounterBadge();
-      this.renderCampaignFolders();
-      this.updateCampaignLevelUI();
-    } catch {
-      // Manejo silencioso
-    }
+  try {
+    this.statsData = await videoService.fetchStats();
+    this.totalClipsCount = this.statsData.totals?.totalVideos || 0;
+    this.statsComponent.render(this.statsData);
+    this.updateCounterBadge();
+    this.renderCampaignFolders();
+    this.updateCampaignLevelUI();
+  } catch {
+    // Manejo silencioso
   }
+}
 
   /**
    * Carga el total de vídeos contextuales para actualizar los contadores numéricos de las pills
    */
   async loadAllVideosForPills() {
-    try {
-      const filters = this.currentFilters.campaignId !== 'all' ? { campaignId: this.currentFilters.campaignId } : {};
-      this.allVideos = await videoService.fetchVideos(filters);
-      this.updatePillCounts();
-    } catch {
-      // Manejo silencioso
+  try {
+    const filters = this.currentFilters.campaignId !== 'all' ? { campaignId: this.currentFilters.campaignId } : {};
+    this.allVideos = await videoService.fetchVideos(filters);
+    this.updatePillCounts();
+  } catch {
+    // Manejo silencioso
+  }
+}
+
+/**
+ * Actualiza los contadores numéricos dinámicos de cada pill en la barra de filtros
+ */
+updatePillCounts() {
+  const vids = this.allVideos || [];
+
+  const total = vids.length;
+  let pending = 0;
+  let edited = 0;
+  let ready = 0;
+  let yt = 0;
+  let tt = 0;
+  let ig = 0;
+  let fb = 0;
+  let allPlatforms = 0;
+
+  vids.forEach((v) => {
+    if (v.isEdited) edited++;
+    else pending++;
+
+    const p = v.platforms || {};
+    if (p.youtube) yt++;
+    if (p.tiktok) tt++;
+    if (p.instagram) ig++;
+    if (p.facebook) fb++;
+
+    if (v.isEdited && !p.youtube && !p.tiktok && !p.instagram && !p.facebook) {
+      ready++;
     }
-  }
-
-  /**
-   * Actualiza los contadores numéricos dinámicos de cada pill en la barra de filtros
-   */
-  updatePillCounts() {
-    const vids = this.allVideos || [];
-
-    const total = vids.length;
-    let pending = 0;
-    let edited = 0;
-    let ready = 0;
-    let yt = 0;
-    let tt = 0;
-    let ig = 0;
-    let fb = 0;
-    let allPlatforms = 0;
-
-    vids.forEach((v) => {
-      if (v.isEdited) edited++;
-      else pending++;
-
-      const p = v.platforms || {};
-      if (p.youtube) yt++;
-      if (p.tiktok) tt++;
-      if (p.instagram) ig++;
-      if (p.facebook) fb++;
-
-      if (v.isEdited && !p.youtube && !p.tiktok && !p.instagram && !p.facebook) {
-        ready++;
-      }
-      if (p.youtube && p.tiktok && p.instagram && p.facebook) {
-        allPlatforms++;
-      }
-    });
-
-    const setPill = (id, count) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = count;
-    };
-
-    setPill('pillCountAll', total);
-    setPill('pillCountPending', pending);
-    setPill('pillCountEdited', edited);
-    setPill('pillCountReady', ready);
-    setPill('pillCountYoutube', yt);
-    setPill('pillCountTiktok', tt);
-    setPill('pillCountInstagram', ig);
-    setPill('pillCountFacebook', fb);
-    setPill('pillCountAllPlatforms', allPlatforms);
-  }
-
-  updateCounterBadge() {
-    if (!this.catalogCountText) return;
-
-    const visibleCount = this.videos.length;
-    const totalCount = this.allVideos?.length || this.totalClipsCount || visibleCount;
-
-    if (visibleCount === totalCount && !this.currentFilters.search && this.currentFilters.status === 'all' && this.currentFilters.campaignId === 'all') {
-      this.catalogCountText.textContent = `${totalCount} clips disponibles`;
-    } else {
-      this.catalogCountText.textContent = `Mostrando ${visibleCount} de ${totalCount} clips`;
+    if (p.youtube && p.tiktok && p.instagram && p.facebook) {
+      allPlatforms++;
     }
+  });
+
+  const setPill = (id, count) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = count;
+  };
+
+  setPill('pillCountAll', total);
+  setPill('pillCountPending', pending);
+  setPill('pillCountEdited', edited);
+  setPill('pillCountReady', ready);
+  setPill('pillCountYoutube', yt);
+  setPill('pillCountTiktok', tt);
+  setPill('pillCountInstagram', ig);
+  setPill('pillCountFacebook', fb);
+  setPill('pillCountAllPlatforms', allPlatforms);
+}
+
+updateCounterBadge() {
+  if (!this.catalogCountText) return;
+
+  const visibleCount = this.videos.length;
+  const totalCount = this.allVideos?.length || this.totalClipsCount || visibleCount;
+
+  if (visibleCount === totalCount && !this.currentFilters.search && this.currentFilters.status === 'all' && this.currentFilters.campaignId === 'all') {
+    this.catalogCountText.textContent = `${totalCount} clips disponibles`;
+  } else {
+    this.catalogCountText.textContent = `Mostrando ${visibleCount} de ${totalCount} clips`;
   }
+}
 
   async loadVideos() {
-    const targetContainer = this.catalogGrid || document.querySelector('.video-cards-grid');
-    if (!targetContainer) return;
+  const targetContainer = this.catalogGrid || document.querySelector('.video-cards-grid');
+  if (!targetContainer) return;
 
-    try {
-      this.videos = await videoService.fetchVideos(this.currentFilters);
-      targetContainer.innerHTML = '';
+  try {
+    this.videos = await videoService.fetchVideos(this.currentFilters);
+    targetContainer.innerHTML = '';
 
-      this.updateCounterBadge();
-      this.updatePillCounts();
+    this.updateCounterBadge();
+    this.updatePillCounts();
 
-      if (this.videos.length === 0) {
-        // Estado vacío estilizado
-        const emptyState = createElement('div', { className: 'empty-catalog-state' }, [
-          createElement('div', { className: 'empty-catalog-state__icon' }, [
-            createElement('i', { 'data-lucide': 'search-x', 'aria-hidden': 'true' })
-          ]),
-          createElement('h3', { className: 'empty-catalog-state__title' }, 'Ningún clip coincide con los filtros'),
-          createElement(
-            'p',
-            { className: 'empty-catalog-state__desc' },
-            'No se encontraron vídeos que cumplan con los criterios aplicados. Prueba a cambiar el estado, la campaña o limpiar la búsqueda.'
-          ),
-          createElement(
-            'button',
-            {
-              type: 'button',
-              className: 'btn btn--outline',
-              style: 'margin-top: var(--spacing-2);',
-              onClick: () => this.resetFilters()
-            },
-            [
-              createElement('i', { 'data-lucide': 'rotate-ccw', 'aria-hidden': 'true' }),
-              createElement('span', {}, 'Restablecer Filtros')
-            ]
-          )
-        ]);
+    if (this.videos.length === 0) {
+      // Estado vacío estilizado
+      const emptyState = createElement('div', { className: 'empty-catalog-state' }, [
+        createElement('div', { className: 'empty-catalog-state__icon' }, [
+          createElement('i', { 'data-lucide': 'search-x', 'aria-hidden': 'true' })
+        ]),
+        createElement('h3', { className: 'empty-catalog-state__title' }, 'Ningún clip coincide con los filtros'),
+        createElement(
+          'p',
+          { className: 'empty-catalog-state__desc' },
+          'No se encontraron vídeos que cumplan con los criterios aplicados. Prueba a cambiar el estado, la campaña o limpiar la búsqueda.'
+        ),
+        createElement(
+          'button',
+          {
+            type: 'button',
+            className: 'btn btn--outline',
+            style: 'margin-top: var(--spacing-2);',
+            onClick: () => this.resetFilters()
+          },
+          [
+            createElement('i', { 'data-lucide': 'rotate-ccw', 'aria-hidden': 'true' }),
+            createElement('span', {}, 'Restablecer Filtros')
+          ]
+        )
+      ]);
 
-        targetContainer.appendChild(emptyState);
-
-        if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-          lucide.createIcons({ root: emptyState });
-        }
-        return;
-      }
-
-      this.videos.forEach((video) => {
-        const campaign = this.campaigns.find((c) => c.id === video.campaignId);
-        const cardEl = createVideoCardElement(video, campaign, (vid) => {
-          this.videoPlayerModal.open(vid);
-        });
-        targetContainer.appendChild(cardEl);
-      });
+      targetContainer.appendChild(emptyState);
 
       if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-        lucide.createIcons({ root: targetContainer });
+        lucide.createIcons({ root: emptyState });
       }
-    } catch {
-      // Manejo de errores
+      return;
     }
-  }
 
-  openVideoById(videoId) {
-    const video = (this.videos || []).find((v) => v.id === videoId) || (this.allVideos || []).find((v) => v.id === videoId);
-    if (video) {
-      this.videoPlayerModal.open(video);
-    } else {
-      videoService.fetchVideos().then((allVids) => {
-        const found = allVids.find((v) => v.id === videoId);
-        if (found) {
-          this.videoPlayerModal.open(found);
-        }
+    this.videos.forEach((video) => {
+      const campaign = this.campaigns.find((c) => c.id === video.campaignId);
+      const cardEl = createVideoCardElement(video, campaign, (vid) => {
+        this.videoPlayerModal.open(vid);
       });
+      targetContainer.appendChild(cardEl);
+    });
+
+    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+      lucide.createIcons({ root: targetContainer });
     }
+  } catch {
+    // Manejo de errores
   }
+}
+
+openVideoById(videoId) {
+  const video = (this.videos || []).find((v) => v.id === videoId) || (this.allVideos || []).find((v) => v.id === videoId);
+  if (video) {
+    this.videoPlayerModal.open(video);
+  } else {
+    videoService.fetchVideos().then((allVids) => {
+      const found = allVids.find((v) => v.id === videoId);
+      if (found) {
+        this.videoPlayerModal.open(found);
+      }
+    });
+  }
+}
 
   /**
    * Sincronización Total con Google Drive en Vivo
    */
   async handleSync() {
-    if (!this.syncButton) return;
+  if (!this.syncButton) return;
 
-    const icon = this.syncButton.querySelector('i[data-lucide]');
-    const originalText = this.syncButton.querySelector('span');
-    const prevSpanText = originalText ? originalText.textContent : 'Sincronizar';
+  const icon = this.syncButton.querySelector('i[data-lucide]');
+  const originalText = this.syncButton.querySelector('span');
+  const prevSpanText = originalText ? originalText.textContent : 'Sincronizar';
 
-    this.syncButton.disabled = true;
-    this.syncButton.style.opacity = '0.75';
-    if (originalText) originalText.textContent = 'Sincronizando...';
+  this.syncButton.disabled = true;
+  this.syncButton.style.opacity = '0.75';
+  if (originalText) originalText.textContent = 'Sincronizando...';
 
-    if (icon) {
-      icon.style.animation = 'spin 0.9s linear infinite';
+  if (icon) {
+    icon.style.animation = 'spin 0.9s linear infinite';
+  }
+
+  try {
+    const result = await videoService.syncVideos(this.currentFilters.campaignId);
+    await this.reloadAllData();
+
+    const newCount = result.totalNewVideos ?? result.newVideosCount ?? 0;
+    const newCamps = result.totalNewCampaigns ?? 0;
+
+    let msg = newCount > 0
+      ? `Sincronización con Drive completada: ${newCount} ${newCount === 1 ? 'clip nuevo' : 'clips nuevos'}.`
+      : (result.message || 'Sincronización completada. No hay vídeos nuevos.');
+
+    if (newCamps > 0) {
+      msg += ` Se detectaron ${newCamps} ${newCamps === 1 ? 'nueva campaña' : 'nuevas campañas'}.`;
     }
 
-    try {
-      const result = await videoService.syncVideos(this.currentFilters.campaignId);
-      await this.reloadAllData();
-
-      const newCount = result.totalNewVideos ?? result.newVideosCount ?? 0;
-      const newCamps = result.totalNewCampaigns ?? 0;
-
-      let msg = newCount > 0
-        ? `Sincronización con Drive completada: ${newCount} ${newCount === 1 ? 'clip nuevo' : 'clips nuevos'}.`
-        : (result.message || 'Sincronización completada. No hay vídeos nuevos.');
-
-      if (newCamps > 0) {
-        msg += ` Se detectaron ${newCamps} ${newCamps === 1 ? 'nueva campaña' : 'nuevas campañas'}.`;
-      }
-
-      showToast(msg);
-    } catch (error) {
-      showToast(
-        error.message || 'Error al conectar con Google Drive. Revisa tu URL de Apps Script o tu conexión.',
-        'error'
-      );
-    } finally {
-      this.syncButton.disabled = false;
-      this.syncButton.style.opacity = '1';
-      if (originalText) originalText.textContent = prevSpanText;
-      if (icon) {
-        icon.style.animation = '';
-      }
+    showToast(msg);
+  } catch (error) {
+    showToast(
+      error.message || 'Error al conectar con Google Drive. Revisa tu URL de Apps Script o tu conexión.',
+      'error'
+    );
+  } finally {
+    this.syncButton.disabled = false;
+    this.syncButton.style.opacity = '1';
+    if (originalText) originalText.textContent = prevSpanText;
+    if (icon) {
+      icon.style.animation = '';
     }
   }
+}
 
   /**
    * Sincroniza una campaña individual desde su banner Nivel 2
    * @param {string} campaignId
    */
   async handleSyncCampaign(campaignId) {
-    if (!this.syncCurrentCampBtn) return;
+  if (!this.syncCurrentCampBtn) return;
 
-    const icon = this.syncCurrentCampBtn.querySelector('i[data-lucide]');
-    this.syncCurrentCampBtn.disabled = true;
-    if (icon) icon.style.animation = 'spin 0.9s linear infinite';
+  const icon = this.syncCurrentCampBtn.querySelector('i[data-lucide]');
+  this.syncCurrentCampBtn.disabled = true;
+  if (icon) icon.style.animation = 'spin 0.9s linear infinite';
 
-    try {
-      const result = await videoService.syncVideos(campaignId);
-      await this.reloadAllData();
+  try {
+    const result = await videoService.syncVideos(campaignId);
+    await this.reloadAllData();
 
-      const newCount = result.totalNewVideos ?? result.newVideosCount ?? 0;
-      showToast(
-        newCount > 0
-          ? `Carpeta sincronizada: ${newCount} nuevos vídeos detectados.`
-          : 'Carpeta sincronizada. No hay nuevos clips.'
-      );
-    } catch (error) {
-      showToast(error.message || 'Error al sincronizar la carpeta de Drive.', 'error');
-    } finally {
-      this.syncCurrentCampBtn.disabled = false;
-      if (icon) icon.style.animation = '';
-    }
+    const newCount = result.totalNewVideos ?? result.newVideosCount ?? 0;
+    showToast(
+      newCount > 0
+        ? `Carpeta sincronizada: ${newCount} nuevos vídeos detectados.`
+        : 'Carpeta sincronizada. No hay nuevos clips.'
+    );
+  } catch (error) {
+    showToast(error.message || 'Error al sincronizar la carpeta de Drive.', 'error');
+  } finally {
+    this.syncCurrentCampBtn.disabled = false;
+    if (icon) icon.style.animation = '';
   }
 }
+}
 
-// Inicialización de la aplicación al cargar el DOM
-document.addEventListener('DOMContentLoaded', () => {
+// Inicialización robusta de la aplicación (incluso si el módulo se ejecuta tras DOMContentLoaded)
+function bootstrapApp() {
   if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
     lucide.createIcons();
   }
 
   const app = new AppController();
+  window.clipFlowApp = app;
   app.init();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrapApp);
+} else {
+  bootstrapApp();
+}
+
+// Reintentar renderizado de iconos cuando todos los recursos CDN hayan cargado
+window.addEventListener('load', () => {
+  if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
 });

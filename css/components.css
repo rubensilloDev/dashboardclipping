@@ -624,10 +624,21 @@
 }
 
 /* Iconos de plataforma con color oficial */
-.icon-youtube { color: var(--color-platform-youtube); }
-.icon-tiktok { color: #00f2fe; }
-.icon-instagram { color: var(--color-platform-instagram); }
-.icon-facebook { color: var(--color-platform-facebook); }
+.icon-youtube {
+  color: var(--color-platform-youtube);
+}
+
+.icon-tiktok {
+  color: #00f2fe;
+}
+
+.icon-instagram {
+  color: var(--color-platform-instagram);
+}
+
+.icon-facebook {
+  color: var(--color-platform-facebook);
+}
 
 /* ==========================================================================
    Sección "Pendientes de Publicar" (Editados pero 0 subidas)
@@ -766,10 +777,21 @@
   transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.progress-fill--purple { background: linear-gradient(90deg, #9333ea, #c084fc); }
-.progress-fill--emerald { background: linear-gradient(90deg, #059669, #34d399); }
-.progress-fill--amber { background: linear-gradient(90deg, #d97706, #fbbf24); }
-.progress-fill--cyan { background: linear-gradient(90deg, #0891b2, #38bdf8); }
+.progress-fill--purple {
+  background: linear-gradient(90deg, #9333ea, #c084fc);
+}
+
+.progress-fill--emerald {
+  background: linear-gradient(90deg, #059669, #34d399);
+}
+
+.progress-fill--amber {
+  background: linear-gradient(90deg, #d97706, #fbbf24);
+}
+
+.progress-fill--cyan {
+  background: linear-gradient(90deg, #0891b2, #38bdf8);
+}
 
 /* ==========================================================================
    Feed de Actividad Reciente (Timeline)
@@ -1499,12 +1521,12 @@
   border-radius: var(--radius-full);
 }
 
-.switch input:checked + .switch__slider {
+.switch input:checked+.switch__slider {
   background-color: var(--color-status-success);
   border-color: var(--color-status-success);
 }
 
-.switch input:checked + .switch__slider::before {
+.switch input:checked+.switch__slider::before {
   transform: translateX(22px);
 }
 
@@ -2461,6 +2483,7 @@
 }
 
 @media (max-width: 480px) {
+
   .campaign-detail-banner__actions .btn,
   .campaign-banner__actions .btn {
     flex: 1 1 100%;

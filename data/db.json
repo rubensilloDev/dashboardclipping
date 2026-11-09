@@ -3357,6 +3357,18 @@
   ],
   "activities": [
     {
+      "id": "act-1794221702746",
+      "type": "campaign",
+      "text": "Reactivada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-09T10:55:02.746Z"
+    },
+    {
+      "id": "act-1794221702711",
+      "type": "campaign",
+      "text": "Marcada como finalizada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-09T10:55:02.711Z"
+    },
+    {
       "id": "act-1794218916101",
       "type": "campaign",
       "text": "Reactivada la campaña \"Campaña Eric Ponce\"",
@@ -3643,18 +3655,6 @@
       "type": "config",
       "text": "Configuración de conexión con Google Drive actualizada",
       "timestamp": "2026-11-09T08:31:56.102Z"
-    },
-    {
-      "id": "act-1794213092723",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
-      "timestamp": "2026-11-09T08:31:32.723Z"
-    },
-    {
-      "id": "act-1794213077172",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
-      "timestamp": "2026-11-09T08:31:17.172Z"
     }
   ],
   "config": {
