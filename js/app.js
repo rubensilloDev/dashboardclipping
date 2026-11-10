@@ -72,6 +72,13 @@ class AppController {
     this.toggleCompleteIcon = document.getElementById('toggleCompleteIcon');
     this.toggleCompleteText = document.getElementById('toggleCompleteText');
 
+    // Breadcrumbs y Explorador de Subcarpetas de Campaña (Nivel 2)
+    this.currentSubfolder = null;
+    this.catalogBreadcrumbs = document.getElementById('catalogBreadcrumbs');
+    this.campaignSubfoldersSection = document.getElementById('campaignSubfoldersSection');
+    this.campaignSubfoldersGrid = document.getElementById('campaignSubfoldersGrid');
+    this.subfoldersTotalCount = document.getElementById('subfoldersTotalCount');
+
     // Barra de Herramientas del Catálogo
     this.catalogGrid = document.getElementById('catalogGrid');
     this.videoCatalogContainer = document.getElementById('videoCatalogContainer');
@@ -386,6 +393,7 @@ class AppController {
    */
   selectCampaign(campaignId) {
     this.currentFilters.campaignId = campaignId;
+    this.currentSubfolder = null;
 
     if (this.headerCampaignSelect && this.headerCampaignSelect.value !== campaignId) {
       this.headerCampaignSelect.value = campaignId;
@@ -394,6 +402,16 @@ class AppController {
       this.catalogCampaignFilter.value = campaignId;
     }
 
+    this.updateCampaignLevelUI();
+    this.loadVideos();
+  }
+
+  /**
+   * Selecciona una subcarpeta dentro de la campaña activa
+   * @param {string|null} subfolderName
+   */
+  selectSubfolder(subfolderName) {
+    this.currentSubfolder = subfolderName;
     this.updateCampaignLevelUI();
     this.loadVideos();
   }
@@ -420,9 +438,11 @@ class AppController {
     const isAll = this.currentFilters.campaignId === 'all';
 
     if (isAll) {
-      // Nivel 1: Mostrar índice de carpetas y ocultar banner de campaña
+      // Nivel 1: Mostrar índice de carpetas y ocultar banner, breadcrumbs y subcarpetas
       if (this.campaignIndexSection) this.campaignIndexSection.style.display = 'block';
       if (this.campaignDetailBanner) this.campaignDetailBanner.style.display = 'none';
+      if (this.catalogBreadcrumbs) this.catalogBreadcrumbs.style.display = 'none';
+      if (this.campaignSubfoldersSection) this.campaignSubfoldersSection.style.display = 'none';
     } else {
       // Nivel 2: Ocultar índice de carpetas y mostrar banner de campaña activa
       if (this.campaignIndexSection) this.campaignIndexSection.style.display = 'none';
@@ -463,6 +483,178 @@ class AppController {
           }
         }
       }
+
+      this.renderBreadcrumbs();
+      this.renderSubfolders();
+    }
+  }
+
+  /**
+   * Renderiza la barra de breadcrumbs para volver a campañas o a la raíz de la campaña
+   */
+  renderBreadcrumbs() {
+    if (!this.catalogBreadcrumbs) return;
+
+    if (this.currentFilters.campaignId === 'all') {
+      this.catalogBreadcrumbs.style.display = 'none';
+      this.catalogBreadcrumbs.innerHTML = '';
+      return;
+    }
+
+    const camp = this.campaigns.find((c) => c.id === this.currentFilters.campaignId);
+    if (!camp) {
+      this.catalogBreadcrumbs.style.display = 'none';
+      return;
+    }
+
+    this.catalogBreadcrumbs.style.display = 'flex';
+    this.catalogBreadcrumbs.innerHTML = '';
+
+    const allBtn = createElement(
+      'button',
+      {
+        type: 'button',
+        className: 'breadcrumb-btn',
+        title: 'Volver a todas las campañas',
+        onClick: () => {
+          this.selectCampaign('all');
+        }
+      },
+      [
+        createElement('i', { 'data-lucide': 'folders', style: 'width: 14px; height: 14px;' }),
+        createElement('span', {}, 'Campañas')
+      ]
+    );
+
+    const sep1 = createElement('span', { className: 'breadcrumb-separator' }, '/');
+
+    const campBtn = createElement(
+      'button',
+      {
+        type: 'button',
+        className: `breadcrumb-btn ${!this.currentSubfolder ? 'breadcrumb-btn--active' : ''}`,
+        title: `Ver raíz de "${camp.name}"`,
+        onClick: () => {
+          this.selectSubfolder(null);
+        }
+      },
+      [
+        createElement('span', {
+          className: 'campaign-item__color-dot',
+          style: { backgroundColor: camp.color, width: '10px', height: '10px' }
+        }),
+        createElement('span', {}, camp.name)
+      ]
+    );
+
+    this.catalogBreadcrumbs.appendChild(allBtn);
+    this.catalogBreadcrumbs.appendChild(sep1);
+    this.catalogBreadcrumbs.appendChild(campBtn);
+
+    if (this.currentSubfolder) {
+      const sep2 = createElement('span', { className: 'breadcrumb-separator' }, '/');
+      const subfolderBadge = createElement(
+        'span',
+        { className: 'breadcrumb-current font-mono' },
+        [
+          createElement('i', { 'data-lucide': 'folder', style: 'width: 14px; height: 14px; color: var(--color-brand-primary-light);' }),
+          createElement('span', {}, this.currentSubfolder)
+        ]
+      );
+      this.catalogBreadcrumbs.appendChild(sep2);
+      this.catalogBreadcrumbs.appendChild(subfolderBadge);
+    }
+
+    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+      lucide.createIcons({ root: this.catalogBreadcrumbs });
+    }
+  }
+
+  /**
+   * Renderiza el explorador interno de subcarpetas si la campaña activa las contiene
+   */
+  renderSubfolders() {
+    if (!this.campaignSubfoldersSection || !this.campaignSubfoldersGrid) return;
+
+    if (this.currentFilters.campaignId === 'all') {
+      this.campaignSubfoldersSection.style.display = 'none';
+      return;
+    }
+
+    const camp = this.campaigns.find((c) => c.id === this.currentFilters.campaignId);
+    const campVids = (this.allVideos || []).filter((v) => v.campaignId === this.currentFilters.campaignId);
+    const subfolderNames = [...new Set(campVids.map((v) => v.subfolder).filter(Boolean))];
+
+    if (subfolderNames.length === 0 || this.currentSubfolder) {
+      this.campaignSubfoldersSection.style.display = 'none';
+      return;
+    }
+
+    this.campaignSubfoldersSection.style.display = 'block';
+    this.campaignSubfoldersGrid.innerHTML = '';
+
+    if (this.subfoldersTotalCount) {
+      const count = subfolderNames.length;
+      this.subfoldersTotalCount.textContent = `${count} ${count === 1 ? 'subcarpeta' : 'subcarpetas'}`;
+    }
+
+    subfolderNames.forEach((sfName) => {
+      const sfVids = campVids.filter((v) => v.subfolder === sfName);
+      const sfTotal = sfVids.length;
+      const sfUploaded = sfVids.filter((v) => {
+        const p = v.platforms || {};
+        return Boolean(p.youtube || p.tiktok || p.instagram || p.facebook);
+      }).length;
+
+      const card = createElement(
+        'div',
+        {
+          className: 'subfolder-card',
+          style: { '--card-accent': camp ? camp.color : '#6366f1' },
+          role: 'button',
+          tabindex: '0',
+          'aria-label': `Abrir subcarpeta ${sfName}`,
+          onClick: () => {
+            this.selectSubfolder(sfName);
+          }
+        },
+        [
+          createElement('div', { className: 'subfolder-card__left' }, [
+            createElement(
+              'div',
+              {
+                className: 'subfolder-card__icon-box',
+                style: {
+                  backgroundColor: `${camp?.color || '#6366f1'}18`,
+                  borderColor: `${camp?.color || '#6366f1'}40`,
+                  color: camp?.color || '#818cf8'
+                }
+              },
+              [createElement('i', { 'data-lucide': 'folder', 'aria-hidden': 'true' })]
+            ),
+            createElement('div', { className: 'subfolder-card__info' }, [
+              createElement('h4', { className: 'subfolder-card__name' }, sfName),
+              createElement(
+                'span',
+                { className: 'subfolder-card__count font-mono' },
+                `${sfTotal} clips · ${sfUploaded}/${sfTotal} subidos`
+              )
+            ])
+          ]),
+          createElement('i', {
+            'data-lucide': 'chevron-right',
+            className: 'subfolder-card__arrow',
+            'aria-hidden': 'true',
+            style: 'width: 18px; height: 18px;'
+          })
+        ]
+      );
+
+      this.campaignSubfoldersGrid.appendChild(card);
+    });
+
+    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+      lucide.createIcons({ root: this.campaignSubfoldersGrid });
     }
   }
 
@@ -705,6 +897,7 @@ resetFilters() {
     search: '',
     sort: 'newest'
   };
+  this.currentSubfolder = null;
 
   if (this.headerSearchInput) this.headerSearchInput.value = '';
   if (this.catalogSearchInput) this.catalogSearchInput.value = '';
@@ -850,7 +1043,10 @@ renderCampaignSelectOptions() {
  * Actualiza los contadores numéricos dinámicos de cada pill en la barra de filtros
  */
 updatePillCounts() {
-  const vids = this.allVideos || [];
+  let vids = this.allVideos || [];
+  if (this.currentSubfolder) {
+    vids = vids.filter((v) => v.subfolder === this.currentSubfolder);
+  }
 
   const total = vids.length;
   let pending = 0;
@@ -910,66 +1106,112 @@ updateCounterBadge() {
 }
 
   async loadVideos() {
-  const targetContainer = this.catalogGrid || document.querySelector('.video-cards-grid');
-  if (!targetContainer) return;
+    const targetContainer = this.catalogGrid || document.querySelector('.video-cards-grid');
+    if (!targetContainer) return;
 
-  try {
-    this.videos = await videoService.fetchVideos(this.currentFilters);
-    targetContainer.innerHTML = '';
+    try {
+      const filters = { ...this.currentFilters };
+      if (this.currentSubfolder) {
+        filters.subfolder = this.currentSubfolder;
+      }
 
-    this.updateCounterBadge();
-    this.updatePillCounts();
+      this.videos = await videoService.fetchVideos(filters);
+      targetContainer.innerHTML = '';
 
-    if (this.videos.length === 0) {
-      // Estado vacío estilizado
-      const emptyState = createElement('div', { className: 'empty-catalog-state' }, [
-        createElement('div', { className: 'empty-catalog-state__icon' }, [
-          createElement('i', { 'data-lucide': 'search-x', 'aria-hidden': 'true' })
-        ]),
-        createElement('h3', { className: 'empty-catalog-state__title' }, 'Ningún clip coincide con los filtros'),
-        createElement(
-          'p',
-          { className: 'empty-catalog-state__desc' },
-          'No se encontraron vídeos que cumplan con los criterios aplicados. Prueba a cambiar el estado, la campaña o limpiar la búsqueda.'
-        ),
-        createElement(
-          'button',
-          {
-            type: 'button',
-            className: 'btn btn--outline',
-            style: 'margin-top: var(--spacing-2);',
-            onClick: () => this.resetFilters()
-          },
-          [
-            createElement('i', { 'data-lucide': 'rotate-ccw', 'aria-hidden': 'true' }),
-            createElement('span', {}, 'Restablecer Filtros')
-          ]
-        )
-      ]);
+      this.updateCounterBadge();
+      this.updatePillCounts();
 
-      targetContainer.appendChild(emptyState);
+      // Si estamos dentro de una campaña y la campaña tiene subcarpetas pero NO hemos seleccionado ninguna subcarpeta:
+      // Filtramos en la lista inferior solo los clips de la raíz para no mezclarlos con las subcarpetas
+      const campVids = (this.allVideos || []).filter((v) => v.campaignId === this.currentFilters.campaignId);
+      const campHasSubfolders = campVids.some((v) => Boolean(v.subfolder));
+
+      let displayVideos = this.videos;
+      if (this.currentFilters.campaignId !== 'all' && !this.currentSubfolder && campHasSubfolders && !this.currentFilters.search) {
+        displayVideos = this.videos.filter((v) => !v.subfolder);
+      }
+
+      if (displayVideos.length === 0) {
+        if (this.currentFilters.campaignId !== 'all' && !this.currentSubfolder && campHasSubfolders && !this.currentFilters.search) {
+          const infoNotice = createElement(
+            'div',
+            {
+              className: 'empty-catalog-state',
+              style: 'padding: var(--spacing-6); margin: var(--spacing-2) 0; grid-column: 1 / -1;'
+            },
+            [
+              createElement('div', { className: 'empty-catalog-state__icon' }, [
+                createElement('i', { 'data-lucide': 'folder-open', 'aria-hidden': 'true' })
+              ]),
+              createElement('h3', { className: 'empty-catalog-state__title' }, 'Todos los clips están organizados en subcarpetas'),
+              createElement('p', { className: 'empty-catalog-state__desc' }, 'Selecciona cualquiera de las subcarpetas superiores para explorar y reproducir sus clips.')
+            ]
+          );
+          targetContainer.appendChild(infoNotice);
+          if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+            lucide.createIcons({ root: infoNotice });
+          }
+          return;
+        }
+
+        // Estado vacío estilizado
+        const emptyState = createElement('div', { className: 'empty-catalog-state' }, [
+          createElement('div', { className: 'empty-catalog-state__icon' }, [
+            createElement('i', { 'data-lucide': 'search-x', 'aria-hidden': 'true' })
+          ]),
+          createElement('h3', { className: 'empty-catalog-state__title' }, 'Ningún clip coincide con los filtros'),
+          createElement(
+            'p',
+            { className: 'empty-catalog-state__desc' },
+            'No se encontraron vídeos que cumplan con los criterios aplicados. Prueba a cambiar el estado, la campaña o limpiar la búsqueda.'
+          ),
+          createElement(
+            'button',
+            {
+              type: 'button',
+              className: 'btn btn--outline',
+              style: 'margin-top: var(--spacing-2);',
+              onClick: () => this.resetFilters()
+            },
+            [
+              createElement('i', { 'data-lucide': 'rotate-ccw', 'aria-hidden': 'true' }),
+              createElement('span', {}, 'Restablecer Filtros')
+            ]
+          )
+        ]);
+
+        targetContainer.appendChild(emptyState);
+
+        if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+          lucide.createIcons({ root: emptyState });
+        }
+        return;
+      }
+
+      // Si hay vídeos de raíz junto a subcarpetas, añadimos un encabezado aclaratorio
+      if (this.currentFilters.campaignId !== 'all' && !this.currentSubfolder && campHasSubfolders && !this.currentFilters.search) {
+        const rootHeading = createElement('h4', { className: 'subfolder-root-heading', style: 'grid-column: 1 / -1;' }, [
+          createElement('i', { 'data-lucide': 'film', 'aria-hidden': 'true', style: 'width: 16px; height: 16px; color: var(--color-brand-primary-light);' }),
+          createElement('span', {}, `Clips en la raíz de la campaña (${displayVideos.length})`)
+        ]);
+        targetContainer.appendChild(rootHeading);
+      }
+
+      displayVideos.forEach((video) => {
+        const campaign = this.campaigns.find((c) => c.id === video.campaignId);
+        const cardEl = createVideoCardElement(video, campaign, (vid) => {
+          this.videoPlayerModal.open(vid);
+        });
+        targetContainer.appendChild(cardEl);
+      });
 
       if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-        lucide.createIcons({ root: emptyState });
+        lucide.createIcons({ root: targetContainer });
       }
-      return;
+    } catch {
+      // Manejo de errores
     }
-
-    this.videos.forEach((video) => {
-      const campaign = this.campaigns.find((c) => c.id === video.campaignId);
-      const cardEl = createVideoCardElement(video, campaign, (vid) => {
-        this.videoPlayerModal.open(vid);
-      });
-      targetContainer.appendChild(cardEl);
-    });
-
-    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-      lucide.createIcons({ root: targetContainer });
-    }
-  } catch {
-    // Manejo de errores
   }
-}
 
 openVideoById(videoId) {
   const video = (this.videos || []).find((v) => v.id === videoId) || (this.allVideos || []).find((v) => v.id === videoId);

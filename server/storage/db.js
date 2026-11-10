@@ -330,12 +330,20 @@ class JsonDatabase {
   // ============================================================================
   // Operaciones de Vídeos
   // ============================================================================
-  getVideos({ campaignId, status, search, sort = 'newest' } = {}) {
+  getVideos({ campaignId, status, search, sort, subfolder } = {}) {
     const data = this.read();
     let result = [...data.videos];
 
     if (campaignId && campaignId !== 'all') {
       result = result.filter((v) => v.campaignId === campaignId);
+    }
+
+    if (subfolder !== undefined && subfolder !== null) {
+      if (subfolder === 'root' || subfolder === '') {
+        result = result.filter((v) => !v.subfolder);
+      } else {
+        result = result.filter((v) => v.subfolder === subfolder);
+      }
     }
 
     if (status && status !== 'all') {
@@ -406,6 +414,7 @@ class JsonDatabase {
     const newVideo = {
       id: `vid-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
       campaignId: videoData.campaignId,
+      subfolder: videoData.subfolder || null,
       driveFileId: videoData.driveFileId,
       title: videoData.title,
       thumbnailUrl: videoData.thumbnailUrl || 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=80',
@@ -437,6 +446,7 @@ class JsonDatabase {
       ...current,
       ...updates,
       id,
+      subfolder: updates.subfolder !== undefined ? updates.subfolder : (current.subfolder || null),
       platforms: updates.platforms ? { ...current.platforms, ...updates.platforms } : current.platforms,
       postUrls: updates.postUrls ? { ...current.postUrls, ...updates.postUrls } : current.postUrls,
       updatedAt: new Date().toISOString()

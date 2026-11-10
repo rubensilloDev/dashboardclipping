@@ -79,7 +79,8 @@ export class VideoPlayerModal {
     }
 
     if (this.durationLabelEl) {
-      this.durationLabelEl.textContent = `Duración: ${video.duration || '00:00'}`;
+      const subInfo = video.subfolder ? ` · Subcarpeta: ${video.subfolder}` : '';
+      this.durationLabelEl.textContent = `Duración: ${video.duration || '00:45'}${subInfo}`;
     }
 
     // Configuración del reproductor de Google Drive en iframe

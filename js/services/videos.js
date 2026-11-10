@@ -26,6 +26,9 @@ export const videoService = {
     if (filters.sort && filters.sort !== 'newest') {
       params.append('sort', filters.sort);
     }
+    if (filters.subfolder !== undefined && filters.subfolder !== null) {
+      params.append('subfolder', filters.subfolder);
+    }
 
     const queryString = params.toString();
     const endpoint = queryString ? `/videos?${queryString}` : '/videos';

@@ -18,13 +18,14 @@ videosRouter.use(requireAuth);
  * Obtiene el listado de vídeos con filtros opcionales (campaña, estado, buscador)
  */
 videosRouter.get('/', (req, res) => {
-  const { campaignId, status, search, sort } = req.query;
+  const { campaignId, status, search, sort, subfolder } = req.query;
 
   const videos = db.getVideos({
     campaignId: campaignId ? String(campaignId) : undefined,
     status: status ? String(status) : undefined,
     search: search ? String(search) : undefined,
-    sort: sort ? String(sort) : undefined
+    sort: sort ? String(sort) : undefined,
+    subfolder: subfolder !== undefined ? String(subfolder) : undefined
   });
 
   return res.json(videos);

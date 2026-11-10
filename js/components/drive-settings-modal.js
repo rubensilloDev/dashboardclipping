@@ -20,12 +20,12 @@ const APPS_SCRIPT_SNIPPET = `function getVideosRecursively(folderObj, pathPrefix
     if (mime.indexOf('video') !== -1 || name.match(/\\.(mp4|mov|avi|mkv|webm|m4v)$/i)) {
       var fileId = file.getId();
       var cleanName = name.replace(/\\.[^/.]+$/, '');
-      var finalTitle = pathPrefix ? pathPrefix + ' / ' + cleanName : cleanName;
       videoList.push({
         id: fileId,
-        name: finalTitle,
+        name: cleanName,
         mimeType: mime,
-        thumbnailLink: 'https://lh3.googleusercontent.com/d/' + fileId + '=w600',
+        subfolder: pathPrefix || null,
+        thumbnailLink: 'https://drive.google.com/thumbnail?id=' + fileId + '&sz=w600',
         duration: '00:45',
         createdTime: file.getDateCreated().toISOString()
       });
@@ -34,8 +34,8 @@ const APPS_SCRIPT_SNIPPET = `function getVideosRecursively(folderObj, pathPrefix
   var innerFolders = folderObj.getFolders();
   while (innerFolders.hasNext()) {
     var inner = innerFolders.next();
-    var innerPrefix = pathPrefix ? pathPrefix + ' / ' + inner.getName() : inner.getName();
-    var nestedVideos = getVideosRecursively(inner, innerPrefix);
+    var nextPrefix = pathPrefix ? (pathPrefix + ' / ' + inner.getName()) : inner.getName();
+    var nestedVideos = getVideosRecursively(inner, nextPrefix);
     videoList = videoList.concat(nestedVideos);
   }
   return videoList;
@@ -62,7 +62,8 @@ function doGet(e) {
           id: fileId,
           name: name.replace(/\\.[^/.]+$/, ''),
           mimeType: mime,
-          thumbnailLink: 'https://lh3.googleusercontent.com/d/' + fileId + '=w600',
+          subfolder: null,
+          thumbnailLink: 'https://drive.google.com/thumbnail?id=' + fileId + '&sz=w600',
           duration: '00:45',
           createdTime: file.getDateCreated().toISOString()
         });
@@ -79,9 +80,6 @@ function doGet(e) {
         totalFiles: subVideos.length,
         files: subVideos
       });
-    }
-    if (subfolderList.length === 0) {
-      directFiles = getVideosRecursively(folder, '');
     }
     return ContentService
       .createTextOutput(JSON.stringify({

@@ -51,9 +51,11 @@ campaignsRouter.post('/', async (req, res) => {
   db.addActivity(`Creada la nueva campaña "${campaign.name}"`, 'campaign');
 
   // Sincronización inicial automática de la nueva campaña
-  const apiKey = process.env.GOOGLE_DRIVE_API_KEY;
+  const storedConfig = db.getConfig();
+  const appsScriptUrl = storedConfig?.googleAppsScriptUrl || process.env.GOOGLE_APPS_SCRIPT_URL;
+  const apiKey = storedConfig?.googleDriveApiKey || process.env.GOOGLE_DRIVE_API_KEY;
   try {
-    await syncCampaignVideos(campaign.id, apiKey);
+    await syncCampaignVideos(campaign.id, { appsScriptUrl, apiKey });
   } catch {
     // Si falla la sincronización inmediata, la campaña ya está creada y se podrá sincronizar luego
   }

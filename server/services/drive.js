@@ -76,8 +76,9 @@ export async function fetchDriveVideos(folderInput, options = {}) {
               return {
                 driveFileId: fileId,
                 title: rawTitle.replace(/\.[^/.]+$/, ''), // Elimina la extensión del archivo
-                thumbnailUrl: file.thumbnailLink || file.thumbnailUrl || `https://lh3.googleusercontent.com/d/${fileId}=w600`,
-                duration: file.duration || '00:45'
+                thumbnailUrl: `https://drive.google.com/thumbnail?id=${fileId}&sz=w600`,
+                duration: file.duration || '00:45',
+                subfolder: file.subfolder || null
               };
             })
             : [];
@@ -87,12 +88,16 @@ export async function fetchDriveVideos(folderInput, options = {}) {
               id: sub.id,
               name: sub.name,
               files: Array.isArray(sub.files)
-                ? sub.files.map((f) => ({
-                  driveFileId: f.id || f.driveFileId,
-                  title: (f.name || f.title || 'Clip sin título').replace(/\.[^/.]+$/, ''),
-                  thumbnailUrl: f.thumbnailLink || f.thumbnailUrl || `https://lh3.googleusercontent.com/d/${f.id || f.driveFileId}=w600`,
-                  duration: f.duration || '00:45'
-                }))
+                ? sub.files.map((f) => {
+                  const fId = f.id || f.driveFileId;
+                  return {
+                    driveFileId: fId,
+                    title: (f.name || f.title || 'Clip sin título').replace(/\.[^/.]+$/, ''),
+                    thumbnailUrl: `https://drive.google.com/thumbnail?id=${fId}&sz=w600`,
+                    duration: f.duration || '00:45',
+                    subfolder: f.subfolder || sub.name || null
+                  };
+                })
                 : []
             }))
             : [];
@@ -132,8 +137,9 @@ export async function fetchDriveVideos(folderInput, options = {}) {
             return {
               driveFileId: file.id,
               title: file.name.replace(/\.[^/.]+$/, ''), // Elimina la extensión del archivo
-              thumbnailUrl: file.thumbnailLink || `https://lh3.googleusercontent.com/d/${file.id}=w600`,
-              duration: durationStr
+              thumbnailUrl: `https://drive.google.com/thumbnail?id=${file.id}&sz=w600`,
+              duration: durationStr,
+              subfolder: null
             };
           });
         }
@@ -165,38 +171,22 @@ export async function syncCampaignVideos(campaignId, options = {}) {
   const directVideos = Array.isArray(driveVideos) ? driveVideos : [];
   const subfolders = driveVideos.subfolders || [];
 
-  const existingVideos = db.getVideos({ campaignId });
-  const existingDriveIds = new Set(existingVideos.map((v) => v.driveFileId));
+  // Verificamos si este folder es la Carpeta Padre Raíz (contiene múltiples subcarpetas y representa la colección de campañas)
+  // Regla: La carpeta padre NO es una campaña. Sus hijas directas de primer nivel son las campañas.
+  const isParentRootFolder = (
+    subfolders.length > 0 &&
+    (
+      campaign.driveFolderId === '1m9BC2awrAAbNse_nhCegfibop09b2vp0' ||
+      campaign.name.toLowerCase().includes('campañas de clipping') ||
+      (directVideos.length === 0 && subfolders.length >= 3)
+    )
+  );
 
   let newVideosCount = 0;
   let newCampaignsCount = 0;
 
-  // 1. Sincronizar vídeos directos de esta carpeta/campaña
-  for (const driveVid of directVideos) {
-    if (!existingDriveIds.has(driveVid.driveFileId)) {
-      db.createVideo({
-        campaignId,
-        driveFileId: driveVid.driveFileId,
-        title: driveVid.title,
-        thumbnailUrl: driveVid.thumbnailUrl,
-        duration: driveVid.duration,
-        isEdited: false,
-        platforms: {
-          youtube: false,
-          tiktok: false,
-          instagram: false,
-          facebook: false
-        },
-        postUrls: {},
-        notes: 'Detectado automáticamente en Google Drive'
-      });
-      newVideosCount++;
-    }
-  }
-
-  // 2. Si la carpeta consultada contiene subcarpetas (Carpeta Padre de Campañas)
-  // Crear o vincular cada subcarpeta como una Campaña hija independiente
-  if (subfolders.length > 0) {
+  if (isParentRootFolder) {
+    // Es una carpeta padre: cada subcarpeta de primer nivel se convierte en una Campaña
     const PALETTE = ['#6366f1', '#10b981', '#f59e0b', '#06b6d4', '#ec4899', '#8b5cf6', '#3b82f6', '#14b8a6'];
 
     for (let i = 0; i < subfolders.length; i++) {
@@ -224,9 +214,10 @@ export async function syncCampaignVideos(campaignId, options = {}) {
         if (!subExistingIds.has(subVid.driveFileId)) {
           db.createVideo({
             campaignId: subCamp.id,
+            subfolder: subVid.subfolder || null,
             driveFileId: subVid.driveFileId,
             title: subVid.title,
-            thumbnailUrl: subVid.thumbnailUrl,
+            thumbnailUrl: subVid.thumbnailUrl || `https://drive.google.com/thumbnail?id=${subVid.driveFileId}&sz=w600`,
             duration: subVid.duration,
             isEdited: false,
             platforms: {
@@ -236,7 +227,79 @@ export async function syncCampaignVideos(campaignId, options = {}) {
               facebook: false
             },
             postUrls: {},
-            notes: `Importado de subcarpeta "${sub.name}" en Drive`
+            notes: subVid.subfolder ? `Subcarpeta "${subVid.subfolder}" en Drive` : `Carpeta raíz de "${sub.name}" en Drive`
+          });
+          newVideosCount++;
+        }
+      }
+    }
+
+    // Eliminamos la carpeta padre como campaña para que nunca aparezca en catálogo ni dashboard
+    db.deleteCampaign(campaignId);
+
+    db.addActivity(
+      `Sincronización de Carpeta Padre: ${newCampaignsCount} campañas hijas procesadas, ${newVideosCount} vídeos vinculados`,
+      'drive_sync'
+    );
+
+    return {
+      newVideosCount,
+      newCampaignsCount,
+      totalVideosCount: newVideosCount
+    };
+  }
+
+  // Es una Campaña individual (ej: clips_feijoo o ruben holgado)
+  const existingVideos = db.getVideos({ campaignId });
+  const existingDriveIds = new Set(existingVideos.map((v) => v.driveFileId));
+
+  // 1. Sincronizar vídeos directos en la raíz de esta campaña
+  for (const driveVid of directVideos) {
+    if (!existingDriveIds.has(driveVid.driveFileId)) {
+      db.createVideo({
+        campaignId,
+        subfolder: null,
+        driveFileId: driveVid.driveFileId,
+        title: driveVid.title,
+        thumbnailUrl: driveVid.thumbnailUrl || `https://drive.google.com/thumbnail?id=${driveVid.driveFileId}&sz=w600`,
+        duration: driveVid.duration,
+        isEdited: false,
+        platforms: {
+          youtube: false,
+          tiktok: false,
+          instagram: false,
+          facebook: false
+        },
+        postUrls: {},
+        notes: 'Detectado automáticamente en Google Drive'
+      });
+      newVideosCount++;
+    }
+  }
+
+  // 2. Si la campaña contiene subcarpetas internas (ej: 🔴 DIRECTO..., video_avispas_asesinas, Semana 1)
+  // NO se crean campañas nuevas; se asocian a esta misma campaña con la propiedad subfolder
+  if (subfolders.length > 0) {
+    for (const sub of subfolders) {
+      for (const subVid of (sub.files || [])) {
+        if (!existingDriveIds.has(subVid.driveFileId)) {
+          const subfolderPath = subVid.subfolder || sub.name;
+          db.createVideo({
+            campaignId,
+            subfolder: subfolderPath,
+            driveFileId: subVid.driveFileId,
+            title: subVid.title,
+            thumbnailUrl: subVid.thumbnailUrl || `https://drive.google.com/thumbnail?id=${subVid.driveFileId}&sz=w600`,
+            duration: subVid.duration,
+            isEdited: false,
+            platforms: {
+              youtube: false,
+              tiktok: false,
+              instagram: false,
+              facebook: false
+            },
+            postUrls: {},
+            notes: `Subcarpeta "${subfolderPath}" en Drive`
           });
           newVideosCount++;
         }
@@ -244,10 +307,9 @@ export async function syncCampaignVideos(campaignId, options = {}) {
     }
   }
 
-  if (newVideosCount > 0 || newCampaignsCount > 0) {
-    const extraMsg = newCampaignsCount > 0 ? ` (${newCampaignsCount} campañas hijas detectadas)` : '';
+  if (newVideosCount > 0) {
     db.addActivity(
-      `Sincronización con Drive: ${newVideosCount} vídeos añadidos a "${campaign.name}"${extraMsg}`,
+      `Sincronización con Drive: ${newVideosCount} vídeos añadidos a "${campaign.name}"`,
       'drive_sync'
     );
   }
@@ -256,7 +318,7 @@ export async function syncCampaignVideos(campaignId, options = {}) {
 
   return {
     newVideosCount,
-    newCampaignsCount,
+    newCampaignsCount: 0,
     totalVideosCount: updatedVideos.length
   };
 }
