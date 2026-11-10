@@ -162,7 +162,7 @@ export async function fetchDriveVideos(folderInput, options = {}) {
  * @returns {Promise<{ newVideosCount: number, totalVideosCount: number }>}
  */
 export async function syncCampaignVideos(campaignId, options = {}) {
-  const campaign = db.getCampaignById(campaignId);
+  const campaign = await db.getCampaignById(campaignId);
   if (!campaign) {
     throw new Error(`Campaña con ID ${campaignId} no encontrada.`);
   }
@@ -191,15 +191,16 @@ export async function syncCampaignVideos(campaignId, options = {}) {
 
     for (let i = 0; i < subfolders.length; i++) {
       const sub = subfolders[i];
-      let subCamp = db.getCampaigns().find((c) =>
+      const existingCampaigns = await db.getCampaigns();
+      let subCamp = existingCampaigns.find((c) =>
         c.driveFolderId === sub.id ||
         c.driveFolderId === `https://drive.google.com/drive/folders/${sub.id}` ||
         c.name.trim().toLowerCase() === sub.name.trim().toLowerCase()
       );
 
       if (!subCamp) {
-        const color = PALETTE[(db.getCampaigns().length + i) % PALETTE.length];
-        subCamp = db.createCampaign({
+        const color = PALETTE[(existingCampaigns.length + i) % PALETTE.length];
+        subCamp = await db.createCampaign({
           name: sub.name,
           color,
           driveFolderId: sub.id
@@ -207,12 +208,12 @@ export async function syncCampaignVideos(campaignId, options = {}) {
         newCampaignsCount++;
       }
 
-      const subExistingVideos = db.getVideos({ campaignId: subCamp.id });
+      const subExistingVideos = await db.getVideos({ campaignId: subCamp.id });
       const subExistingIds = new Set(subExistingVideos.map((v) => v.driveFileId));
 
       for (const subVid of (sub.files || [])) {
         if (!subExistingIds.has(subVid.driveFileId)) {
-          db.createVideo({
+          await db.createVideo({
             campaignId: subCamp.id,
             subfolder: subVid.subfolder || null,
             driveFileId: subVid.driveFileId,
@@ -235,9 +236,9 @@ export async function syncCampaignVideos(campaignId, options = {}) {
     }
 
     // Eliminamos la carpeta padre como campaña para que nunca aparezca en catálogo ni dashboard
-    db.deleteCampaign(campaignId);
+    await db.deleteCampaign(campaignId);
 
-    db.addActivity(
+    await db.addActivity(
       `Sincronización de Carpeta Padre: ${newCampaignsCount} campañas hijas procesadas, ${newVideosCount} vídeos vinculados`,
       'drive_sync'
     );
@@ -250,13 +251,13 @@ export async function syncCampaignVideos(campaignId, options = {}) {
   }
 
   // Es una Campaña individual (ej: clips_feijoo o ruben holgado)
-  const existingVideos = db.getVideos({ campaignId });
+  const existingVideos = await db.getVideos({ campaignId });
   const existingDriveIds = new Set(existingVideos.map((v) => v.driveFileId));
 
   // 1. Sincronizar vídeos directos en la raíz de esta campaña
   for (const driveVid of directVideos) {
     if (!existingDriveIds.has(driveVid.driveFileId)) {
-      db.createVideo({
+      await db.createVideo({
         campaignId,
         subfolder: null,
         driveFileId: driveVid.driveFileId,
@@ -284,7 +285,7 @@ export async function syncCampaignVideos(campaignId, options = {}) {
       for (const subVid of (sub.files || [])) {
         if (!existingDriveIds.has(subVid.driveFileId)) {
           const subfolderPath = subVid.subfolder || sub.name;
-          db.createVideo({
+          await db.createVideo({
             campaignId,
             subfolder: subfolderPath,
             driveFileId: subVid.driveFileId,
@@ -308,13 +309,13 @@ export async function syncCampaignVideos(campaignId, options = {}) {
   }
 
   if (newVideosCount > 0) {
-    db.addActivity(
+    await db.addActivity(
       `Sincronización con Drive: ${newVideosCount} vídeos añadidos a "${campaign.name}"`,
       'drive_sync'
     );
   }
 
-  const updatedVideos = db.getVideos({ campaignId });
+  const updatedVideos = await db.getVideos({ campaignId });
 
   return {
     newVideosCount,

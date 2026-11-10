@@ -16,8 +16,11 @@ statsRouter.use(requireAuth);
  * GET /api/stats
  * Devuelve todas las estadísticas consolidadas del panel
  */
-statsRouter.get('/', (req, res) => {
-  const stats = db.getStats();
-  return res.json(stats);
+statsRouter.get('/', async (req, res) => {
+  try {
+    const stats = await db.getStats();
+    return res.json(stats);
+  } catch (error) {
+    return res.status(500).json({ error: error.message || 'Error al obtener estadísticas.' });
+  }
 });
-

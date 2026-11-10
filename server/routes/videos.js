@@ -17,18 +17,22 @@ videosRouter.use(requireAuth);
  * GET /api/videos
  * Obtiene el listado de vídeos con filtros opcionales (campaña, estado, buscador)
  */
-videosRouter.get('/', (req, res) => {
+videosRouter.get('/', async (req, res) => {
   const { campaignId, status, search, sort, subfolder } = req.query;
 
-  const videos = db.getVideos({
-    campaignId: campaignId ? String(campaignId) : undefined,
-    status: status ? String(status) : undefined,
-    search: search ? String(search) : undefined,
-    sort: sort ? String(sort) : undefined,
-    subfolder: subfolder !== undefined ? String(subfolder) : undefined
-  });
+  try {
+    const videos = await db.getVideos({
+      campaignId: campaignId ? String(campaignId) : undefined,
+      status: status ? String(status) : undefined,
+      search: search ? String(search) : undefined,
+      sort: sort ? String(sort) : undefined,
+      subfolder: subfolder !== undefined ? String(subfolder) : undefined
+    });
 
-  return res.json(videos);
+    return res.json(videos);
+  } catch (error) {
+    return res.status(500).json({ error: error.message || 'Error al obtener vídeos.' });
+  }
 });
 
 /**
@@ -37,14 +41,15 @@ videosRouter.get('/', (req, res) => {
  */
 videosRouter.post('/sync', async (req, res) => {
   const { campaignId, apiKey: customApiKey, appsScriptUrl: customAppsScriptUrl } = req.body || {};
-  const storedConfig = db.getConfig();
-  const appsScriptUrl = customAppsScriptUrl || storedConfig?.googleAppsScriptUrl || process.env.GOOGLE_APPS_SCRIPT_URL;
-  const apiKey = customApiKey || storedConfig?.googleDriveApiKey || process.env.GOOGLE_DRIVE_API_KEY;
 
   try {
+    const storedConfig = await db.getConfig();
+    const appsScriptUrl = customAppsScriptUrl || storedConfig?.googleAppsScriptUrl || process.env.GOOGLE_APPS_SCRIPT_URL;
+    const apiKey = customApiKey || storedConfig?.googleDriveApiKey || process.env.GOOGLE_DRIVE_API_KEY;
+
     const campaigns = campaignId && campaignId !== 'all'
-      ? [db.getCampaignById(campaignId)].filter(Boolean)
-      : db.getCampaigns();
+      ? [(await db.getCampaignById(campaignId))].filter(Boolean)
+      : await db.getCampaigns();
 
     if (campaigns.length === 0) {
       return res.status(404).json({ error: 'No se encontraron campañas para sincronizar.' });
@@ -82,51 +87,55 @@ videosRouter.post('/sync', async (req, res) => {
  * PATCH /api/videos/:id
  * Actualiza los estados de un clip: isEdited, plataformas, enlaces y notas
  */
-videosRouter.patch('/:id', (req, res) => {
+videosRouter.patch('/:id', async (req, res) => {
   const { id } = req.params;
   const { isEdited, platforms, postUrls, notes } = req.body || {};
 
-  const currentVideo = db.getVideoById(id);
-  if (!currentVideo) {
-    return res.status(404).json({ error: 'Vídeo no encontrado.' });
-  }
-
-  const updates = {};
-  if (typeof isEdited === 'boolean') {
-    updates.isEdited = isEdited;
-    if (isEdited !== currentVideo.isEdited) {
-      const stateText = isEdited ? 'Editado: Sí' : 'Editado: No';
-      db.addActivity(`Estado de edición actualizado a "${stateText}" en "${currentVideo.title}"`, 'edit_status');
+  try {
+    const currentVideo = await db.getVideoById(id);
+    if (!currentVideo) {
+      return res.status(404).json({ error: 'Vídeo no encontrado.' });
     }
-  }
 
-  if (platforms && typeof platforms === 'object') {
-    updates.platforms = platforms;
-
-    // Detectar plataformas recién marcadas como subidas para el feed de actividad
-    const newlyUploaded = [];
-    ['youtube', 'tiktok', 'instagram', 'facebook'].forEach((net) => {
-      if (platforms[net] && !currentVideo.platforms?.[net]) {
-        newlyUploaded.push(net.toUpperCase());
+    const updates = {};
+    if (typeof isEdited === 'boolean') {
+      updates.isEdited = isEdited;
+      if (isEdited !== currentVideo.isEdited) {
+        const stateText = isEdited ? 'Editado: Sí' : 'Editado: No';
+        await db.addActivity(`Estado de edición actualizado a "${stateText}" en "${currentVideo.title}"`, 'edit_status');
       }
-    });
-
-    if (newlyUploaded.length > 0) {
-      db.addActivity(
-        `Marcado como subido en ${newlyUploaded.join(', ')} en "${currentVideo.title}"`,
-        'upload_status'
-      );
     }
-  }
 
-  if (postUrls && typeof postUrls === 'object') {
-    updates.postUrls = postUrls;
-  }
+    if (platforms && typeof platforms === 'object') {
+      updates.platforms = platforms;
 
-  if (typeof notes === 'string') {
-    updates.notes = notes.trim();
-  }
+      // Detectar plataformas recién marcadas como subidas para el feed de actividad
+      const newlyUploaded = [];
+      ['youtube', 'tiktok', 'instagram', 'facebook'].forEach((net) => {
+        if (platforms[net] && !currentVideo.platforms?.[net]) {
+          newlyUploaded.push(net.toUpperCase());
+        }
+      });
 
-  const updatedVideo = db.updateVideo(id, updates);
-  return res.json(updatedVideo);
+      if (newlyUploaded.length > 0) {
+        await db.addActivity(
+          `Marcado como subido en ${newlyUploaded.join(', ')} en "${currentVideo.title}"`,
+          'upload_status'
+        );
+      }
+    }
+
+    if (postUrls && typeof postUrls === 'object') {
+      updates.postUrls = postUrls;
+    }
+
+    if (typeof notes === 'string') {
+      updates.notes = notes.trim();
+    }
+
+    const updatedVideo = await db.updateVideo(id, updates);
+    return res.json(updatedVideo);
+  } catch (error) {
+    return res.status(500).json({ error: error.message || 'Error al actualizar el vídeo.' });
+  }
 });

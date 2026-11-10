@@ -1,7 +1,7 @@
 /**
- * Base de datos documental ligera y segura basada en archivo JSON.
- * Utiliza escrituras atómicas mediante archivo temporal y renombrado atómico en disco
- * para prevenir corrupción de datos en caídas del proceso o cortes repentinos.
+ * Capa de persistencia documental dual (Upstash Redis REST y fallback local JSON).
+ * Compatible con despliegues Serverless en Vercel (KV / Upstash Redis)
+ * y con ejecuciones locales mediante escritura atómica en disco (db.tmp.json -> db.json).
  */
 
 import fs from 'node:fs';
@@ -15,7 +15,8 @@ const DB_PATH = path.join(DATA_DIR, 'db.json');
 const DB_TMP_PATH = path.join(DATA_DIR, 'db.tmp.json');
 
 /**
- * Semilla inicial con campañas y vídeos representativos para arrancar el sistema
+ * Semilla inicial por defecto con campañas y vídeos de muestra
+ * @returns {Object} Estructura inicial de la base de datos
  */
 function createInitialSeed() {
   return {
@@ -25,28 +26,36 @@ function createInitialSeed() {
         name: 'Podcast Tech Clips',
         color: '#a855f7',
         driveFolderId: '1AbC_Podcast_Tech_Drive_Folder',
-        createdAt: new Date(Date.now() - 7 * 86400000).toISOString()
+        createdAt: new Date(Date.now() - 7 * 86400000).toISOString(),
+        isCompleted: false,
+        completedAt: null
       },
       {
         id: 'camp-finanzas',
         name: 'Finanzas Personales',
         color: '#10b981',
         driveFolderId: '2BcD_Finanzas_Drive_Folder',
-        createdAt: new Date(Date.now() - 6 * 86400000).toISOString()
+        createdAt: new Date(Date.now() - 6 * 86400000).toISOString(),
+        isCompleted: false,
+        completedAt: null
       },
       {
         id: 'camp-fitness',
         name: 'Fitness & Motivación',
         color: '#f59e0b',
         driveFolderId: '3CdE_Fitness_Drive_Folder',
-        createdAt: new Date(Date.now() - 5 * 86400000).toISOString()
+        createdAt: new Date(Date.now() - 5 * 86400000).toISOString(),
+        isCompleted: false,
+        completedAt: null
       },
       {
         id: 'camp-ecommerce',
         name: 'E-commerce Tips',
         color: '#06b6d4',
         driveFolderId: '4DeF_Ecommerce_Drive_Folder',
-        createdAt: new Date(Date.now() - 4 * 86400000).toISOString()
+        createdAt: new Date(Date.now() - 4 * 86400000).toISOString(),
+        isCompleted: false,
+        completedAt: null
       }
     ],
     videos: [
@@ -212,58 +221,154 @@ function createInitialSeed() {
 }
 
 /**
- * Clase controladora de la persistencia de datos atómica
+ * Gestor de Base de Datos Dual: Upstash Redis REST API (Cloud/Serverless) + JSON Local
  */
-class JsonDatabase {
+class DualDatabase {
   constructor() {
+    this.redisKey = 'clipflow_db';
     this.ensureDatabaseFile();
   }
 
   /**
-   * Garantiza que la carpeta data/ y el archivo db.json existan
+   * Obtiene la configuración activa de Redis según variables de entorno
+   * @returns {{ url: string, token: string } | null}
+   */
+  getRedisConfig() {
+    const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL || '';
+    const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || '';
+
+    if (url && token) {
+      return {
+        url: url.replace(/\/+$/, ''),
+        token
+      };
+    }
+    return null;
+  }
+
+  /**
+   * Garantiza que la carpeta data/ y el archivo db.json existan para ejecución local
    */
   ensureDatabaseFile() {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
-    }
+    try {
+      if (!fs.existsSync(DATA_DIR)) {
+        fs.mkdirSync(DATA_DIR, { recursive: true });
+      }
 
-    if (!fs.existsSync(DB_PATH)) {
-      const initialData = createInitialSeed();
-      fs.writeFileSync(DB_PATH, JSON.stringify(initialData, null, 2), 'utf-8');
+      if (!fs.existsSync(DB_PATH)) {
+        const initialData = createInitialSeed();
+        fs.writeFileSync(DB_PATH, JSON.stringify(initialData, null, 2), 'utf-8');
+      }
+    } catch {
+      // Ignorar errores en sistemas de archivos de solo lectura (como Vercel Serverless)
     }
   }
 
   /**
-   * Lee sincrónicamente los datos actuales del disco
-   * @returns {Object} Contenido del archivo db.json
+   * Lee sincrónicamente desde el archivo local como fallback
+   * @returns {Object}
    */
-  read() {
+  readLocalFallback() {
     try {
       this.ensureDatabaseFile();
-      const raw = fs.readFileSync(DB_PATH, 'utf-8');
-      return JSON.parse(raw);
-    } catch {
-      const seed = createInitialSeed();
-      this.write(seed);
-      return seed;
+      if (fs.existsSync(DB_PATH)) {
+        const raw = fs.readFileSync(DB_PATH, 'utf-8');
+        return JSON.parse(raw);
+      }
+    } catch (err) {
+      console.error('Aviso: no se pudo leer el archivo local db.json:', err.message);
+    }
+    return createInitialSeed();
+  }
+
+  /**
+   * Escribe de forma atómica en el sistema de archivos local
+   * @param {Object} data
+   */
+  writeLocalAtomic(data) {
+    try {
+      this.ensureDatabaseFile();
+      const serialized = JSON.stringify(data, null, 2);
+      fs.writeFileSync(DB_TMP_PATH, serialized, 'utf-8');
+      fs.renameSync(DB_TMP_PATH, DB_PATH);
+    } catch (err) {
+      console.error('Error al persistir en archivo local db.json:', err.message);
+      throw err;
     }
   }
 
   /**
-   * Escritura atómica: primero a db.tmp.json y luego renombrado atómico a db.json
-   * @param {Object} data - Datos a persistir
+   * Lee los datos actuales (desde Upstash Redis REST si está configurado o desde JSON local)
+   * @returns {Promise<Object>} Contenido de la base de datos
    */
-  write(data) {
-    const serialized = JSON.stringify(data, null, 2);
-    fs.writeFileSync(DB_TMP_PATH, serialized, 'utf-8');
-    fs.renameSync(DB_TMP_PATH, DB_PATH);
+  async read() {
+    const redisConfig = this.getRedisConfig();
+
+    if (redisConfig) {
+      try {
+        const response = await fetch(`${redisConfig.url}/get/${this.redisKey}`, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${redisConfig.token}`
+          }
+        });
+
+        if (response.ok) {
+          const json = await response.json();
+          if (json && json.result !== null && json.result !== undefined) {
+            const parsed = typeof json.result === 'string' ? JSON.parse(json.result) : json.result;
+            if (parsed && typeof parsed === 'object') {
+              return parsed;
+            }
+          }
+        }
+
+        // Si la clave es null en Redis, inicializamos / sembramos con db.json local
+        const seedData = this.readLocalFallback();
+        await this.write(seedData);
+        return seedData;
+      } catch (error) {
+        console.error('Aviso: Falló la lectura desde Upstash Redis REST, usando fallback local:', error.message);
+        return this.readLocalFallback();
+      }
+    }
+
+    return this.readLocalFallback();
+  }
+
+  /**
+   * Persiste los datos (en Upstash Redis REST si está configurado o en JSON local)
+   * @param {Object} data - Datos a guardar
+   * @returns {Promise<void>}
+   */
+  async write(data) {
+    const redisConfig = this.getRedisConfig();
+
+    if (redisConfig) {
+      const serialized = JSON.stringify(data);
+      const response = await fetch(redisConfig.url, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${redisConfig.token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(['SET', this.redisKey, serialized])
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error HTTP al persistir en Upstash Redis: ${response.status}`);
+      }
+      return;
+    }
+
+    this.writeLocalAtomic(data);
   }
 
   // ============================================================================
   // Operaciones de Campañas
   // ============================================================================
-  getCampaigns() {
-    const data = this.read();
+  async getCampaigns() {
+    const data = await this.read();
     return (data.campaigns || []).map((c) => ({
       ...c,
       isCompleted: Boolean(c.isCompleted) || false,
@@ -271,13 +376,15 @@ class JsonDatabase {
     }));
   }
 
-  getCampaignById(id) {
-    const campaigns = this.getCampaigns();
+  async getCampaignById(id) {
+    const campaigns = await this.getCampaigns();
     return campaigns.find((c) => c.id === id) || null;
   }
 
-  createCampaign({ name, color, driveFolderId, isCompleted = false }) {
-    const data = this.read();
+  async createCampaign({ name, color, driveFolderId, isCompleted = false }) {
+    const data = await this.read();
+    if (!data.campaigns) data.campaigns = [];
+
     const newCampaign = {
       id: `camp-${Date.now()}`,
       name: name.trim(),
@@ -287,13 +394,16 @@ class JsonDatabase {
       completedAt: isCompleted ? new Date().toISOString() : null,
       createdAt: new Date().toISOString()
     };
+
     data.campaigns.push(newCampaign);
-    this.write(data);
+    await this.write(data);
     return newCampaign;
   }
 
-  updateCampaign(id, updates) {
-    const data = this.read();
+  async updateCampaign(id, updates) {
+    const data = await this.read();
+    if (!data.campaigns) data.campaigns = [];
+
     const index = data.campaigns.findIndex((c) => c.id === id);
     if (index === -1) return null;
 
@@ -314,25 +424,25 @@ class JsonDatabase {
     }
 
     data.campaigns[index] = updated;
-    this.write(data);
+    await this.write(data);
     return updated;
   }
 
-  deleteCampaign(id) {
-    const data = this.read();
-    data.campaigns = data.campaigns.filter((c) => c.id !== id);
+  async deleteCampaign(id) {
+    const data = await this.read();
+    data.campaigns = (data.campaigns || []).filter((c) => c.id !== id);
     // Elimina también los vídeos asociados en cascada
-    data.videos = data.videos.filter((v) => v.campaignId !== id);
-    this.write(data);
+    data.videos = (data.videos || []).filter((v) => v.campaignId !== id);
+    await this.write(data);
     return true;
   }
 
   // ============================================================================
   // Operaciones de Vídeos
   // ============================================================================
-  getVideos({ campaignId, status, search, sort, subfolder } = {}) {
-    const data = this.read();
-    let result = [...data.videos];
+  async getVideos({ campaignId, status, search, sort, subfolder } = {}) {
+    const data = await this.read();
+    let result = [...(data.videos || [])];
 
     if (campaignId && campaignId !== 'all') {
       result = result.filter((v) => v.campaignId === campaignId);
@@ -404,13 +514,15 @@ class JsonDatabase {
     return result;
   }
 
-  getVideoById(id) {
-    const data = this.read();
-    return data.videos.find((v) => v.id === id) || null;
+  async getVideoById(id) {
+    const data = await this.read();
+    return (data.videos || []).find((v) => v.id === id) || null;
   }
 
-  createVideo(videoData) {
-    const data = this.read();
+  async createVideo(videoData) {
+    const data = await this.read();
+    if (!data.videos) data.videos = [];
+
     const newVideo = {
       id: `vid-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
       campaignId: videoData.campaignId,
@@ -431,13 +543,16 @@ class JsonDatabase {
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
+
     data.videos.push(newVideo);
-    this.write(data);
+    await this.write(data);
     return newVideo;
   }
 
-  updateVideo(id, updates) {
-    const data = this.read();
+  async updateVideo(id, updates) {
+    const data = await this.read();
+    if (!data.videos) data.videos = [];
+
     const index = data.videos.findIndex((v) => v.id === id);
     if (index === -1) return null;
 
@@ -451,47 +566,52 @@ class JsonDatabase {
       postUrls: updates.postUrls ? { ...current.postUrls, ...updates.postUrls } : current.postUrls,
       updatedAt: new Date().toISOString()
     };
-    this.write(data);
+
+    await this.write(data);
     return data.videos[index];
   }
 
-  deleteVideo(id) {
-    const data = this.read();
-    data.videos = data.videos.filter((v) => v.id !== id);
-    this.write(data);
+  async deleteVideo(id) {
+    const data = await this.read();
+    data.videos = (data.videos || []).filter((v) => v.id !== id);
+    await this.write(data);
     return true;
   }
 
   // ============================================================================
   // Operaciones de Actividad Reciente
   // ============================================================================
-  addActivity(text, type = 'general') {
-    const data = this.read();
+  async addActivity(text, type = 'general') {
+    const data = await this.read();
+    if (!data.activities) data.activities = [];
+
     const entry = {
       id: `act-${Date.now()}`,
       type,
       text,
       timestamp: new Date().toISOString()
     };
+
     data.activities.unshift(entry);
     // Limitar histórico a 50 actividades
     if (data.activities.length > 50) {
       data.activities = data.activities.slice(0, 50);
     }
-    this.write(data);
+
+    await this.write(data);
     return entry;
   }
 
-  getActivities(limit = 10) {
-    const data = this.read();
+  async getActivities(limit = 10) {
+    const data = await this.read();
     return (data.activities || []).slice(0, limit);
   }
 
   // ============================================================================
   // Estadísticas Agregadas
   // ============================================================================
-  getStats() {
-    const data = this.read();
+  async getStats() {
+    const data = await this.read();
     const videos = data.videos || [];
     const campaigns = data.campaigns || [];
 
@@ -570,15 +690,15 @@ class JsonDatabase {
       },
       campaignProgress,
       pendingPublishVideos,
-      recentActivities: this.getActivities(6)
+      recentActivities: (data.activities || []).slice(0, 6)
     };
   }
 
   // ============================================================================
   // Configuración del Servidor y Claves de API
   // ============================================================================
-  getConfig() {
-    const data = this.read();
+  async getConfig() {
+    const data = await this.read();
     return {
       googleDriveApiKey: '',
       googleAppsScriptUrl: '',
@@ -586,15 +706,15 @@ class JsonDatabase {
     };
   }
 
-  updateConfig(updates) {
-    const data = this.read();
+  async updateConfig(updates) {
+    const data = await this.read();
     data.config = {
       ...(data.config || {}),
       ...updates
     };
-    this.write(data);
+    await this.write(data);
     return data.config;
   }
 }
 
-export const db = new JsonDatabase();
+export const db = new DualDatabase();
