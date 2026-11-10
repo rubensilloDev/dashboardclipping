@@ -231,9 +231,17 @@
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: var(--spacing-3);
+  justify-content: space-between;
+  gap: var(--spacing-2);
   margin-bottom: var(--spacing-8);
-  padding: 0 var(--spacing-2);
+  padding: 0 var(--spacing-1);
+}
+
+.sidebar-brand__left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  min-width: 0;
 }
 
 .sidebar-brand__icon {
@@ -2822,4 +2830,260 @@
   padding-bottom: var(--spacing-2);
   border-bottom: 1px solid var(--color-border-subtle);
   width: 100%;
+}
+
+/* ==========================================================================
+   Semáforo Visual de Flujo de Trabajo (3 Estados de Pipeline)
+   ========================================================================== */
+.video-card.pipeline-status--raw {
+  border-left: 4px solid rgba(148, 163, 184, 0.45);
+}
+
+.video-card.pipeline-status--ready {
+  border-left: 4px solid #f59e0b;
+  box-shadow: -2px 0 14px -3px rgba(245, 158, 11, 0.35), var(--shadow-card);
+}
+
+.video-card.pipeline-status--ready:hover {
+  border-left-color: #fbbf24;
+  box-shadow: -2px 0 18px -2px rgba(245, 158, 11, 0.5), var(--shadow-card-hover);
+}
+
+.video-card.pipeline-status--published {
+  border-left: 4px solid #10b981;
+  box-shadow: -2px 0 14px -3px rgba(16, 185, 129, 0.35), var(--shadow-card);
+}
+
+.video-card.pipeline-status--published:hover {
+  border-left-color: #34d399;
+  box-shadow: -2px 0 18px -2px rgba(16, 185, 129, 0.5), var(--shadow-card-hover);
+}
+
+/* En modo tabla compacta */
+.video-catalog--table .video-card.pipeline-status--raw {
+  border-left: 4px solid rgba(148, 163, 184, 0.45);
+}
+.video-catalog--table .video-card.pipeline-status--ready {
+  border-left: 4px solid #f59e0b;
+}
+.video-catalog--table .video-card.pipeline-status--published {
+  border-left: 4px solid #10b981;
+}
+
+/* Badges del Semáforo */
+.badge--pipeline-raw {
+  background: rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge--pipeline-ready {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge--pipeline-published {
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pipeline-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* ==========================================================================
+   Botón de Colapso del Sidebar y Acordeón Inteligente de Campañas
+   ========================================================================== */
+.sidebar-collapse-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.sidebar-collapse-btn:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-border-subtle);
+}
+
+.sidebar-campaigns-accordion {
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.sidebar-campaigns-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-2) var(--spacing-2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition-fast);
+}
+
+.sidebar-campaigns-header:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.sidebar-campaigns-header__title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.sidebar-campaigns-header__icon {
+  width: 15px;
+  height: 15px;
+  color: var(--color-brand-primary-light);
+  flex-shrink: 0;
+}
+
+.sidebar-campaigns-title-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.sidebar-campaigns-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar-icon-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  border-color: transparent;
+}
+
+.sidebar-icon-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-subtle);
+}
+
+.sidebar-accordion-arrow {
+  width: 15px;
+  height: 15px;
+  color: var(--color-text-muted);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar-campaigns-accordion--closed .sidebar-accordion-arrow {
+  transform: rotate(-90deg);
+}
+
+.sidebar-campaigns-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  transition: max-height 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  max-height: 320px;
+  opacity: 1;
+}
+
+.sidebar-campaigns-accordion--closed .sidebar-campaigns-body {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar-campaigns-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+}
+
+/* Micro-scrollbar oscuro estético para la lista de campañas */
+.sidebar-campaigns-list::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-campaigns-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-campaigns-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+.sidebar-campaigns-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.4);
+}
+
+.sidebar-manage-all-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-brand-primary-light);
+  border-radius: var(--radius-md);
+  margin-top: 4px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px dashed rgba(99, 102, 241, 0.25);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-manage-all-link:hover {
+  background: rgba(99, 102, 241, 0.16);
+  border-color: rgba(99, 102, 241, 0.45);
+  color: #ffffff;
+}
+
+/* Badge circular cuando el sidebar está colapsado */
+.sidebar-collapsed-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: var(--color-brand-primary);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 10px;
+  min-width: 16px;
+  text-align: center;
+  border: 2px solid var(--color-bg-surface);
 }

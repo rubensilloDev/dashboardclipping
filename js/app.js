@@ -99,6 +99,23 @@ class AppController {
     this.manageCampaignsBtn = document.getElementById('manageCampaignsBtn');
     this.driveSettingsBtn = document.getElementById('driveSettingsBtn');
 
+    // Control de Sidebar Colapsable y Acordeón Inteligente de Campañas
+    this.appShell = document.querySelector('.app-shell');
+    this.appSidebar = document.getElementById('appSidebar');
+    this.sidebarCollapseBtn = document.getElementById('sidebarCollapseBtn');
+    this.sidebarCollapseIcon = document.getElementById('sidebarCollapseIcon');
+    this.sidebarCampaignsAccordion = document.getElementById('sidebarCampaignsAccordion');
+    this.sidebarCampaignsToggle = document.getElementById('sidebarCampaignsToggle');
+    this.sidebarAccordionArrow = document.getElementById('sidebarAccordionArrow');
+    this.sidebarCampaignsCountText = document.getElementById('sidebarCampaignsCountText');
+    this.sidebarCollapsedCountBadge = document.getElementById('sidebarCollapsedCountBadge');
+    this.sidebarManageAllBtn = document.getElementById('sidebarManageAllBtn');
+
+    this.isSidebarCollapsed = localStorage.getItem('clipflow_sidebar_collapsed') === 'true';
+    this.isCampaignsAccordionOpen = localStorage.getItem('clipflow_campaigns_accordion_open') !== 'false';
+    this.setSidebarCollapsed(this.isSidebarCollapsed);
+    this.setCampaignsAccordion(this.isCampaignsAccordionOpen);
+
     // Componentes modales y widgets
     this.authModal = new AuthModal({
       onSuccess: () => this.handleAuthSuccess()
@@ -328,6 +345,109 @@ class AppController {
         await authService.logout();
         showToast('Has cerrado sesión.');
       });
+    }
+
+    // Toggle de Colapso del Sidebar
+    if (this.sidebarCollapseBtn) {
+      this.sidebarCollapseBtn.addEventListener('click', () => {
+        this.toggleSidebarCollapse();
+      });
+    }
+
+    // Toggle de Acordeón de Campañas
+    if (this.sidebarCampaignsToggle) {
+      this.sidebarCampaignsToggle.addEventListener('click', (e) => {
+        if (e.target.closest('#addCampaignBtn') || e.target.closest('#manageCampaignsBtn')) {
+          return;
+        }
+        this.toggleCampaignsAccordion();
+      });
+    }
+
+    if (this.sidebarManageAllBtn) {
+      this.sidebarManageAllBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.selectCampaign('all');
+        this.navigateTo('videos');
+      });
+    }
+  }
+
+  /**
+   * Alterna el estado colapsado / expandido de la barra lateral de escritorio
+   */
+  toggleSidebarCollapse() {
+    this.setSidebarCollapsed(!this.isSidebarCollapsed);
+  }
+
+  /**
+   * Aplica y persiste el estado del sidebar en disco (localStorage)
+   * @param {boolean} collapsed
+   */
+  setSidebarCollapsed(collapsed) {
+    this.isSidebarCollapsed = Boolean(collapsed);
+    if (this.appShell) {
+      this.appShell.classList.toggle('app-shell--sidebar-collapsed', this.isSidebarCollapsed);
+    }
+    if (this.appSidebar) {
+      this.appSidebar.classList.toggle('app-sidebar--collapsed', this.isSidebarCollapsed);
+    }
+
+    if (this.sidebarCollapseBtn) {
+      this.sidebarCollapseBtn.title = this.isSidebarCollapsed ? 'Expandir barra lateral' : 'Colapsar barra lateral';
+      this.sidebarCollapseBtn.setAttribute('aria-label', this.sidebarCollapseBtn.title);
+    }
+
+    if (this.sidebarCollapseIcon) {
+      this.sidebarCollapseIcon.setAttribute(
+        'data-lucide',
+        this.isSidebarCollapsed ? 'panel-left-open' : 'panel-left-close'
+      );
+    }
+
+    try {
+      localStorage.setItem('clipflow_sidebar_collapsed', String(this.isSidebarCollapsed));
+    } catch {
+      // Ignorar restricciones de almacenamiento
+    }
+
+    if (window.lucide && typeof window.lucide.createIcons === 'function' && this.sidebarCollapseBtn) {
+      lucide.createIcons({ root: this.sidebarCollapseBtn });
+    }
+  }
+
+  /**
+   * Alterna el estado plegado / desplegado del acordeón de campañas
+   */
+  toggleCampaignsAccordion() {
+    this.setCampaignsAccordion(!this.isCampaignsAccordionOpen);
+  }
+
+  /**
+   * Aplica y persiste el estado del acordeón de campañas
+   * @param {boolean} open
+   */
+  setCampaignsAccordion(open) {
+    this.isCampaignsAccordionOpen = Boolean(open);
+
+    if (this.sidebarCampaignsAccordion) {
+      this.sidebarCampaignsAccordion.classList.toggle(
+        'sidebar-campaigns-accordion--closed',
+        !this.isCampaignsAccordionOpen
+      );
+    }
+
+    if (this.sidebarCampaignsToggle) {
+      this.sidebarCampaignsToggle.setAttribute('aria-expanded', String(this.isCampaignsAccordionOpen));
+      this.sidebarCampaignsToggle.title = this.isCampaignsAccordionOpen
+        ? 'Plegar lista de campañas'
+        : 'Desplegar lista de campañas';
+    }
+
+    try {
+      localStorage.setItem('clipflow_campaigns_accordion_open', String(this.isCampaignsAccordionOpen));
+    } catch {
+      // Ignorar restricciones de almacenamiento
     }
   }
 
@@ -958,8 +1078,25 @@ setViewMode(mode) {
 }
 
 renderSidebarCampaigns() {
+  const totalCount = this.campaigns ? this.campaigns.length : 0;
+  if (this.sidebarCampaignsCountText) {
+    this.sidebarCampaignsCountText.textContent = `Campañas (${totalCount})`;
+  }
+  if (this.sidebarCollapsedCountBadge) {
+    this.sidebarCollapsedCountBadge.textContent = String(totalCount);
+  }
+
   if (!this.sidebarCampaignsGroup) return;
   this.sidebarCampaignsGroup.innerHTML = '';
+
+  if (totalCount === 0) {
+    this.sidebarCampaignsGroup.innerHTML = `
+      <div style="padding: 10px; font-size: 0.75rem; color: var(--color-text-muted); text-align: center;">
+        Sin campañas registradas
+      </div>
+    `;
+    return;
+  }
 
   this.campaigns.forEach((camp) => {
     const isCompleted = Boolean(camp.isCompleted);
@@ -969,6 +1106,7 @@ renderSidebarCampaigns() {
         href: `#campaign-${camp.id}`,
         className: 'sidebar-nav__link',
         style: isCompleted ? 'opacity: 0.72;' : '',
+        title: isCompleted ? `${camp.name} (Finalizada)` : camp.name,
         onClick: (e) => {
           e.preventDefault();
           this.selectCampaign(camp.id);

@@ -60,6 +60,37 @@ export class VideoPlayerModal {
         await this.handleSave();
       });
     }
+
+    // Escuchadores de cambio para actualizar el semáforo en vivo dentro del modal
+    const controls = [this.editToggleInput, this.checkYoutube, this.checkTiktok, this.checkInstagram, this.checkFacebook];
+    controls.forEach((input) => {
+      if (input) {
+        input.addEventListener('change', () => this.updateModalPipelineBadge());
+      }
+    });
+  }
+
+  /**
+   * Actualiza dinámicamente la insignia del semáforo en el reproductor modal
+   */
+  updateModalPipelineBadge() {
+    const isEdited = this.editToggleInput ? this.editToggleInput.checked : false;
+    const checks = [this.checkYoutube, this.checkTiktok, this.checkInstagram, this.checkFacebook];
+    const publishedCount = checks.filter((c) => Boolean(c && c.checked)).length;
+
+    const badge = document.getElementById('modalPipelineBadge');
+    if (!badge) return;
+
+    if (publishedCount > 0) {
+      badge.className = 'badge font-mono badge--pipeline-published';
+      badge.innerHTML = `<span class="pipeline-badge__dot" style="background-color: #10b981;" aria-hidden="true"></span> <span>Publicado (${publishedCount}/4)</span>`;
+    } else if (isEdited) {
+      badge.className = 'badge font-mono badge--pipeline-ready';
+      badge.innerHTML = '<span class="pipeline-badge__dot" style="background-color: #f59e0b;" aria-hidden="true"></span> <span>Listo para publicar</span>';
+    } else {
+      badge.className = 'badge font-mono badge--pipeline-raw';
+      badge.innerHTML = '<span class="pipeline-badge__dot" style="background-color: #94a3b8;" aria-hidden="true"></span> <span>En bruto</span>';
+    }
   }
 
   isOpen() {
@@ -131,6 +162,8 @@ export class VideoPlayerModal {
       const urls = video.postUrls || {};
       this.postUrlInput.value = urls.tiktok || urls.youtube || urls.instagram || urls.facebook || '';
     }
+
+    this.updateModalPipelineBadge();
 
     this.modalEl.classList.add('modal-backdrop--open');
     document.body.style.overflow = 'hidden';

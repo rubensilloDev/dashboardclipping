@@ -41,47 +41,79 @@
     <!-- ====================================================================
          Sidebar de Navegación Lateral (Visible en Escritorio > 768px)
          ==================================================================== -->
-    <aside class="app-sidebar" aria-label="Navegación principal de escritorio">
+    <aside class="app-sidebar" id="appSidebar" aria-label="Navegación principal de escritorio">
       <div class="sidebar-brand">
-        <div class="sidebar-brand__icon" aria-hidden="true">
-          <i data-lucide="scissors"></i>
+        <div class="sidebar-brand__left">
+          <div class="sidebar-brand__icon" aria-hidden="true">
+            <i data-lucide="scissors"></i>
+          </div>
+          <div class="sidebar-brand__text">
+            <span class="sidebar-brand__name">ClipFlow Studio</span>
+            <span class="sidebar-brand__tagline">Gestor de Campañas</span>
+          </div>
         </div>
-        <div class="sidebar-brand__text">
-          <span class="sidebar-brand__name">ClipFlow Studio</span>
-          <span class="sidebar-brand__tagline">Gestor de Campañas</span>
-        </div>
+        <button type="button" class="sidebar-collapse-btn" id="sidebarCollapseBtn"
+          title="Colapsar barra lateral" aria-label="Colapsar o expandir barra lateral">
+          <i data-lucide="panel-left-close" id="sidebarCollapseIcon" aria-hidden="true"></i>
+        </button>
       </div>
 
       <nav class="sidebar-nav">
         <div class="sidebar-nav__group">
           <span class="sidebar-nav__heading">General</span>
           <a href="#dashboard" class="sidebar-nav__link sidebar-nav__link--active" id="sidebarDashboardLink"
-            aria-current="page">
+            aria-current="page" title="Dashboard">
             <i data-lucide="layout-dashboard" class="touch-target" aria-hidden="true"></i>
             <span>Dashboard</span>
           </a>
-          <a href="#videos" class="sidebar-nav__link" id="sidebarCatalogLink">
+          <a href="#videos" class="sidebar-nav__link" id="sidebarCatalogLink" title="Catálogo de Vídeos">
             <i data-lucide="film" class="touch-target" aria-hidden="true"></i>
             <span>Catálogo</span>
           </a>
         </div>
 
-        <div class="sidebar-nav__group">
-          <div class="sidebar-nav__heading-row">
-            <span class="sidebar-nav__heading">Campañas</span>
-            <div style="display: flex; gap: 4px;">
-              <button type="button" class="btn btn--outline btn--sm" id="manageCampaignsBtn"
-                title="Gestionar todas las campañas" aria-label="Gestionar campañas">
+        <div class="sidebar-nav__group sidebar-campaigns-accordion" id="sidebarCampaignsAccordion">
+          <!-- Encabezado del Acordeón -->
+          <div class="sidebar-campaigns-header" id="sidebarCampaignsToggle" role="button" tabindex="0"
+            aria-expanded="true" aria-controls="sidebarCampaignsCollapse" title="Plegar / desplegar lista de campañas">
+            <div class="sidebar-campaigns-header__title">
+              <i data-lucide="folder-kanban" class="sidebar-campaigns-header__icon" aria-hidden="true"></i>
+              <span class="sidebar-nav__heading sidebar-campaigns-title-text" id="sidebarCampaignsCountText">Campañas (13)</span>
+            </div>
+            <div class="sidebar-campaigns-header__actions">
+              <button type="button" class="btn btn--outline btn--sm sidebar-icon-btn" id="manageCampaignsBtn"
+                title="Gestionar campañas" aria-label="Gestionar campañas">
                 <i data-lucide="settings" aria-hidden="true"></i>
               </button>
-              <button type="button" class="btn btn--outline btn--sm" id="addCampaignBtn" title="Añadir nueva campaña"
-                aria-label="Añadir nueva campaña">
+              <button type="button" class="btn btn--outline btn--sm sidebar-icon-btn" id="addCampaignBtn"
+                title="Añadir nueva campaña" aria-label="Añadir nueva campaña">
                 <i data-lucide="plus" aria-hidden="true"></i>
               </button>
+              <i data-lucide="chevron-down" class="sidebar-accordion-arrow" id="sidebarAccordionArrow" aria-hidden="true"></i>
             </div>
           </div>
-          <!-- Lista dinámica de campañas inyectada por JS -->
-          <div id="sidebarCampaignsGroup" style="display: flex; flex-direction: column; gap: 2px;"></div>
+
+          <!-- Contenido Desplegable del Acordeón -->
+          <div class="sidebar-campaigns-body" id="sidebarCampaignsCollapse">
+            <!-- Lista dinámica con micro-scrollbar oscuro (max-height: 220px) -->
+            <div id="sidebarCampaignsGroup" class="sidebar-campaigns-list"></div>
+
+            <!-- Botón directo para gestionar todas en el Catálogo -->
+            <a href="#videos" class="sidebar-manage-all-link" id="sidebarManageAllBtn" title="Ver y gestionar todas las campañas en el Catálogo">
+              <i data-lucide="folders" aria-hidden="true" style="width: 14px; height: 14px;"></i>
+              <span>Gestionar todas en Catálogo</span>
+            </a>
+          </div>
+
+          <!-- Miniatura cuando el Sidebar entero está colapsado -->
+          <div class="sidebar-campaigns-collapsed-indicator" title="Campañas" style="display: none;">
+            <a href="#videos" class="sidebar-nav__link" title="Campañas en Catálogo">
+              <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="folder-kanban" aria-hidden="true"></i>
+                <span class="sidebar-collapsed-badge" id="sidebarCollapsedCountBadge">13</span>
+              </div>
+            </a>
+          </div>
         </div>
 
         <div class="sidebar-sync-card">
@@ -701,7 +733,13 @@
         <div class="player-preview-card">
           <div class="player-preview-card__frame-container" id="modalPlayerContainer"></div>
           <div class="player-preview-card__controls-bar">
-            <span>Google Drive Video Preview</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span>Google Drive Video Preview</span>
+              <span id="modalPipelineBadge" class="badge font-mono badge--pipeline-raw">
+                <span class="pipeline-badge__dot" style="background-color: #94a3b8;"></span>
+                <span>En bruto</span>
+              </span>
+            </div>
             <span class="font-mono" id="modalDurationLabel">Duración: 00:00</span>
           </div>
         </div>

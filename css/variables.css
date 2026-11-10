@@ -133,6 +133,7 @@
      Z-Index y Dimensiones
      ========================================================================== */
   --sidebar-width: 270px;
+  --sidebar-collapsed-width: 72px;
   --header-height: 72px;
   --bottom-nav-height: 64px;
   --touch-target-min: 44px;

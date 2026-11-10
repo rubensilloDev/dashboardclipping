@@ -342,6 +342,11 @@
   .app-shell {
     display: grid;
     grid-template-columns: var(--sidebar-width) 1fr;
+    transition: grid-template-columns 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .app-shell.app-shell--sidebar-collapsed {
+    grid-template-columns: var(--sidebar-collapsed-width, 72px) 1fr;
   }
 
   /* Ocultar barra inferior en pantallas de escritorio */
@@ -361,6 +366,79 @@
     padding: var(--spacing-6) var(--spacing-4);
     z-index: var(--z-sticky);
     overflow-y: auto;
+    overflow-x: hidden;
+    transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), padding 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Estado Colapsado del Sidebar */
+  .app-shell--sidebar-collapsed .app-sidebar {
+    padding: var(--spacing-5) var(--spacing-2);
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-brand {
+    justify-content: center;
+    padding: 0;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-brand__text,
+  .app-shell--sidebar-collapsed .sidebar-nav__heading,
+  .app-shell--sidebar-collapsed .sidebar-nav__link > span,
+  .app-shell--sidebar-collapsed .sidebar-campaigns-header,
+  .app-shell--sidebar-collapsed .sidebar-campaigns-body,
+  .app-shell--sidebar-collapsed .sidebar-sync-card__header span,
+  .app-shell--sidebar-collapsed .sidebar-sync-card__meta,
+  .app-shell--sidebar-collapsed .sidebar-sync-card div button span {
+    display: none !important;
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-brand__left {
+    display: none;
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-collapse-btn {
+    margin: 0 auto;
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-nav__link {
+    justify-content: center;
+    padding: 12px 0;
+    border-radius: var(--radius-lg);
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-campaigns-collapsed-indicator {
+    display: block !important;
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-sync-card {
+    padding: var(--spacing-2) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-sync-card__header {
+    justify-content: center;
+    margin-bottom: var(--spacing-1);
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-sync-card div {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .app-shell--sidebar-collapsed .sidebar-sync-card div button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Padding estándar en escritorio sin necesidad de salvar barra inferior */

@@ -60,7 +60,9 @@
       "name": "clips-juanca",
       "color": "#14b8a6",
       "driveFolderId": "1EBmSotwqNdWwgeSO7rDJoral9I_ZvxYS",
-      "createdAt": "2026-11-09T09:16:44.366Z"
+      "createdAt": "2026-11-09T09:16:44.366Z",
+      "isCompleted": true,
+      "completedAt": "2026-11-10T12:39:20.353Z"
     },
     {
       "id": "camp-1794215804390",
@@ -74,7 +76,9 @@
       "name": "marryto",
       "color": "#06b6d4",
       "driveFolderId": "120u8sijsLcM7LmD6k2LOP__k0Ou5qb72",
-      "createdAt": "2026-11-09T09:16:44.503Z"
+      "createdAt": "2026-11-09T09:16:44.503Z",
+      "isCompleted": true,
+      "completedAt": "2026-11-10T12:39:17.087Z"
     },
     {
       "id": "camp-1794215804543",
@@ -3418,9 +3422,725 @@
       "createdAt": "2026-11-09T09:58:40.851Z",
       "updatedAt": "2026-11-09T09:58:40.851Z",
       "subfolder": "podcast2"
+    },
+    {
+      "id": "vid-1794313691547-704",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_5",
+      "driveFileId": "1myUlT-C57t5kM6YYuuACCtlq3jUBU5Un",
+      "title": "Clip12_podcast4_reental_editado",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1myUlT-C57t5kM6YYuuACCtlq3jUBU5Un&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_5\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.547Z",
+      "updatedAt": "2026-11-10T12:28:11.547Z"
+    },
+    {
+      "id": "vid-1794313691555-802",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_5",
+      "driveFileId": "1s2nwopEPfDx8YExmsEnJdY5vARQRpJKD",
+      "title": "Clip08_podcast4_reental_editado",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1s2nwopEPfDx8YExmsEnJdY5vARQRpJKD&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_5\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.555Z",
+      "updatedAt": "2026-11-10T12:28:11.555Z"
+    },
+    {
+      "id": "vid-1794313691561-736",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_5",
+      "driveFileId": "1ptZ0O-eFYSU9eQPQoKnuVSXD1tzw9Qo6",
+      "title": "ClipExtra_podcast4_reental_editado",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1ptZ0O-eFYSU9eQPQoKnuVSXD1tzw9Qo6&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_5\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.561Z",
+      "updatedAt": "2026-11-10T12:28:11.561Z"
+    },
+    {
+      "id": "vid-1794313691573-464",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1nGdgUxqM4EaUgWfKDUgbbJLLwU92b7Ta",
+      "title": "Clip 11 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1nGdgUxqM4EaUgWfKDUgbbJLLwU92b7Ta&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.573Z",
+      "updatedAt": "2026-11-10T12:28:11.573Z"
+    },
+    {
+      "id": "vid-1794313691584-939",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1F4GzH4kS9mOm55ilGcHtGkADCNv0map5",
+      "title": "Clip 6 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1F4GzH4kS9mOm55ilGcHtGkADCNv0map5&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.584Z",
+      "updatedAt": "2026-11-10T12:28:11.584Z"
+    },
+    {
+      "id": "vid-1794313691590-71",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1N4y4H8Lcy0RfAUpK_PU-P7cxEPKb0LbU",
+      "title": "Clip 5 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1N4y4H8Lcy0RfAUpK_PU-P7cxEPKb0LbU&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.590Z",
+      "updatedAt": "2026-11-10T12:28:11.590Z"
+    },
+    {
+      "id": "vid-1794313691597-963",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1BcRywfB7TXR1_5xd_RrALIk_VGrK28TM",
+      "title": "Clip 4 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1BcRywfB7TXR1_5xd_RrALIk_VGrK28TM&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.597Z",
+      "updatedAt": "2026-11-10T12:28:11.597Z"
+    },
+    {
+      "id": "vid-1794313691603-340",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1CJ5gy7kdUUIRO46AbkIpxDSzm0-4Psiw",
+      "title": "Clip 2 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1CJ5gy7kdUUIRO46AbkIpxDSzm0-4Psiw&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.603Z",
+      "updatedAt": "2026-11-10T12:28:11.603Z"
+    },
+    {
+      "id": "vid-1794313691609-802",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1Qc9dumGYFpXqwKodTIXqUofp0FP3rvXY",
+      "title": "Clip 1 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1Qc9dumGYFpXqwKodTIXqUofp0FP3rvXY&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.609Z",
+      "updatedAt": "2026-11-10T12:28:11.609Z"
+    },
+    {
+      "id": "vid-1794313691615-4",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1zntUPGcfhfsYuozdJ7np7-bwvUtKDj7A",
+      "title": "Clip 10 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1zntUPGcfhfsYuozdJ7np7-bwvUtKDj7A&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.615Z",
+      "updatedAt": "2026-11-10T12:28:11.615Z"
+    },
+    {
+      "id": "vid-1794313691621-133",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1CFn2YbNdp_Qrm_WBse3GzH-1oMlykLMS",
+      "title": "Clip 9 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1CFn2YbNdp_Qrm_WBse3GzH-1oMlykLMS&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.621Z",
+      "updatedAt": "2026-11-10T12:28:11.621Z"
+    },
+    {
+      "id": "vid-1794313691627-539",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1Il-EwSuVo4Wxl3W836rwVIGnr512Pp8A",
+      "title": "Clip 8 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1Il-EwSuVo4Wxl3W836rwVIGnr512Pp8A&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.627Z",
+      "updatedAt": "2026-11-10T12:28:11.627Z"
+    },
+    {
+      "id": "vid-1794313691633-66",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1dapj0lB6BrsbSekwlQAk4fTHQREE_n05",
+      "title": "Clip 7 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1dapj0lB6BrsbSekwlQAk4fTHQREE_n05&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.633Z",
+      "updatedAt": "2026-11-10T12:28:11.633Z"
+    },
+    {
+      "id": "vid-1794313691644-651",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast4",
+      "driveFileId": "1ChLQ1i9h66hhuW191-tmp5iSCfb5dibi",
+      "title": "Clip 3 - Eric Sánchez podcast 4",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1ChLQ1i9h66hhuW191-tmp5iSCfb5dibi&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast4\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.644Z",
+      "updatedAt": "2026-11-10T12:28:11.644Z"
+    },
+    {
+      "id": "vid-1794313691649-714",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1zMx4o1DXUWsGG87cz806UJglpwTIRDDb",
+      "title": "Clip 10 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1zMx4o1DXUWsGG87cz806UJglpwTIRDDb&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.650Z",
+      "updatedAt": "2026-11-10T12:28:11.650Z"
+    },
+    {
+      "id": "vid-1794313691657-351",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1qhXcSgeew9Nz4tBuTCn_lfBXgkGTZ7fr",
+      "title": "Clip 9 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1qhXcSgeew9Nz4tBuTCn_lfBXgkGTZ7fr&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.657Z",
+      "updatedAt": "2026-11-10T12:28:11.657Z"
+    },
+    {
+      "id": "vid-1794313691663-123",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1fYxjuvNBUz_OFnGw6VpXIPpsjtvG1a9d",
+      "title": "Clip 8 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1fYxjuvNBUz_OFnGw6VpXIPpsjtvG1a9d&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.663Z",
+      "updatedAt": "2026-11-10T12:28:11.663Z"
+    },
+    {
+      "id": "vid-1794313691669-31",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1nR-SRoBR6tC74XMvFSKBpZMZG9Do2au-",
+      "title": "Clip 7 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1nR-SRoBR6tC74XMvFSKBpZMZG9Do2au-&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.669Z",
+      "updatedAt": "2026-11-10T12:28:11.669Z"
+    },
+    {
+      "id": "vid-1794313691676-282",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1CH-snTW8PD5glEHz0ssNTyMX1gh73Bd0",
+      "title": "Clip 6 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1CH-snTW8PD5glEHz0ssNTyMX1gh73Bd0&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.676Z",
+      "updatedAt": "2026-11-10T12:28:11.676Z"
+    },
+    {
+      "id": "vid-1794313691681-786",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1FBRIBEWqcA3L8rJ14BGcGxUioQS-oGAf",
+      "title": "Clip 5 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1FBRIBEWqcA3L8rJ14BGcGxUioQS-oGAf&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.681Z",
+      "updatedAt": "2026-11-10T12:28:11.681Z"
+    },
+    {
+      "id": "vid-1794313691687-32",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1lD1XPoE8gymsxCqZhD3WciC0mZBTUQYq",
+      "title": "Clip 4 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1lD1XPoE8gymsxCqZhD3WciC0mZBTUQYq&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.687Z",
+      "updatedAt": "2026-11-10T12:28:11.687Z"
+    },
+    {
+      "id": "vid-1794313691693-278",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1bCts7BPQm1NymyBj5o2KSO1HH_lJfb27",
+      "title": "Clip 3 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1bCts7BPQm1NymyBj5o2KSO1HH_lJfb27&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.693Z",
+      "updatedAt": "2026-11-10T12:28:11.693Z"
+    },
+    {
+      "id": "vid-1794313691712-656",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1RKJzim1iaj_kzBO6FSuLlBFBQS_3CyOy",
+      "title": "Clip 2 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1RKJzim1iaj_kzBO6FSuLlBFBQS_3CyOy&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.712Z",
+      "updatedAt": "2026-11-10T12:28:11.712Z"
+    },
+    {
+      "id": "vid-1794313691725-696",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_3",
+      "driveFileId": "1UxYUF8_YcB3-UviUt9qLZpWUYfe8ox5x",
+      "title": "Clip 1 - Eric Sánchez podcast 3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1UxYUF8_YcB3-UviUt9qLZpWUYfe8ox5x&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_3\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.725Z",
+      "updatedAt": "2026-11-10T12:28:11.725Z"
+    },
+    {
+      "id": "vid-1794313691759-827",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1Ne3VTx-JQQ1UCpMRJLktqTAKti0o-IPH",
+      "title": "10_edificio_10_millones_1000_socios",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1Ne3VTx-JQQ1UCpMRJLktqTAKti0o-IPH&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.759Z",
+      "updatedAt": "2026-11-10T12:28:11.759Z"
+    },
+    {
+      "id": "vid-1794313691776-33",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1hIdHhAWc1QGisB77ro_XgseI6hhvsdwi",
+      "title": "09_trampa_necesitar_20000_urgentes",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1hIdHhAWc1QGisB77ro_XgseI6hhvsdwi&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.776Z",
+      "updatedAt": "2026-11-10T12:28:11.776Z"
+    },
+    {
+      "id": "vid-1794313691789-995",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1fVVcDK2e_jUzaN1q6ZovAycIfwD6wdCM",
+      "title": "08_miedo_1000_16_vs_300000_3",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1fVVcDK2e_jUzaN1q6ZovAycIfwD6wdCM&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.789Z",
+      "updatedAt": "2026-11-10T12:28:11.789Z"
+    },
+    {
+      "id": "vid-1794313691798-921",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "10gBhLwGtfM8S1D5cGgrymzE5Jad-415h",
+      "title": "07_si_me_ocupan_el_piso",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=10gBhLwGtfM8S1D5cGgrymzE5Jad-415h&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.798Z",
+      "updatedAt": "2026-11-10T12:28:11.798Z"
+    },
+    {
+      "id": "vid-1794313691808-983",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1fAUeUmfVuMvyJaqv1_huCXW6dvI7vosv",
+      "title": "06_privilegio_banca_privada_desde_500",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1fAUeUmfVuMvyJaqv1_huCXW6dvI7vosv&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.808Z",
+      "updatedAt": "2026-11-10T12:28:11.808Z"
+    },
+    {
+      "id": "vid-1794313691813-345",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1mkZfLcp7r1WkUiKBYZv4is-eYYbbXTfn",
+      "title": "05_hipocresia_blackrock_bancos_tokenizacion",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1mkZfLcp7r1WkUiKBYZv4is-eYYbbXTfn&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.813Z",
+      "updatedAt": "2026-11-10T12:28:11.813Z"
+    },
+    {
+      "id": "vid-1794313691823-875",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1UaFxiOEq5EFu115pJ1xxR3cNukD0XD56",
+      "title": "04_mentira_dinero_app_banco",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1UaFxiOEq5EFu115pJ1xxR3cNukD0XD56&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.823Z",
+      "updatedAt": "2026-11-10T12:28:11.823Z"
+    },
+    {
+      "id": "vid-1794313691838-876",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1SP4YJYV4yX30bAu4ONu5GLw1xnloAuwD",
+      "title": "03_alquiler_400000_rentabilidad_mierda",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1SP4YJYV4yX30bAu4ONu5GLw1xnloAuwD&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.838Z",
+      "updatedAt": "2026-11-10T12:28:11.838Z"
+    },
+    {
+      "id": "vid-1794313691849-122",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1Gk8iHgl3mKBg1CchMuexC7Zun9P893WC",
+      "title": "02_arruinar_bancos_prestamos_1_clic",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1Gk8iHgl3mKBg1CchMuexC7Zun9P893WC&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.849Z",
+      "updatedAt": "2026-11-10T12:28:11.849Z"
+    },
+    {
+      "id": "vid-1794313691861-854",
+      "campaignId": "camp-1794215804390",
+      "subfolder": "podcast_montse",
+      "driveFileId": "1gL0PnuL63P06TX17I6Sve_0jGTQQcmyC",
+      "title": "01_prestamos_75_sin_cirbe",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1gL0PnuL63P06TX17I6Sve_0jGTQQcmyC&sz=w600",
+      "duration": "00:45",
+      "isEdited": false,
+      "platforms": {
+        "youtube": false,
+        "tiktok": false,
+        "instagram": false,
+        "facebook": false
+      },
+      "postUrls": {},
+      "notes": "Subcarpeta \"podcast_montse\" en Drive",
+      "createdAt": "2026-11-10T12:28:11.861Z",
+      "updatedAt": "2026-11-10T12:28:11.861Z"
     }
   ],
   "activities": [
+    {
+      "id": "act-1794314714976",
+      "type": "campaign",
+      "text": "Reactivada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-10T12:45:14.976Z"
+    },
+    {
+      "id": "act-1794314714922",
+      "type": "campaign",
+      "text": "Marcada como finalizada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-10T12:45:14.922Z"
+    },
+    {
+      "id": "act-1794314360364",
+      "type": "campaign",
+      "text": "Marcada como finalizada la campaña \"clips-juanca\"",
+      "timestamp": "2026-11-10T12:39:20.364Z"
+    },
+    {
+      "id": "act-1794314357098",
+      "type": "campaign",
+      "text": "Marcada como finalizada la campaña \"marryto\"",
+      "timestamp": "2026-11-10T12:39:17.098Z"
+    },
+    {
+      "id": "act-1794314344746",
+      "type": "campaign",
+      "text": "Marcada como finalizada la campaña \"Campaña Eric Ponce\"",
+      "timestamp": "2026-11-10T12:39:04.746Z"
+    },
+    {
+      "id": "act-1794313691869",
+      "type": "drive_sync",
+      "text": "Sincronización con Drive: 34 vídeos añadidos a \"eric sanchez\"",
+      "timestamp": "2026-11-10T12:28:11.869Z"
+    },
     {
       "id": "act-1794293973334",
       "type": "campaign",
@@ -3684,42 +4404,6 @@
       "type": "drive_sync",
       "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
       "timestamp": "2026-11-09T08:36:17.162Z"
-    },
-    {
-      "id": "act-1794213375941",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Podcast Tech V2\"",
-      "timestamp": "2026-11-09T08:36:15.941Z"
-    },
-    {
-      "id": "act-1794213370430",
-      "type": "config",
-      "text": "Configuración de conexión con Google Drive actualizada",
-      "timestamp": "2026-11-09T08:36:10.430Z"
-    },
-    {
-      "id": "act-1794213253317",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Campaña Test Temporal\"",
-      "timestamp": "2026-11-09T08:34:13.317Z"
-    },
-    {
-      "id": "act-1794213252061",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"E-commerce Tips\"",
-      "timestamp": "2026-11-09T08:34:12.061Z"
-    },
-    {
-      "id": "act-1794213251067",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Fitness & Motivación\"",
-      "timestamp": "2026-11-09T08:34:11.067Z"
-    },
-    {
-      "id": "act-1794213249171",
-      "type": "drive_sync",
-      "text": "Sincronización con Drive: 3 vídeos nuevos añadidos a la campaña \"Finanzas Personales\"",
-      "timestamp": "2026-11-09T08:34:09.171Z"
     }
   ],
   "config": {

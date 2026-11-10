@@ -75,10 +75,40 @@ export function applyCinematicFallback(mediaContainer, video, campaign) {
 export function createVideoCardElement(video, campaign, onClick) {
   const platforms = video.platforms || {};
 
-  // Estado de edición
-  const editBadge = video.isEdited
-    ? createElement('span', { className: 'badge badge--success' }, 'Editado')
-    : createElement('span', { className: 'badge badge--danger' }, 'Sin editar');
+  // Semáforo de Flujo de Trabajo (3 estados: raw, ready, published)
+  const publishedCount = ['youtube', 'tiktok', 'instagram', 'facebook'].filter(
+    (net) => Boolean(platforms[net])
+  ).length;
+
+  let pipelineClass = 'pipeline-status--raw';
+  let pipelineBadgeClass = 'badge--pipeline-raw';
+  let pipelineDotColor = '#94a3b8';
+  let pipelineText = 'En bruto';
+
+  if (publishedCount > 0) {
+    pipelineClass = 'pipeline-status--published';
+    pipelineBadgeClass = 'badge--pipeline-published';
+    pipelineDotColor = '#10b981';
+    pipelineText = `Publicado (${publishedCount}/4)`;
+  } else if (video.isEdited) {
+    pipelineClass = 'pipeline-status--ready';
+    pipelineBadgeClass = 'badge--pipeline-ready';
+    pipelineDotColor = '#f59e0b';
+    pipelineText = 'Listo para publicar';
+  }
+
+  const pipelineBadge = createElement(
+    'span',
+    { className: `badge font-mono ${pipelineBadgeClass}` },
+    [
+      createElement('span', {
+        className: 'pipeline-badge__dot',
+        style: { backgroundColor: pipelineDotColor },
+        'aria-hidden': 'true'
+      }),
+      createElement('span', {}, pipelineText)
+    ]
+  );
 
   // Campaña
   const campaignName = campaign ? campaign.name : 'Sin campaña';
@@ -158,13 +188,13 @@ export function createVideoCardElement(video, campaign, onClick) {
     ])
   );
 
-  const metaBadges = [campaignBadge, editBadge];
+  const metaBadges = [campaignBadge, pipelineBadge];
   if (subfolderBadge) metaBadges.push(subfolderBadge);
 
   const card = createElement(
     'article',
     {
-      className: 'video-card',
+      className: `video-card ${pipelineClass}`,
       'data-id': video.id,
       tabindex: '0',
       role: 'button',
