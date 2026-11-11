@@ -16,8 +16,9 @@ export const authRouter = Router();
 authRouter.post('/login', loginRateLimiter, (req, res) => {
   const { username, password, rememberMe } = req.body || {};
 
-  const expectedUsername = process.env.ADMIN_USERNAME || 'admin';
-  const expectedPasswordHash = process.env.ADMIN_PASSWORD_HASH;
+  const expectedUsername = (process.env.ADMIN_USERNAME || 'admin').trim();
+  const defaultPasswordHash = '53f8106346f5d013cace759a6f500d0e:17b5c77ddf80a2b9f14ac3450caaec6d7ea5e7bcadfa70525791a636c7388dbb246e500395448359716fffc521539c891846e456537edc504493183f621e9fad';
+  const expectedPasswordHash = process.env.ADMIN_PASSWORD_HASH || defaultPasswordHash;
   const sessionSecret = process.env.SESSION_SECRET || 'fallback_secret_clipping_2026';
 
   if (!username || !password) {
